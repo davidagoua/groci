@@ -1,0 +1,28 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Str;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
+
+class Categorie extends Model implements HasMedia
+{
+    use HasFactory, InteractsWithMedia;
+    protected $guarded = [];
+
+    public function produits(): HasMany
+    {
+        return $this->hasMany(Produit::class);
+    }
+
+    public static function booted()
+    {
+        self::saving(function($model){
+            $model->slug = Str::slug($model->name);
+        });
+    }
+}
