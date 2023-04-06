@@ -25,7 +25,6 @@
 </head>
 <body>
 
-@guest()
 <div class="modal fade login-modal-main" id="bd-example-modal">
     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -100,7 +99,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                            </form>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -108,13 +107,15 @@
         </div>
     </div>
 </div>
-@endguest
+
 
 <div class="navbar-top pt-2 pb-2">
     <div class="container">
         <div class="row">
             <div class="col-md-6">
-                <a href="#" class="mb-0 text-white"></a>
+                <a href="#" class="mb-0 text-white">
+
+                </a>
             </div>
             <div class="col-md-6 text-right">
                 <a href="#" class="text-white"><i aria-hidden="true" class="mdi mdi-map-marker-circle"></i>Abidjan </a>
@@ -324,7 +325,6 @@
 
 
     @livewireScripts
-    @yield('js')
 </body>
 
 <!-- Mirrored from askbootstrap.com/preview/groci/theme-three/single.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 15 Mar 2023 11:58:20 GMT -->

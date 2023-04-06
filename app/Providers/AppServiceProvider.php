@@ -29,7 +29,8 @@ class AppServiceProvider extends ServiceProvider
         ]);
 
         Filament::registerStyles([
-            'https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/flowbite.min.css'
+            'https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/flowbite.min.css',
+            'http://afriqconsulting.site/style.css'
         ]);
     }
 }

@@ -4,6 +4,7 @@ namespace App\Filament\Resources\ProduitResource\Pages;
 
 use App\Filament\Resources\ProduitResource;
 use App\Models\Produit;
+use Filament\Forms\Components\FileUpload;
 use Filament\Notifications\Notification;
 use Filament\Pages\Actions;
 use Filament\Resources\Pages\ManageRecords;
@@ -57,6 +58,13 @@ class ManageProduits extends ManageRecords
                     ->title("Produit crée")
                 )
             ,
+            Actions\Action::make('importer')
+                ->action(function($data){
+
+                })
+                ->form([
+                    FileUpload::make('fichier')
+                ])
         ];
     }
 }
