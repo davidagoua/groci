@@ -7,7 +7,7 @@
                     @foreach($bannieres as $b)
                     <div class="owl-item" style="width: 1423px;">
                         <div class="item">
-                            <a href="shop.html"><img class="img-fluid" src="{{ asset('/storage/'.$b->image) }}"
+                            <a href="shop.html"><img height="400px" class="img-fluid" src="{{ asset('/storage/'.$b->image) }}"
                                                      alt="{{ $b->captions }}"></a>
                         </div>
                     </div>
