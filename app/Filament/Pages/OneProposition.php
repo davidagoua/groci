@@ -87,7 +87,7 @@ class OneProposition extends Page implements HasTable
           TextColumn::make('produit.categorie.name')->searchable(isIndividual: true),
           TextColumn::make('prix')->suffix(' FCFA'),
           TextColumn::make('boutique.nom')->searchable(isIndividual: true),
-          ToggleColumn::make('is_actif')->label("Actif"),
+          ToggleColumn::make('is_actif')->label("Disponible"),
         ];
     }
 

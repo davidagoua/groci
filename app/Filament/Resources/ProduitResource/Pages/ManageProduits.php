@@ -14,7 +14,7 @@ use Illuminate\Database\Eloquent\Model;
 class ManageProduits extends ManageRecords
 {
     protected static string $resource = ProduitResource::class;
-
+    protected static ?int $navigationSort = 1;
 
     public function getTableQuery(): Builder
     {
