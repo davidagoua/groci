@@ -39,7 +39,7 @@ class Produit extends Model implements HasMedia
 
     public function propositions(): HasMany
     {
-        return $this->hasMany(Proposition::class);
+        return $this->hasMany(Proposition::class)->orderBy('prix');
     }
 
     public function image_produits(): HasMany

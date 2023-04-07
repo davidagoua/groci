@@ -11,8 +11,11 @@ use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
+use Humaidem\FilamentMapPicker\Fields\OSMMap;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Intervention\Image\Point;
+
 
 class BoutiqueResource extends Resource
 {
@@ -33,7 +36,10 @@ class BoutiqueResource extends Resource
                     ),
                 Forms\Components\TextInput::make('contact'),
                 Forms\Components\TextInput::make('email'),
-            ]);
+                Forms\Components\FileUpload::make('image')->image()->columnSpan(2),
+                Forms\Components\TextInput::make('lat')->label("Latitude"),
+                Forms\Components\TextInput::make('lng')->label("Longitude")
+                ]);
     }
 
     public static function table(Table $table): Table

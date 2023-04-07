@@ -32,11 +32,6 @@ class ProduitResource extends Resource
                     Forms\Components\Select::make('categorie_id')
                         ->label("Categorie")
                         ->options(Categorie::all()->pluck('name','id')),
-                    Forms\Components\FileUpload::make('images')
-                        ->image()
-                        ->multiple()
-                        ->columnSpan(2)
-                        ->nullable()
                 ])
             ]);
     }

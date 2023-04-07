@@ -3,88 +3,77 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <div class="shop-detail-left">
-                        <div class="shop-detail-slider">
-                            <div class="favourite-icon">
-                                <a class="fav-btn" title="" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="59% OFF"><i class="mdi mdi-tag-outline"></i></a>
-                            </div>
-                            <div id="sync1" class="owl-carousel">
-                                @foreach($produit->image_produits as $media)
-                                <div class="item"><img alt="" src="{{ asset('/storage/'. $media->path) }}" class="img-fluid img-center"></div>
-                                @endforeach
-                            </div>
-                            <div id="sync2" class="owl-carousel">
-                                @foreach($produit->image_produits as $media)
-                                <div class="item"><img alt="" src="{{ asset('/storage/'. $media->path) }}" class="img-fluid img-center"></div>
-                                @endforeach
-                            </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <h2>{{ $produit->nom }}</h2>
+                        </div>
+                    </div>
+                    <div class="card mt-2">
+                        <div class="card-body">
+                            <img src="{{ asset('/storage/'. $produit->image()->path )}}" alt="">
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div class="shop-detail-right">
-                        @if(false)
-                            <span class="badge badge-success">50% OFF</span>
-                        @endif
-                        <h2>{{ $produit->nom }}</h2>
-                        <h6><strong><span class="mdi mdi-approval"></span> {{ $produit->categorie->name }}</strong> </h6>
 
-                        <p class="offer-price mb-0">
-                            <span class="text-success">
-                                {{ $produit->propositions()->min('prix') }} - {{ $produit->propositions()->max('prix') }} FCFA
-                            </span>
-                        </p>
-                        <p>
-                            <p>{{ $produit->description }}</p>
-                        </p>
+                    @foreach($produit->propositions as $prop)
 
-                        <div class="short-description" style="max-height: 500px; overflow-y: scroll">
-                            <h5>
-                                @foreach($produit->propositions as $proposition)
-                                <div class="row align-items-center">
-                                    <div class="col-4">
-                                        <p class="float-right"><h6>{{ $proposition->boutique->nom }}</h6></p>
+                        <div class="card mb-2">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-3 text-center">
+                                        <div>
+                                            <img height="75" width="75" src="{{ asset('/storage/'. $prop->boutique->image) }}" alt="{{ $prop->boutique->nom }}">
+                                        </div>
+
                                     </div>
-                                    <div class="col-4">
-                                        {{ $proposition->prix }} FCFA
+                                    <div class="col-md-5">
+                                        <div class="text-success font-weight-bold">
+                                            <span>Prix: </span><span>{{ $prop->prix }} FCFA</span>
+                                        </div>
+                                        <div class="">
+                                            <b>Contact:</b><span>{{ $prop->boutique->contact }}</span>
+                                        </div>
+                                        <div class="">
+                                            <b>Nom:</b><span>{{ $prop->boutique->nom }}</span>
+                                        </div>
+                                        <div class="">
+                                            <b>Email:</b><span>{{ $prop->boutique->email }}</span>
+                                        </div>
 
-                                        @if($proposition->is_actif)
-                                        <span class="badge badge-success">En Stock</span>
-                                            @else
-                                        <span class="badge badge-danger">Rupture</span>
+                                    </div>
+                                    <div class="col-md-4">
+                                        Disponibilité:
+                                        @if($produit->is_actif)
+                                            <span class="bg-warning badge">En stock</span>
+                                        @else
+                                            <span class="bg-gray-700 badge">Fini</span>
                                         @endif
                                     </div>
+                                </div>
+                                <div class="row mt-2">
                                     <div class="col-4">
-                                        <a href="{{ route('front.shop.add_cart', ['proposition'=>$proposition]) }}" class="btn btn-secondary p-2 btn-sm"><i class="mdi mdi-cart-outline"></i> Ajouter</a>
+                                        <div class="d-flex justify-content-around ">
+                                            <a href="{{ route('front.shop.add_cart', ['proposition'=> $prop]) }}" class="btn btn-sm btn-warning">
+                                                <span class="mdi mdi-cart-plus"></span>
+                                                <span>Acheter</span>
+                                            </a>
+                                            <a href="" class="btn btn-sm btn-primary">
+                                                <span class="mdi mdi-information"></span>
+                                                <span>Info</span>
+                                            </a>
+                                        </div>
                                     </div>
-
-                                </div>
-                                    @endforeach
-
-
-
-                            </h5>
-
-
-                        </div>
-                        <h6 class="mb-3 mt-4">Why shop from Groci?</h6>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="feature-box">
-                                    <i class="mdi mdi-truck-fast"></i>
-                                    <h6 class="text-info">Livraison Gratuite</h6>
-                                    <p>Livraison gratuite partout à Abidjan</p>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="feature-box">
-                                    <i class="mdi mdi-basket"></i>
-                                    <h6 class="text-info">100% Garanti</h6>
-                                    <p>Produit de qualité</p>
+                                    <div class="col text-right">
+                                        <a href="" class="btn-primary  btn btn-sm">
+                                            <span class="mdi mdi-map-marker"></span>
+                                            <span>Localiser</span>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
