@@ -23,6 +23,18 @@
     <link rel="stylesheet" href="/front/vendor/owl-carousel/owl.theme.css">
     @livewireStyles
 
+    <style>
+        .top-categories-search {
+            left: 0;
+            margin: auto;
+            box-shadow: 0 2px 8px 0 rgba(52, 53, 52, 0.46);
+            position: absolute;
+            right: 0;
+            top: 16px;
+            width: 679px;
+        }
+    </style>
+
     @stack('css')
 </head>
 <body>
@@ -124,35 +136,27 @@
 @endguest
 
 
-<div class="navbar-top " style="background-color: white !important;">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-md-6">
-            @if(false)
-                <a href="#" class="mb-0 ">
-                    <img class="img-responsive" src="https://luttecontreviechere.ci/front/images/armoirie.png"
-                         alt="logo">
-                    <img class="img-responsive" src="https://luttecontreviechere.ci/front/images/cnlvc.png" alt="logo">
-                </a>
-            @endif
-            </div>
-            <div class="col-md-6 text-right">
-                <a href="#" class=""><i aria-hidden="true" class="mdi mdi-map-marker-circle"></i>Abidjan </a>
-                @guest()
-                    <a href="#" data-target="#bd-example-modal" data-toggle="modal" class=" ml-3 mr-3"><i
-                            class="mdi mdi-lock"></i>Se connecter</a>
-                    <a href="#" data-target="#bd-example-modal" data-toggle="modal" class=""><i
-                            class="mdi mdi-account-circle"></i> S'inscrire</a>
-                @endguest
+<div class=" px-5 bg-success d-flex justify-content-between">
+    <div>
+    </div>
+    <div>
+        <div class="">
+            <a href="#" class=" text-white"><i aria-hidden="true" class="mdi mdi-map-marker-circle"></i>Abidjan </a>
+            @guest()
+                <a href="#" data-target="#bd-example-modal" data-toggle="modal" class=" text-white ml-3 mr-3"><i
+                        class="mdi mdi-lock"></i>Se connecter</a>
+                <a href="#" data-target="#bd-example-modal" data-toggle="modal" class=" text-white"><i
+                        class="mdi mdi-account-circle"></i> S'inscrire</a>
+            @endguest
 
-                @auth()
-                    <a href="#" class="ml-3 mr-3"><i class="mdi mdi-logout"></i>Se déconnecter</a>
-                @endauth
-            </div>
+            @auth()
+                <a href="#" class="ml-3 text-white mr-3"><i class="mdi mdi-logout"></i>Se déconnecter</a>
+            @endauth
         </div>
     </div>
 </div>
-<nav class="navbar navbar-light navbar-expand-lg bg-dark bg-faded osahan-menu">
+
+<nav class="navbar navbar-light navbar-expand-lg bg-white bg-faded osahan-menu">
     <div class="container">
         <div class="d-flex justify-content-center align-items-center">
             <a class="navbar-brand" href="{{ route('front.home') }}"> <img class="img-responsive" width="150"

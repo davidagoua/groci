@@ -64,7 +64,7 @@
                                     </div>
                                 </div>
                                 <div class="row mt-2">
-                                    <div class="col-4">
+                                    <div class="col-md-4 col-6">
                                         <div class="d-flex justify-content-around ">
                                             <a href="{{ route('front.shop.add_cart', ['proposition'=> $prop]) }}" class="btn btn-sm btn-warning">
                                                 <span class="mdi mdi-cart-plus"></span>
