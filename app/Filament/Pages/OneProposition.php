@@ -10,6 +10,7 @@ use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Pages\Actions\Action;
 use Filament\Pages\Actions\CreateAction;
+use Filament\Tables\Actions\DeleteBulkAction;
 use Filament\Tables\Actions\EditAction;
 use Filament\Pages\Page;
 use Filament\Tables\Columns\TextColumn;
@@ -85,7 +86,7 @@ class OneProposition extends Page implements HasTable
         return [
           TextColumn::make('produit.nom')->searchable(isIndividual: true),
           TextColumn::make('produit.categorie.name')->searchable(isIndividual: true),
-          TextColumn::make('prix')->suffix(' FCFA'),
+          TextColumn::make('prix')->suffix(' FCFA')->sortable(),
           TextColumn::make('boutique.nom')->searchable(isIndividual: true),
           ToggleColumn::make('is_actif')->label("Disponible"),
         ];
@@ -102,7 +103,7 @@ class OneProposition extends Page implements HasTable
     public function getTableBulkActions()
     {
         return [
-
+            DeleteBulkAction::make()
         ];
     }
 
@@ -115,17 +116,10 @@ class OneProposition extends Page implements HasTable
                     ->label("Produit")
                     ->options(Produit::query()->pluck('nom','id')),
                 TextInput::make('prix')
-                    ->prefix('FCFA')
+                    ->suffix('FCFA')
             ])
         ];
     }
+
 }
 
-/*
-\Filament\Tables\Actions\Action::make('Editer')->label("Modifier")
-    ->action(function(){
-
-    })
-    ->form(fn($record) => ),
-
-*/

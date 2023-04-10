@@ -22,6 +22,8 @@
     <link rel="stylesheet" href="/front/vendor/owl-carousel/owl.carousel.css">
     <link rel="stylesheet" href="/front/vendor/owl-carousel/owl.theme.css">
     @livewireStyles
+
+    @stack('css')
 </head>
 <body>
 
@@ -144,7 +146,7 @@
                 @endguest
 
                 @auth()
-                    <a href="#" class="text-dark ml-3 mr-3"><i class="mdi mdi-lock"></i>Se déconnecter</a>
+                    <a href="#" class="ml-3 mr-3"><i class="mdi mdi-logout"></i>Se déconnecter</a>
                 @endauth
             </div>
         </div>
@@ -188,6 +190,7 @@
 
 @yield('content')
 
+@if(false)
 <section class="section-padding bg-white border-top">
     <div class="container">
         <div class="row">
@@ -215,6 +218,7 @@
         </div>
     </div>
 </section>
+@endif
 
 @if(false)
     <section class="section-padding footer bg-white border-top">
@@ -281,23 +285,20 @@
             </div>
         </div>
     </section>
+@else
+    @include('front.parts.footer')
 @endif
 
-@if(false)
-    <section class="pt-4 pb-4 footer-bottom">
+@if(true)
+    <section class="bg-success text-white" >
         <div class="container">
-            <div class="row no-gutters">
-                <div class="col-lg-6 col-sm-6">
-                    <p class="mt-1 mb-0">&copy; Copyright 2023 <strong class="text-dark">C Moins Chère</strong>. Tous
+            <div class="text-center text-white ">
+                <div class="">
+                    <p class="mb-0 text-white">&copy; Copyright 2023 <strong class="text-white">Conseil National de lutte Contre la Vie Chère</strong>. Tous
                         droit réservé<br>
-                        <small class="mt-0 mb-0">Made with <i class="mdi mdi-heart text-danger"></i> by <a
-                                href="https://askbootstrap.com/" target="_blank" class="text-primary">Ask Bootstrap</a>
-                        </small>
                     </p>
                 </div>
-                <div class="col-lg-6 col-sm-6 text-right">
-                    <img alt="osahan logo" src="../../../public/front/img/payment_methods.png">
-                </div>
+
             </div>
         </div>
     </section>
@@ -353,6 +354,7 @@
 
 
 @livewireScripts
+@stack('js')
 </body>
 
 <!-- Mirrored from askbootstrap.com/preview/groci/theme-three/single.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 15 Mar 2023 11:58:20 GMT -->

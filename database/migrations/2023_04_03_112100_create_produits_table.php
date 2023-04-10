@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('nom');
             $table->unsignedBigInteger('stock')->default(1);
             $table->longText('description')->nullable();
+            $table->string('unite')->nullable();
             $table->boolean('is_actif')->default(true);
         });
     }

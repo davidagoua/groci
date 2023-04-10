@@ -20,6 +20,7 @@ class ProduitResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-lightning-bolt';
     protected static ?string $navigationGroup = "Produits";
+    protected static ?int $navigationSort = 30;
 
 
     public static function form(Form $form): Form
@@ -32,6 +33,8 @@ class ProduitResource extends Resource
                     Forms\Components\Select::make('categorie_id')
                         ->label("Categorie")
                         ->options(Categorie::all()->pluck('name','id')),
+                    Forms\Components\TextInput::make('unite')->placeholder('400kg'),
+                    Forms\Components\FileUpload::make('images')->multiple()
                 ])
             ]);
     }

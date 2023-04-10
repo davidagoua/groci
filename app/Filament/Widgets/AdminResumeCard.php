@@ -19,4 +19,9 @@ class AdminResumeCard extends Widget
         $this->nb_boutiques = Boutique::query()->count();
         $this->nb_produits = Proposition::query()->count();
     }
+
+    public static function canView(): bool
+    {
+        return ! auth()->user()->hasRole('GERANT_BOUTIQUE');
+    }
 }

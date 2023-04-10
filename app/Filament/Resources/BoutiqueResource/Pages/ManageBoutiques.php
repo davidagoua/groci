@@ -20,10 +20,19 @@ class ManageBoutiques extends ManageRecords
             });
     }
 
+
     protected function getActions(): array
     {
         return [
-            Actions\CreateAction::make(),
+            Actions\CreateAction::make()->using(function($data){
+                $coord = $data['coord'];
+                unset($data['coord']);
+                $MODEL = static::getModel();
+                $boutique = new $MODEL($data);
+                $boutique->lat = $coord['lat'];
+                $boutique->lng = $coord['lng'];
+                $boutique->save();
+            }),
         ];
     }
 }

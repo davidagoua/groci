@@ -33,10 +33,10 @@ class CategorieResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('name'),
+                Tables\Columns\TextColumn::make('name')->searchable(),
                 Tables\Columns\ImageColumn::make('image'),
-                Tables\Columns\TextColumn::make('produit.count')
-                    ->label("Nombre de produits")
+                Tables\Columns\TextColumn::make('produits_count')
+                    ->label("Produits")
                     ->counts('produits')
             ])
             ->filters([

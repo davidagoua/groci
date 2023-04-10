@@ -17,9 +17,12 @@ return new class extends Migration
             $table->string('nom');
             $table->string('image')->nullable();
             $table->string('contact');
+            $table->string('contact2')->nullable();
+            $table->string('ville')->nullable();
+            $table->string('quartier')->nullable();
             $table->unsignedBigInteger('user_id');
-            $table->integer('lat')->nullable();
-            $table->integer('lng')->nullable();
+            $table->float('lat')->nullable();
+            $table->float('lng')->nullable();
             $table->string('email')->nullable();
         });
     }

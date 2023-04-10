@@ -10,6 +10,7 @@ class Proposition extends Model
 {
     use HasFactory;
     protected $guarded = [];
+    protected $with = ['boutique','produit'];
 
     public function boutique(): BelongsTo
     {
