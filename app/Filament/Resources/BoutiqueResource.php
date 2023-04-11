@@ -94,7 +94,8 @@ class BoutiqueResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('nom'),
                 Tables\Columns\TextColumn::make('contact'),
-                Tables\Columns\TextColumn::make('ville'),
+                Tables\Columns\TextColumn::make('ville')
+                    ->options( collect(config("app.villes"))->sort() ),
                 Tables\Columns\TextColumn::make('propositions_count')
                     ->label("Propositions")
                     ->counts('propositions')
