@@ -293,7 +293,7 @@
         </div>
     </section>
 @else
-    <img src="{{ asset('/images/app-comon-01.jpg') }}" class="img-responsive" alt="">
+    @include('front.parts.footer')
 @endif
 
 @if(true)

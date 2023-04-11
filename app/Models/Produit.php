@@ -49,6 +49,6 @@ class Produit extends Model implements HasMedia
 
     public function image(): object
     {
-        return $this->hasMany(ImageProduit::class)->first();
+        return $this->hasMany(ImageProduit::class)->orderByDesc('created_at')->first();
     }
 }
