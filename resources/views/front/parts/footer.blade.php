@@ -24,6 +24,7 @@
             </div>
             <span class="text-orange font-weight-bold">MINISTERE DU COMMERCE, DE L'INDUSTRIE ET DE LA PROMOTION DES PME</span>
         </div>
+        @if(false)
         <div class="row mt-3 text-maroon pb-5">
             <div class="col-md-4 footer-col">
                 <span class=" px-3 py-1 rounded text-white bg-orange">Editeur</span><br>
@@ -73,5 +74,6 @@
             </div>
             <div class="col-md-4"></div>
         </div>
+        @endif
     </div>
 </div>

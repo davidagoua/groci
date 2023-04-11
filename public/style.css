@@ -1,0 +1,19 @@
+
+
+.filament-login-page{
+    background-image: url("/images/loginback1.avif") !important;
+    background-size: cover;
+}
+.filament-forms-text-input-component input {
+    border-radius: 0px
+}
+.filament-tables-table thead tr {
+    background: #3B746C;
+}
+.filament-tables-table thead tr button {
+    color: white;
+}
+
+.filament-main-topbar{
+    background: #3B746C !important;
+}

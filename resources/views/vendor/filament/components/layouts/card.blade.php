@@ -4,6 +4,7 @@
 ])
 
 <x-filament::layouts.base :title="$title">
+
     <div @class([
         'filament-login-page flex items-center justify-center min-h-screen bg-gray-100 text-gray-900 py-12',
         'dark:bg-gray-900 dark:text-white' => config('filament.dark_mode'),
@@ -26,12 +27,14 @@
             },
         ])>
             <div @class([
-                'p-8 space-y-4 bg-white/50 backdrop-blur-xl border border-gray-200 shadow-2xl rounded-2xl relative',
+                'p-8 space-y-4 bg-white backdrop-blur-xl border border-gray-200 shadow-2xl  relative',
                 'dark:bg-gray-900/50 dark:border-gray-700' => config('filament.dark_mode'),
             ])>
+                @if(false)
                 <div class="flex justify-center w-full">
                     <x-filament::brand />
                 </div>
+                @endif
 
                 @if (filled($title))
                     <h2 class="text-2xl font-bold tracking-tight text-center">
@@ -45,6 +48,6 @@
             </div>
         </div>
     </div>
-    
+
     @livewire('notifications')
 </x-filament::layouts.base>

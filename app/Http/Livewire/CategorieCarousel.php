@@ -12,7 +12,7 @@ class CategorieCarousel extends Component
 
     public function mount()
     {
-        $this->items = Categorie::query()->get();
+        $this->items = Categorie::query()->enfant()->get();
     }
 
     public function render()

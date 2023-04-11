@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Builder;
 class GerantResumeTable extends BaseWidget
 {
     public Boutique $boutique;
-    protected int | string | array $columnSpan = 2;
+    protected int | string | array $columnSpan = 12;
     protected static ?string $heading = "30 derniers produits ajoutés";
     public function mount()
     {

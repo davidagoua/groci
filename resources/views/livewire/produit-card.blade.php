@@ -4,7 +4,6 @@
                 <a href="{{ route('front.shop.produit_details', ['produit'=>$produit]) }}">
                     <div class="product-header">
                         <img class="img-fluid" src="{{ asset('/storage/'. $produit->image()->path) }}" alt="">
-                        <span class="non-veg text-danger mdi mdi-circle"></span>
                     </div>
                     <div class="product-body">
                         <h5>{{ $produit->nom }}</h5>

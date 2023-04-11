@@ -9,7 +9,7 @@
                             <a href="{{ route('front.home') }}" class="nav-link">Acceuil</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('front.shop.search') }}" class="nav-link">Rayons</a>
+                            <a href="{{ route('front.shop.search') }}" class="nav-link">Selection par budget</a>
                         </li>
 
                         <li class="nav-item">
