@@ -18,6 +18,7 @@
                     <div class="card">
                         <div class="card-body">
                             <h2>{{ $produit->nom }}</h2>
+                            <h4>{{ $produit->unite }}</h4>
                         </div>
                     </div>
                     <div class="card mt-2">
