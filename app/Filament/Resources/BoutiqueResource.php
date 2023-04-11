@@ -44,7 +44,7 @@ class BoutiqueResource extends Resource
                     ->label("Contact 2"),
                 Forms\Components\Select::make('ville')
                     ->reactive()
-                    ->options(config('app.villes')),
+                    ->options( collect(config("app.villes"))->sort() ),
                 Select::make('quartier')
                     ->label("Commune")
                     ->options([
@@ -109,8 +109,8 @@ class BoutiqueResource extends Resource
                     $data['lat'] = $coord['lat'];
                     $data['lng'] = $coord['lng'];
                     return $data;
-                }),
-                Tables\Actions\DeleteAction::make(),
+                })->visible(auth()->user()->hasRole('super_admin')),
+                Tables\Actions\DeleteAction::make()->visible(auth()->user()->hasRole('super_admin')),
             ])
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),
