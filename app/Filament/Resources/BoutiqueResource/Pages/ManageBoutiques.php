@@ -14,10 +14,7 @@ class ManageBoutiques extends ManageRecords
 
     public function getTableQuery(): Builder
     {
-        return Boutique::query()
-            ->when(true, function($builder){
-               return $builder->whereIn('id', auth()->user()->boutiques()->pluck('id')->toArray());
-            });
+        return Boutique::query();
     }
 
 

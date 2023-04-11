@@ -54,7 +54,17 @@ class ProduitResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+                Tables\Actions\EditAction::make()->using(function($record, $data){
+                    $images = $data['images'];
+                    unset($data['images']);
+                    foreach ($images as $image){
+                        $record->image_produits()->create([
+                            'path'=> $image
+                        ]);
+                    }
+                    $record->update($data);
+                    return $record;
+                }),
                 Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
