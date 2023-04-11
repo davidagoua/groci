@@ -33,7 +33,6 @@ class BanniereResource extends Resource
                         ]),
                         Forms\Components\FileUpload::make('image')
                             ->imageResizeMode('cover')
-                            ->imageCropAspectRatio('16:9')
                             ->columnSpan(2)
                             ->image()
                     ])

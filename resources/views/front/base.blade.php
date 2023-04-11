@@ -173,8 +173,8 @@
                 <div class="top-categories-search">
                     <div class="input-group">
 
-                        <input class="form-control" placeholder="Search products in Your City"
-                               aria-label="Search products in Your City" type="text">
+                        <input class="form-control" placeholder="Recherche..."
+                               aria-label="Recherche..." type="text">
                         <span class="input-group-btn">
 <button class="btn btn-secondary" type="button"><i class="mdi mdi-file-find"></i> Recherche</button>
 </span>
