@@ -36,6 +36,9 @@
         body{
             background-color: white !important;
         }
+        .bg-verde{
+            background-color: #3B746C;
+        }
     </style>
 
     @stack('css')
@@ -139,7 +142,7 @@
 @endguest
 
 
-<div class=" px-5 bg-success d-flex justify-content-between">
+<div class=" px-5 bg-verde d-flex justify-content-between">
     <div>
     </div>
     <div>
@@ -297,7 +300,7 @@
 @endif
 
 @if(true)
-    <section class="bg-success text-white" >
+    <section class="bg-verde text-white" >
         <div class="container p-1">
             <div class="text-center text-white ">
                 <div class="">

@@ -17,7 +17,7 @@
                 <div class="owl-wrapper-outer">
                     <div class="row" >
 
-                        @foreach($produits as $produit)
+                        @foreach($produits->shuffle()->take(6) as $produit)
                             <div class="col-md-2 ">
                                 <livewire:produit-card :produit="$produit"/>
                             </div>
@@ -44,7 +44,7 @@
                     <div class="row" >
 
 
-                        @foreach($produits as $produit)
+                        @foreach($produits->shuffle()->take(6) as $produit)
                             <div class="col-md-2 ">
                                 <livewire:produit-card :produit="$produit"/>
                             </div>
@@ -71,7 +71,7 @@
                     <div class="row" >
 
 
-                        @foreach($produits as $produit)
+                        @foreach($produits->shuffle()->take(6) as $produit)
                             <div class="col-md-2 mb-2 ">
                                 <livewire:produit-card :produit="$produit"/>
                             </div>

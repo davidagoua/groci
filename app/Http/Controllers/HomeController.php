@@ -14,7 +14,7 @@ class HomeController extends Controller
         $produits = Produit::query()
             ->with(['categorie','fournisseur'])
             ->get()
-            ->shuffle()->take(6);
+            ;
 
         return view('front.home.index', compact('produits'));
     }
