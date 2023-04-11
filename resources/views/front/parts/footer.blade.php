@@ -15,7 +15,7 @@
         background-color: #5b0404;
     }
 </style>
-<div class=" bg-white">
+<div style="background-color: #C0DEDA">
     <div></div>
     <div class="container ">
         <div class="text-center  ">

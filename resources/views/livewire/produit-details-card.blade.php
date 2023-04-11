@@ -1,4 +1,9 @@
 <div>
+    <style>
+        body{
+            background-color: #FBE6D2 ;
+        }
+    </style>
 
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
           integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
