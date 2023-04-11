@@ -94,27 +94,8 @@ class BoutiqueResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('nom'),
                 Tables\Columns\TextColumn::make('contact'),
-                Tables\Columns\SelectColumn::make('ville')
-                    ->options( collect(config("app.villes"))->sort() ),
-                Select::make('quartier')
-                    ->label("Commune")
-                    ->options([
-                        "abobo" => "Abobo",
-                        "adjamé" => "Adjamé",
-                        "anyama" => "Anyama",
-                        "attécoubé" => "Attécoubé",
-                        "bingerville" => "Bingerville",
-                        "cocody" => "Cocody",
-                        "koumassi" => "Koumassi",
-                        "marcory" => "Marcory",
-                        "plateau" => "Plateau",
-                        "port-bouët" => "Port-bouët",
-                        "treichville" => "Treichville",
-                        "songon" => "Songon",
-                        "yopougon" => "Yopougon"
-                    ])
-                    ->searchable()
-                    ->visible(fn($get, $set) => $get('ville') == "ABIDJAN"),
+                Tables\Columns\TextColumn::make('ville'),
+
                 Tables\Columns\TextColumn::make('propositions_count')
                     ->label("Propositions")
                     ->counts('propositions')
