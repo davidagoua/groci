@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "01739d2d66b9881500609f55e679033b",
+    "content-hash": "3a877abb1a709a8702d50d337db75b50",
     "packages": [
         {
             "name": "abbasudo/laravel-purity",
@@ -7483,6 +7483,58 @@
                 "source": "https://github.com/tijsverkoyen/CssToInlineStyles/tree/2.2.6"
             },
             "time": "2023-01-03T09:29:04+00:00"
+        },
+        {
+            "name": "uccellolabs/filament-theme-color",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/uccellolabs/filament-theme-color.git",
+                "reference": "f1283c2e1918a9b8c2eea109b20a519cc00741dc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/uccellolabs/filament-theme-color/zipball/f1283c2e1918a9b8c2eea109b20a519cc00741dc",
+                "reference": "f1283c2e1918a9b8c2eea109b20a519cc00741dc",
+                "shasum": ""
+            },
+            "require": {
+                "filament/filament": "^2.0",
+                "php": "^8.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Uccellolabs\\FilamentThemeColor\\FilamentThemeColorProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Uccellolabs\\FilamentThemeColor\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nathan DUDREUIL",
+                    "email": "nathan.dudreuil@uccellolabs.com"
+                },
+                {
+                    "name": "Jonathan SARDO",
+                    "email": "jonathan@uccellolabs.com"
+                }
+            ],
+            "description": "Easy way to change filament theme color on the fly.",
+            "support": {
+                "issues": "https://github.com/uccellolabs/filament-theme-color/issues",
+                "source": "https://github.com/uccellolabs/filament-theme-color/tree/v1.0.0"
+            },
+            "time": "2022-10-09T18:40:57+00:00"
         },
         {
             "name": "vlucas/phpdotenv",

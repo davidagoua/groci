@@ -9,16 +9,9 @@
                             <a href="{{ route('front.home') }}" class="nav-link">Acceuil</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('front.shop.search') }}" class="nav-link">Shop</a>
+                            <a href="{{ route('front.shop.search') }}" class="nav-link">Rayons</a>
                         </li>
-                        @auth()
-                        <li class="nav-item ">
-                            <a class="nav-link " href="#" >
-                                Profile
-                            </a>
 
-                        </li>
-                        @endauth
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('front.contact') }}">Contact</a>
                         </li>

@@ -42,8 +42,11 @@ class BoutiqueResource extends Resource
                 Forms\Components\TextInput::make('contact2')
                     ->prefix('+225')
                     ->label("Contact 2"),
-                Forms\Components\Select::make('ville')->options([]),
-                Select::make('commune')
+                Forms\Components\Select::make('ville')
+                    ->reactive()
+                    ->options(config('app.villes')),
+                Select::make('quartier')
+                    ->label("Commune")
                     ->options([
                         "abobo" => "Abobo",
                         "adjamé" => "Adjamé",
@@ -60,10 +63,14 @@ class BoutiqueResource extends Resource
                         "yopougon" => "Yopougon"
                     ])
                     ->searchable()
-                    ->visible(fn($get, $set) => $get('ville') == 67),
+                    ->visible(fn($get, $set) => $get('ville') == "ABIDJAN"),
 
                 Forms\Components\TextInput::make('email'),
-                Forms\Components\FileUpload::make('image')->image()->columnSpan(2),
+
+                Forms\Components\FileUpload::make('image')
+                    ->label("Logo")
+                    ->image()->columnSpan(2),
+
                 OSMMap::make('coord')
                     ->label("Coordonnée")
                     ->showMarker()

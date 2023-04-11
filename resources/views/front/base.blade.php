@@ -33,6 +33,9 @@
             top: 16px;
             width: 679px;
         }
+        body{
+            background-color: white !important;
+        }
     </style>
 
     @stack('css')
@@ -159,8 +162,8 @@
 <nav class="navbar navbar-light navbar-expand-lg bg-white bg-faded osahan-menu">
     <div class="container">
         <div class="d-flex justify-content-center align-items-center">
-            <a class="navbar-brand" href="{{ route('front.home') }}"> <img class="img-responsive" width="150"
-                                                                           src="{{ asset('/images/logocmc.png') }}"
+            <a class="navbar-brand" href="{{ route('front.home') }}"> <img class="img-responsive" width="170"
+                                                                           src="{{ asset('/images/cest_moin_cher_logo2.fw.png') }}"
                                                                            alt="logo"> </a>
         </div>
         <button class="navbar-toggler navbar-toggler-white" type="button" data-toggle="collapse"
@@ -290,12 +293,12 @@
         </div>
     </section>
 @else
-    @include('front.parts.footer')
+    <img src="{{ asset('/images/app-comon-01.jpg') }}" class="img-responsive" alt="">
 @endif
 
 @if(true)
     <section class="bg-success text-white" >
-        <div class="container">
+        <div class="container p-1">
             <div class="text-center text-white ">
                 <div class="">
                     <p class="mb-0 text-white">&copy; Copyright 2023 <strong class="text-white">Conseil National de lutte Contre la Vie Chère</strong>. Tous

@@ -35,6 +35,9 @@
                 --sidebar-width: {{ config('filament.layout.sidebar.width') ?? '20rem' }};
                 --collapsed-sidebar-width: {{ config('filament.layout.sidebar.collapsed_width') ?? '5.4rem' }};
             }
+            body{
+                background-color: white;
+            }
         </style>
 
         @livewireStyles

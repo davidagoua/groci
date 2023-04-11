@@ -5,23 +5,18 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 col-md-4">
-                    <h3 class="mt-1 mb-5">Get In Touch</h3>
-                    <h6 class="text-dark"><i class="mdi mdi-home-map-marker"></i> Address :</h6>
-                    <p>86 Petersham town, New South wales Waedll Steet, Australia PA 6550</p>
-                    <h6 class="text-dark"><i class="mdi mdi-phone"></i> Phone :</h6>
-                    <p>+91 12345-67890, (+91) 123 456 7890</p>
-                    <h6 class="text-dark"><i class="mdi mdi-deskphone"></i> Mobile :</h6>
-                    <p>(+20) 220 145 6589, +91 12345-67890</p>
+                    <h6 class="text-dark"><i class="mdi mdi-home-map-marker"></i> Infoline du Secretariat technique :</h6>
+                    <p>2 plateaux Vallons</p>
+                    <h6 class="text-dark"><i class="mdi mdi-user"></i> Responsable :</h6>
+                    <p>Dr BAH-KONE Ranie-Didice</p>
+                    <h6 class="text-dark"><i class="mdi mdi-phone"></i> Tél :</h6>
+                    <p>(225) 22 52 68 17</p>
+                    <h6 class="text-dark"><i class="mdi mdi-phone"></i> Fax :</h6>
+                    <p>(225) 123-0247</p>
+
                     <h6 class="text-dark"><i class="mdi mdi-email"></i> Email :</h6>
-                    <p>iamosahan@gmail.com, info@gmail.com</p>
-                    <h6 class="text-dark"><i class="mdi mdi-link"></i> Website :</h6>
-                    <p>www.askbootstrap.com</p>
-                    <div class="footer-social"><span>Follow : </span>
-                        <a href="#"><i class="mdi mdi-facebook"></i></a>
-                        <a href="#"><i class="mdi mdi-twitter"></i></a>
-                        <a href="#"><i class="mdi mdi-instagram"></i></a>
-                        <a href="#"><i class="mdi mdi-google"></i></a>
-                    </div>
+                    <p>info@cnlvc.ci</p>
+
                 </div>
                 <div class="col-lg-8 col-md-8">
                     <div class="card">
@@ -38,27 +33,27 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 col-md-12 section-title text-left mb-4">
-                    <h2>Contact Us</h2>
+                    <h2>Contactez-nous</h2>
                 </div>
                 <form class="col-lg-12 col-md-12" name="sentMessage" id="contactForm" novalidate="">
                     <div class="control-group form-group">
                         <div class="controls">
-                            <label>Full Name <span class="text-danger">*</span></label>
-                            <input type="text" placeholder="Full Name" class="form-control" id="name" required="" data-validation-required-message="Please enter your name.">
+                            <label>Nom complet <span class="text-danger">*</span></label>
+                            <input type="text" placeholder="" class="form-control" id="name" required="" data-validation-required-message="Please enter your name.">
                             <p class="help-block"></p>
                         </div>
                     </div>
                     <div class="row">
                         <div class="control-group form-group col-md-6">
-                            <label>Phone Number <span class="text-danger">*</span></label>
+                            <label>Numéro de téléphone <span class="text-danger">*</span></label>
                             <div class="controls">
-                                <input type="tel" placeholder="Phone Number" class="form-control" id="phone" required="" data-validation-required-message="Please enter your phone number.">
+                                <input type="tel" placeholder="" class="form-control" id="phone" required="" data-validation-required-message="Please enter your phone number.">
                                 <div class="help-block"></div></div>
                         </div>
                         <div class="control-group form-group col-md-6">
                             <div class="controls">
-                                <label>Email Address <span class="text-danger">*</span></label>
-                                <input type="email" placeholder="Email Address" class="form-control" id="email" required="" data-validation-required-message="Please enter your email address.">
+                                <label>Adresse Email <span class="text-danger">*</span></label>
+                                <input type="email" placeholder="" class="form-control" id="email" required="" data-validation-required-message="Please enter your email address.">
                                 <div class="help-block"></div></div>
                         </div>
                     </div>
@@ -70,7 +65,7 @@
                     </div>
                     <div id="success"></div>
 
-                    <button type="submit" class="btn btn-success">Send Message</button>
+                    <button type="submit" class="btn btn-success">Envoyer</button>
                 </form>
             </div>
         </div>

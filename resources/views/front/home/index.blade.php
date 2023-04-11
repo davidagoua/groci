@@ -17,7 +17,6 @@
                 <div class="owl-wrapper-outer">
                     <div class="row" >
 
-
                         @foreach($produits as $produit)
                             <div class="col-md-2 ">
                                 <livewire:produit-card :produit="$produit"/>
@@ -25,6 +24,10 @@
                         @endforeach
                     </div>
                 </div>
+            </div>
+            <div class="d-flex mt-2 justify-content-center">
+                <img src="{{ asset('/images/1.jpg') }}" alt="">
+                <img src="{{ asset('/images/2.jpg') }}" alt="">
             </div>
         </div>
     </section>
@@ -49,6 +52,10 @@
                     </div>
                 </div>
             </div>
+            <div class="d-flex mt-2 justify-content-center">
+                <img src="{{ asset('/images/1.jpg') }}" alt="">
+                <img src="{{ asset('/images/2.jpg') }}" alt="">
+            </div>
         </div>
     </section>
 
@@ -71,6 +78,10 @@
                         @endforeach
                     </div>
                 </div>
+            </div>
+            <div class="d-flex mt-2 justify-content-center">
+                <img src="{{ asset('/images/1.jpg') }}" alt="">
+                <img src="{{ asset('/images/2.jpg') }}" alt="">
             </div>
         </div>
     </section>
