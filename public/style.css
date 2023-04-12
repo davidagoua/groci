@@ -17,3 +17,6 @@
 .filament-main-topbar{
     background: #3B746C !important;
 }
+.filament-sidebar-item a{
+    border-radius: 0px !important;
+}
