@@ -18,9 +18,11 @@
 <div style="background-color: #C0DEDA">
     <div></div>
     <div class="container ">
-        <div class="text-center  ">
+        <div class="text-center py-3 ">
             <div>
+                <img src="{{ asset('/images/cest_moin_cher_final.png') }}" width="75" alt="">
                 <img src="/images/armoirie.png" width="75" alt="">
+                <img src="https://luttecontreviechere.ci/front/images/cnlvc.png" width="75" alt="">
             </div>
             <span class="text-orange font-weight-bold">MINISTERE DU COMMERCE, DE L'INDUSTRIE ET DE LA PROMOTION DES PME</span>
         </div>

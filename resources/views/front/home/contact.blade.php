@@ -6,22 +6,23 @@
             <div class="row">
                 <div class="col-lg-4 col-md-4">
                     <h6 class="text-dark"><i class="mdi mdi-home-map-marker"></i> Infoline du Secretariat technique :</h6>
-                    <p>2 plateaux Vallons</p>
+                    <p>Abidjan Cocody Angré, 8ème Tranche Cité Djibi 1, 06 BP 1178
+                        Abidjan 06</p>
                     <h6 class="text-dark"><i class="mdi mdi-user"></i> Responsable :</h6>
-                    <p>Dr BAH-KONE Ranie-Didice</p>
+                    <p> KAEDABI GROUPE INTERNATIONAL SA</p>
                     <h6 class="text-dark"><i class="mdi mdi-phone"></i> Tél :</h6>
-                    <p>(225) 22 52 68 17</p>
+                    <p>+225 27 24 35 58 17</p>
                     <h6 class="text-dark"><i class="mdi mdi-phone"></i> Fax :</h6>
                     <p>(225) 123-0247</p>
 
                     <h6 class="text-dark"><i class="mdi mdi-email"></i> Email :</h6>
-                    <p>info@cnlvc.ci</p>
+                    <p>mkmorris@kaedabi.com</p>
 
                 </div>
                 <div class="col-lg-8 col-md-8">
                     <div class="card">
                         <div class="card-body">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d109552.19658195564!2d75.78663251672796!3d30.900473637371658!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391a837462345a7d%3A0x681102348ec60610!2sLudhiana%2C+Punjab!5e0!3m2!1sen!2sin!4v1530462134939" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen=""></iframe>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3972.1293316695132!2d-3.9856503852071365!3d5.3972577367265515!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfc193999a57f543%3A0x1e653088e41a14dd!2zQW5ncsOpIDjDqG1lIHRyYW5jaGU!5e0!3m2!1sfr!2sci!4v1681289986912!5m2!1sfr!2sci" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
                     </div>
                 </div>

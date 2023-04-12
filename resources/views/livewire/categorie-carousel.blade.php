@@ -8,7 +8,7 @@
                 <div class="owl-item" style="width: 139px;">
                             <div class="item">
                                 <div class="category-item">
-                                    <a href="">
+                                    <a href="{{ route('front.shop.search') }}?categorie={{ $item->id }}">
                                         <img class="img-fluid" src="{{ asset('/storage/'.$item->image) }}" alt="">
                                         <h6>{{ $item->name }}</h6>
                                         <p>{{ $item->produits->count() }} Produits</p>

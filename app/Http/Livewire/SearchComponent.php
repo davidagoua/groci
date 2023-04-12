@@ -31,15 +31,17 @@ class SearchComponent extends Component
     {
         $cats = $this->cats;
         $price_range = $this->price_range;
+        $categorie = request()->filled('categorie') ? Categorie::query()->find(request()->get('categorie'))->first()->name  : "Tout";
         $produits = Produit::query()
-            ->when(! isEmpty($cats), function($builder) use ($cats){
-                return $builder->whereIn('categorie_id', $cats);
+            ->when(request()->filled('categorie'), function($builder) {
+                return $builder->whereIn('categorie_id', [request()->get('categorie')]);
             })
             ->when(! isEmpty($price_range), function($builder) use ($price_range){
                 return $builder->whereIn('prix', $price_range);
             });
         return view('livewire.search-component', [
-            'produits'=> $produits->get()
+            'produits'=> $produits->get(),
+            "categorie_selected"=> $categorie
         ]);
     }
 }

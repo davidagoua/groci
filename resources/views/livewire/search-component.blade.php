@@ -105,7 +105,7 @@
                                 <a class="dropdown-item" href="#">Name (A to Z)</a>
                             </div>
                         </div>
-                        <h5 class="mb-3">Produits</h5>
+                        <h5 class="mb-3">Produits: {{ $categorie_selected }}</h5>
                     </div>
                     <div class="row">
                         @foreach($produits as $p)
