@@ -27,6 +27,10 @@ class SousCategorie extends Page implements HasTable
     protected static ?int $navigationSort = 2;
 
 
+    public static function shouldRegisterNavigation(): bool
+    {
+        return auth()->user()->hasRole('super_admin');
+    }
     public function getTableQuery(): Builder
     {
         return Categorie::enfant();
