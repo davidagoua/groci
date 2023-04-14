@@ -2,11 +2,13 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 
@@ -51,4 +53,17 @@ class Produit extends Model implements HasMedia
     {
         return $this->hasMany(ImageProduit::class)->orderByDesc('created_at')->first();
     }
+
+    public function boutiques(): HasManyThrough
+    {
+        return $this->hasManyThrough(Boutique::class, Proposition::class);
+    }
+
+    public function localiteScope(Builder $query)
+    {
+        return $query->whereHas('boutiques', function(Builder $q){
+            return $q->where('ville', session()->get('ville'));
+        }) ;
+    }
+
 }

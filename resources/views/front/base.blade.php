@@ -148,6 +148,14 @@
     <div>
         <div class="">
             <a href="#" class=" text-white"><i aria-hidden="true" class="mdi mdi-map-marker-circle"></i>Abidjan </a>
+
+            <select onchange="updateVille" id="ville" name="ville">
+                @foreach(
+                config('app.villes') as $ville
+                )
+                    <option value="{{ $ville }}">{{ $ville }}</option>
+                @endforeach
+            </select>
             @guest()
                 <a href="#" data-target="#bd-example-modal" data-toggle="modal" class=" text-white ml-3 mr-3"><i
                         class="mdi mdi-lock"></i>Se connecter</a>
@@ -342,12 +350,20 @@
     )
     @endif
 
+    let updateVille = (e)=>{
+        e.preventDefault()
+        let selectedVille = document.querySelector('#ville').value
+        console.l*(selectedVille)
+    }
+
 </script>
 <script src="/front/vendor/jquery/jquery.min.js" type="text/javascript"></script>
 <script src="/front/vendor/bootstrap/js/bootstrap.bundle.min.js" type="text/javascript"></script>
 <script>
     const myModal = new bootstrap.Modal('#bd-example-modal');
     myModal.show()
+
+
 </script>
 <script src="/front/vendor/select2/js/select2.min.js" type="text/javascript"></script>
 

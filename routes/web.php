@@ -19,6 +19,7 @@ Route::controller(\App\Http\Controllers\ShopController::class)->group(function()
     Route::any("/search", 'search')->name('front.shop.search');
     Route::any("/produit/{produit}", 'produit_details')->name('front.shop.produit_details');
     Route::get("/produit/{proposition}/add", 'add_cart')->name('front.shop.add_cart');
+    Route::get("/localite/{ville}", 'set_localite')->name('front.shop.set_localite');
 });
 
 Route::controller(\App\Http\Controllers\AuthController::class)->group(function(){

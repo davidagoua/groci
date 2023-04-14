@@ -33,8 +33,6 @@
     </div>
 
     <script>
-        Livewire::on('panier_vider', ()=>{
-            window.location = window.location
-        })
+
     </script>
 </div>

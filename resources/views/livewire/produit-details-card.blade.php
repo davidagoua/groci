@@ -20,6 +20,7 @@
                 <div class="col-md-6">
                     <div class="card">
                         <div class="card-body">
+                            <span class="badge badge-primary">{{ $produit->categorie->name }}</span>
                             <h2>{{ $produit->nom }}</h2>
                             <h4>{{ $produit->unite }}</h4>
                         </div>

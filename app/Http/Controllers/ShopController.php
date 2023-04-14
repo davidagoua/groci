@@ -31,4 +31,10 @@ class ShopController extends Controller
             'produit'=>$produit
         ]);
     }
+
+    public function set_localite(Request $request, string $ville)
+    {
+        session('ville', $ville);
+        return back();
+    }
 }

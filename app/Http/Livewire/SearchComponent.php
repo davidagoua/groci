@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use App\Models\Boutique;
 use App\Models\Categorie;
 use App\Models\Produit;
+use Illuminate\Database\Eloquent\Builder;
 use Livewire\Component;
 use function PHPUnit\Framework\isEmpty;
 
@@ -13,12 +14,10 @@ class SearchComponent extends Component
 
     public  $categories;
     public $cats = [];
-    public $price_range = [];
+    public $boutiques_filters = [];
+    public $price_range = null;
     protected $queryString = ['cats'];
 
-    protected $rules = [
-      'cats'=>'array|numeri'
-    ];
 
     public function mount(){
         $this->boutiques = Boutique::query()->get();
@@ -29,12 +28,21 @@ class SearchComponent extends Component
 
     public function render()
     {
-        $cats = $this->cats;
         $price_range = $this->price_range;
         $categorie = request()->filled('categorie') ? Categorie::query()->find(request()->get('categorie'))->first()->name  : "Tout";
         $produits = Produit::query()
+            ->whereHas('propositions', function(Builder $query){
+                return $query
+                ->when(count(array_filter($this->boutiques_filters)), function(Builder $q){
+                    return $q->whereIn('boutique_id', $this->boutiques_filters);
+                })
+                ;
+            })
             ->when(request()->filled('categorie'), function($builder) {
                 return $builder->whereIn('categorie_id', [request()->get('categorie')]);
+            })
+            ->when(count(array_filter($this->cats)), function($builder){
+                return $builder->whereIn('categorie_id', $this->cats);
             })
             ->when(! isEmpty($price_range), function($builder) use ($price_range){
                 return $builder->whereIn('prix', $price_range);

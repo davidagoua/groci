@@ -75,7 +75,7 @@
 
                                         @foreach($boutiques as $bt)
                                         <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="b{{ $bt->id }}">
+                                            <input type="checkbox" wire:model="boutiques_filters" value="{{ $bt->id }}" class="custom-control-input" id="b{{ $bt->id }}">
                                             <label class="custom-control-label" for="b{{ $bt->id }}">{{ $bt->nom }}</label>
                                         </div>
                                         @endforeach
@@ -106,6 +106,12 @@
                             </div>
                         </div>
                         <h5 class="mb-3">Produits: {{ $categorie_selected }}</h5>
+                        <div>
+                            {{ print_r($cats) }}
+                            {{ print_r(explode(',', $price_range)) }}
+                            {{ print_r($boutiques_filters) }}
+
+                        </div>
                     </div>
                     <div class="row">
                         @foreach($produits as $p)
