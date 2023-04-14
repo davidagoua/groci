@@ -16,6 +16,7 @@ class SearchComponent extends Component
     public $cats = [];
     public $boutiques_filters = [];
     public $price_range = null;
+    public $prixmin = null;
     protected $queryString = ['cats'];
 
 
@@ -36,16 +37,16 @@ class SearchComponent extends Component
                 ->when(count(array_filter($this->boutiques_filters)), function(Builder $q){
                     return $q->whereIn('boutique_id', $this->boutiques_filters);
                 })
-                ;
+                ->when($this->prixmin, function(Builder $q){
+
+                    return $q->where(column: 'prix', operator: '>=', value: $this->boutiques_filters);
+                });
             })
             ->when(request()->filled('categorie'), function($builder) {
                 return $builder->whereIn('categorie_id', [request()->get('categorie')]);
             })
-            ->when(count(array_filter($this->cats)), function($builder){
+            ->when(count(array_filter($this->cats)) , function($builder){
                 return $builder->whereIn('categorie_id', $this->cats);
-            })
-            ->when(! isEmpty($price_range), function($builder) use ($price_range){
-                return $builder->whereIn('prix', $price_range);
             });
         return view('livewire.search-component', [
             'produits'=> $produits->get(),

@@ -53,7 +53,8 @@
                     <div class="login-modal">
                         <div class="row">
                             <div class="col-lg-6 pad-right-0">
-                                <div class="login-modal-left">
+                                <div class="h-100 d-flex align-items-center justify-content-center">
+                                    <img src="{{ asset('/images/cest_moin_cher_final.png') }}" alt="">
                                 </div>
                             </div>
                             <div class="col-lg-6 pad-left-0">
@@ -147,7 +148,7 @@
     </div>
     <div>
         <div class="">
-            <a href="#" class=" text-white"><i aria-hidden="true" class="mdi mdi-map-marker-circle"></i>Abidjan </a>
+            <a href="#" class=" text-white"><i aria-hidden="true" class="mdi mdi-map-marker-circle"></i>{{ session()->get('localite') ?? "Tout" }} </a>
 
             <select onchange="updateVille" id="ville" name="ville">
                 @foreach(
@@ -353,7 +354,7 @@
     let updateVille = (e)=>{
         e.preventDefault()
         let selectedVille = document.querySelector('#ville').value
-        console.l*(selectedVille)
+        console.log(selectedVille)
     }
 
 </script>

@@ -40,21 +40,18 @@
                                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
                                      data-parent="#accordion">
                                     <div class="card-body card-shop-filters">
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="radio" name="price_range" wire:modal="price_range" value="100,5000" class="custom-control-input" id="1">
-                                            <label class="custom-control-label" for="1">100 à 5000 FCFA</label>
-                                        </div>
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="radio" name="price_range" wire:model="price_range" value="5005,25000" class="custom-control-input" id="2">
-                                            <label class="custom-control-label" for="2">5005 à 25000 FCFA</label>
-                                        </div>
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="radio" name=price_range wire:model="price_range" value="25005,100000" class="custom-control-input" id="3">
-                                            <label class="custom-control-label" for="3">25005 à 100000 FCFA</label>
-                                        </div>
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="radio" name="price_range" wire:model="price_range" value="100005,1000005" class="custom-control-input" id="4">
-                                            <label class="custom-control-label" for="4">100005 à 1000005 FCFA</label>
+                                        <div class="mb-3">
+                                            <label for="">Prix Minimum</label>
+                                            <select name="prixmin" wire:model="prixmin" id="prixmin">
+                                                <option value="0">0</option>
+                                                <option value="500">500</option>
+                                                <option value="5000">5000</option>
+                                                <option value="10000">10000</option>
+                                                <option value="25000">25000</option>
+                                                <option value="50000">50000</option>
+                                                <option value="100000">100000</option>
+                                                <option value="1000000">1000000</option>
+                                            </select>
                                         </div>
                                     </div>
                                 </div>
@@ -107,9 +104,9 @@
                         </div>
                         <h5 class="mb-3">Produits: {{ $categorie_selected }}</h5>
                         <div>
-                            {{ print_r($cats) }}
-                            {{ print_r(explode(',', $price_range)) }}
-                            {{ print_r($boutiques_filters) }}
+                            {{ print_r($cats) }} <br>
+                            {{ print_r(explode(',', $price_range)) }} <br>
+                            {{ print_r($boutiques_filters) }} <br>
 
                         </div>
                     </div>
