@@ -1,9 +1,14 @@
-name: Laravel
-
+name: Pull after push on main branch
 on:
   push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
-
+    branches:
+      - main
+jobs:
+  pull:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Pull latest changes
+        run: git pull
 
