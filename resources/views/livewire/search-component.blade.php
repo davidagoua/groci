@@ -10,7 +10,7 @@
                                     <h5 class="mb-0">
                                         <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne"
                                                 aria-expanded="true" aria-controls="collapseOne">
-                                            Categorie <span class="mdi mdi-chevron-down float-right"></span>
+                                            Categories <span class="mdi mdi-chevron-down float-right"></span>
                                         </button>
                                     </h5>
                                 </div>
@@ -74,7 +74,7 @@
                                         <button class="btn btn-link collapsed" data-toggle="collapse"
                                                 data-target="#collapseThree" aria-expanded="false"
                                                 aria-controls="collapseThree">
-                                            Boutique <span class="mdi mdi-chevron-down float-right"></span>
+                                            Boutiques <span class="mdi mdi-chevron-down float-right"></span>
                                         </button>
                                     </h5>
                                 </div>
