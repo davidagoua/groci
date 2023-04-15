@@ -13,13 +13,11 @@ class Topsearch extends Component
 
     public function render()
     {
-        $produits = Produit::query()
-            ->when(strlen($this->terme) >= 2, function(Builder $query){
-                return $query->whereRaw("LOWER(nom) like '%".strtolower($this->terme)."%'");
-            })
-            ->limit(10);
+        $produits = Produit::search($this->terme)
+            ->get()
+            ->take(10);
         return view('livewire.topsearch', [
-            'produits'=> $produits->get()
+            'produits'=> $produits
         ]);
     }
 }
