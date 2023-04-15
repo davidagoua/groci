@@ -37,12 +37,12 @@
                                         </button>
                                     </h5>
                                 </div>
-                                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+                                <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo"
                                      data-parent="#accordion">
                                     <div class="card-body card-shop-filters">
                                         <div class="mb-3">
                                             <label for="">Prix Minimum</label>
-                                            <select name="prixmin" wire:model="prixmin" id="prixmin">
+                                            <select class="form-control" name="prixmin" wire:model="prixmin" id="prixmin">
                                                 <option value="0">0</option>
                                                 <option value="500">500</option>
                                                 <option value="5000">5000</option>
@@ -51,6 +51,18 @@
                                                 <option value="50000">50000</option>
                                                 <option value="100000">100000</option>
                                                 <option value="1000000">1000000</option>
+                                            </select>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="">Prix Maximum</label>
+                                            <select class="form-control" name="prixmax" wire:model="prixmax" id="prixmax">
+                                                @if($prixmin < 500)<option value="500">500</option>@endif
+                                                @if($prixmin < 5000)<option value="5000">5000</option>@endif
+                                                @if($prixmin < 10000)<option value="10000">10000</option>@endif
+                                                @if($prixmin < 25000)<option value="25000">25000</option>@endif
+                                                @if($prixmin < 50000)<option value="50000">50000</option>@endif
+                                                @if($prixmin < 100000)<option value="100000">100000</option>@endif
+                                                @if($prixmin < 1000000 )<option value="1000000">1000000</option>@endif
                                             </select>
                                         </div>
                                     </div>
@@ -66,7 +78,7 @@
                                         </button>
                                     </h5>
                                 </div>
-                                <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
+                                <div id="collapseThree" class="collapse show" aria-labelledby="headingThree"
                                      data-parent="#accordion">
                                     <div class="card-body card-shop-filters">
 
@@ -89,6 +101,7 @@
                     <a href="#"><img class="img-fluid mb-3" src="img/shop.jpg" alt=""></a>
                     <div class="shop-head">
                         <a href="#"><span class="mdi mdi-home"></span> Recherche des produits</a>
+                        <button type="button" wire:click="$reset" class="btn btn-seconndary">Supprimer le filtre</button>
                         <div class="btn-group float-right mt-2">
                             <button type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown"
                                     aria-haspopup="true" aria-expanded="false">
@@ -102,38 +115,25 @@
                                 <a class="dropdown-item" href="#">Name (A to Z)</a>
                             </div>
                         </div>
-                        <h5 class="mb-3">Produits: {{ $categorie_selected }}</h5>
-                        <div>
-                            {{ print_r($cats) }} <br>
-                            {{ print_r(explode(',', $price_range)) }} <br>
-                            {{ print_r($boutiques_filters) }} <br>
+                        <h5 class="mb-3">Produits </h5>
 
-                        </div>
                     </div>
                     <div class="row">
                         @foreach($produits as $p)
                             <div class="col-md-4 mb-3">
-                                <livewire:produit-card :produit="$p"/>
+                                <x-product-card :produit="$p"/>
                             </div>
                         @endforeach
 
                     </div>
                     <nav>
                         <ul class="pagination justify-content-center">
-                            <li class="page-item disabled">
-                                <span class="page-link">Previous</span>
+                            <li class="page-item ">
+                                <span class="">
+                                {{ $produits->links() }}
+                                </span>
                             </li>
-                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item active">
-<span class="page-link">
-2
-<span class="sr-only">(current)</span>
-</span>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item">
-                                <a class="page-link" href="#">Next</a>
-                            </li>
+
                         </ul>
                     </nav>
                 </div>

@@ -7,17 +7,22 @@ use App\Models\Categorie;
 use App\Models\Produit;
 use Illuminate\Database\Eloquent\Builder;
 use Livewire\Component;
+use Livewire\WithPagination;
 use function PHPUnit\Framework\isEmpty;
 
 class SearchComponent extends Component
 {
+    use WithPagination;
+    protected $paginationTheme = 'bootstrap';
 
     public  $categories;
     public $cats = [];
     public $boutiques_filters = [];
     public $price_range = null;
-    public $prixmin = null;
-    protected $queryString = ['cats'];
+    public $prixmin, $prixmax = null;
+
+    public $nb_pages = 0;
+    protected $queryString = ['cats','page','prixmin'];
 
 
     public function mount(){
@@ -32,11 +37,9 @@ class SearchComponent extends Component
         $price_range = $this->price_range;
         $categorie = request()->filled('categorie') ? Categorie::query()->find(request()->get('categorie'))->first()->name  : "Tout";
         $produits = Produit::query()
+
             ->whereHas('propositions', function(Builder $query){
                 return $query
-                ->when(count(array_filter($this->boutiques_filters)), function(Builder $q){
-                    return $q->whereIn('boutique_id', $this->boutiques_filters);
-                })
                 ->when($this->prixmin, function(Builder $q){
 
                     return $q->where(column: 'prix', operator: '>=', value: $this->boutiques_filters);
@@ -48,9 +51,13 @@ class SearchComponent extends Component
             ->when(count(array_filter($this->cats)) , function($builder){
                 return $builder->whereIn('categorie_id', $this->cats);
             });
+
+            $pages = $produits->get()->chunk(21);
+            $this->nb_pages = $pages->count();
         return view('livewire.search-component', [
-            'produits'=> $produits->get(),
+            'produits'=> $produits->paginate(21),
             "categorie_selected"=> $categorie
         ]);
     }
+
 }
