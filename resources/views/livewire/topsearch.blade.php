@@ -18,12 +18,16 @@
                         <input wire:model="terme" class="form-control" placeholder="Recherche..."
                                aria-label="Recherche..." type="text">
                         <span class="input-group-btn">
-<button class="btn btn-secondary" type="button"><i class="mdi mdi-file-find"></i> Recherche</button>
-</span>
+                        <button class="btn btn-secondary" type="button">
+                            <div wire:loading class="spinner-border spinner-border-sm" role="status">
+                              <span class="sr-only">Loading...</span>
+                            </div> Recherche
+                        </button>
+                        </span>
                     </div>
 
                 </div>
-                @if(strlen($terme) > 3)
+                @if(strlen($terme) >= 2)
                     <div class="bg-white shadow"
                          style="position: absolute; z-index: 10; top: 60px; width: 545px; left: 373px "
                     >
