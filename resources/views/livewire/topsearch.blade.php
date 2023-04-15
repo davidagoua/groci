@@ -20,7 +20,7 @@
                         <span class="input-group-btn">
                         <button class="btn btn-secondary" type="button">
                             <div wire:loading class="spinner-border spinner-border-sm" role="status">
-                              <span class="sr-only">Recherche...</span>
+                              <span class="sr-only">Recherches...</span>
                             </div> Rechercher
                         </button>
                         </span>
