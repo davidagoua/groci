@@ -21,7 +21,7 @@
                         <button class="btn btn-secondary" type="button">
                             <div wire:loading class="spinner-border spinner-border-sm" role="status">
                               <span class="sr-only">Recherche...</span>
-                            </div> Recherche
+                            </div> Rechercher
                         </button>
                         </span>
                     </div>
