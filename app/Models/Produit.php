@@ -54,16 +54,11 @@ class Produit extends Model implements HasMedia
         return $this->hasMany(ImageProduit::class)->orderByDesc('created_at')->first();
     }
 
-    public function boutiques(): HasManyThrough
+    public function boutiques()
     {
-        return $this->hasManyThrough(Boutique::class, Proposition::class);
-    }
-
-    public function localiteScope(Builder $query)
-    {
-        return $query->whereHas('boutiques', function(Builder $q){
-            return $q->where('ville', session()->get('ville'));
-        }) ;
+        return Boutique::whereHas('propositions', function($query) {
+            $query->where('produit_id', $this->id);
+        })->get();
     }
 
 }
