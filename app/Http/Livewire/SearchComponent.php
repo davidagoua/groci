@@ -18,7 +18,6 @@ class SearchComponent extends Component
     public  $categories;
     public $cats = [];
     public $boutiques_filters = [];
-    public $price_range = null;
     public $prixmin, $prixmax = null;
 
     public $nb_pages = 0;
@@ -30,11 +29,16 @@ class SearchComponent extends Component
         $this->categories = Categorie::query()->enfant()->get();
     }
 
-
+    public function resetFilters()
+    {
+        $this->cats = [];
+        $this->boutiques_filters = [];
+        $this->prixmin = null;
+        $this->prixmax = null;
+    }
 
     public function render()
     {
-        $price_range = $this->price_range;
         $categorie = request()->filled('categorie') ? Categorie::query()->find(request()->get('categorie'))->first()->name  : "Tout";
         $produits = Produit::query()
 
@@ -42,7 +46,14 @@ class SearchComponent extends Component
                 return $query
                 ->when($this->prixmin, function(Builder $q){
 
-                    return $q->where(column: 'prix', operator: '>=', value: $this->boutiques_filters);
+                    return $q->where(column: 'prix', operator: '>=', value: $this->prixmin);
+                })->when($this->prixmax, function(Builder $q){
+
+                    return $q->where(column: 'prix', operator: '<=', value: $this->prixmax);
+                })
+                ->when(count(array_filter($this->boutiques_filters)), function(Builder $q){
+
+                    return $q->whereIn('boutique_id', $this->boutiques_filters);
                 });
             })
             ->when(request()->filled('categorie'), function($builder) {

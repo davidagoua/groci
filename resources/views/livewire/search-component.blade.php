@@ -43,14 +43,14 @@
                                         <div class="mb-3">
                                             <label for="">Prix Minimum</label>
                                             <select class="form-control" name="prixmin" wire:model="prixmin" id="prixmin">
-                                                <option value="0">0</option>
-                                                <option value="500">500</option>
-                                                <option value="5000">5000</option>
-                                                <option value="10000">10000</option>
-                                                <option value="25000">25000</option>
-                                                <option value="50000">50000</option>
-                                                <option value="100000">100000</option>
-                                                <option value="1000000">1000000</option>
+                                                @if($prixmax == null || $prixmax >0)<option value="0">0</option>@endif
+                                                @if($prixmax == null || $prixmax >500)<option value="500">500</option>@endif
+                                                @if($prixmax == null || $prixmax >5000)<option value="5000">5000</option>@endif
+                                                @if($prixmax == null || $prixmax >10000)<option value="10000">10000</option>@endif
+                                                @if($prixmax == null || $prixmax >25000)<option value="25000">25000</option>@endif
+                                                @if($prixmax == null || $prixmax >50000)<option value="50000">50000</option>@endif
+                                                @if($prixmax == null || $prixmax >100000)<option value="100000">100000</option>@endif
+                                                @if($prixmax == null || $prixmax >1000000)<option value="1000000">1000000</option>@endif
                                             </select>
                                         </div>
                                         <div class="mb-3">
@@ -101,19 +101,11 @@
                     <a href="#"><img class="img-fluid mb-3" src="img/shop.jpg" alt=""></a>
                     <div class="shop-head">
                         <a href="#"><span class="mdi mdi-home"></span> Recherche des produits</a>
-                        <button type="button" wire:click="$reset" class="btn btn-seconndary">Supprimer le filtre</button>
                         <div class="btn-group float-right mt-2">
-                            <button type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown"
-                                    aria-haspopup="true" aria-expanded="false">
-                                Ordonner&nbsp;&nbsp;&nbsp;
+                            <button wire:click="resetFilters" type="button" class="btn btn-dark " >
+                                Effacer les filtres&nbsp;&nbsp;&nbsp;
                             </button>
-                            <div class="dropdown-menu dropdown-menu-right">
-                                <a class="dropdown-item" href="#">Relevance</a>
-                                <a class="dropdown-item" href="#">Price (Low to High)</a>
-                                <a class="dropdown-item" href="#">Price (High to Low)</a>
-                                <a class="dropdown-item" href="#">Discount (High to Low)</a>
-                                <a class="dropdown-item" href="#">Name (A to Z)</a>
-                            </div>
+
                         </div>
                         <h5 class="mb-3">Produits </h5>
 
