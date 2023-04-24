@@ -129,7 +129,7 @@
                 @guest()
                     <a href="#" data-target="#bd-example-modal" data-toggle="modal" class=" text-white ml-3 mr-3"><i
                             class="mdi mdi-lock"></i>Se connecter</a>
-                    <a href="#register" data-target="#register" data-toggle="modal" class=" text-white"><i
+                    <a href="#register" data-target="#bd-example-modal" data-toggle="modal" class=" text-white"><i
                             class="mdi mdi-account-circle"></i> S'inscrire</a>
                 @endguest
 
