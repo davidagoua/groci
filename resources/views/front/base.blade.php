@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Askbootstrap">
     <meta name="author" content="Askbootstrap">
-    <title>CestMoinsCher - Comparateur de prix</title>
+    <title>CMoinsCher - Comparateur de prix</title>
 
 
     <link href="/front/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">

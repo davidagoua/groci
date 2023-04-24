@@ -6,7 +6,7 @@
                     <div class="product-header">
                         <img class="img-fluid" src="{{ asset('/storage/'. $produit->image()->path) }}" alt="">
                     </div>
-                    <div class="text-left">
+                    <div class="text-center">
                         <span class="badge badge-primary ">{{ $produit->categorie->name }}</span>
                     </div>
                     <div class="product-body">
