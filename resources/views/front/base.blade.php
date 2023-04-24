@@ -167,6 +167,8 @@
 @endif
 
 
+
+
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
 
@@ -180,7 +182,7 @@
 
     @if(session('danger'))
     Swal.fire(
-        'Panier',
+        'Felicitation',
         "{{ session()->get('info') }}",
         'danger'
     )
@@ -188,8 +190,8 @@
 
     @if(session('success'))
     Swal.fire(
-        'Panier',
-        "{{ session()->get('info') }}",
+        'Felicitation',
+        "{{ session()->get('success') }}",
         'success'
     )
     @endif

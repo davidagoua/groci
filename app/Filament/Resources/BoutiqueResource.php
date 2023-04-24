@@ -120,7 +120,7 @@ class BoutiqueResource extends Resource
                     $data['lat'] = $coord['lat'];
                     $data['lng'] = $coord['lng'];
                     return $data;
-                })->visible(auth()->user()->hasRole('super_admin')),
+                }),
                 Tables\Actions\DeleteAction::make()->visible(auth()->user()->hasRole('super_admin')),
             ])
             ->bulkActions([

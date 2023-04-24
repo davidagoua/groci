@@ -19,7 +19,10 @@ class AuthController extends Controller
         if(! auth()->attempt($data)){
             return back()->with('danger', "Email ou Mot de passe incorrecte !");
         }
-        return back();
+        if(auth()->user()->hasRole('GERANT_BOUTIQUE')){
+            return redirect('/admin');
+        }
+        return redirect()->route('front.home');
     }
 
     public function register(Request $request)
@@ -27,20 +30,31 @@ class AuthController extends Controller
         $data = $request->validate([
             'email'=>'required',
             'password'=>'required',
-            'name'=>'required'
+            'name'=>'required',
+            'telephone'=>'required'
         ]);
 
         $user = new User();
+
+        if($request->input('is_boutique')){
+            $user->assignRole('GERANT_BOUTIQUE');
+        }
+
         $user->name = $data['name'];
         $user->email = $data['email'];
         $user->password = Hash::make($data['password']) ;
         $user->save();
+
+        auth()->login($user);
+        if($user->hasRole('GERANT_BOUTIQUE')){
+            return redirect('/admin');
+        }
         return back()->with('success', "Bienvenue sur notre site !");
     }
 
     public function logout(Request $request)
     {
         auth()->logout();
-        return redirect()->route('home');
+        return redirect()->route('front.home');
     }
 }

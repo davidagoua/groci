@@ -16,11 +16,11 @@ class GerantResumeTable extends BaseWidget
     protected static ?string $heading = "30 derniers produits ajoutés";
     public function mount()
     {
-        $this->boutique = auth()->user()->boutique;
+        //$this->boutique = auth()->user()->boutique;
     }
     protected function getTableQuery(): Builder
     {
-        return Proposition::query()->where('boutique_id', $this->boutique->id);
+        return Proposition::query()->whereIn('boutique_id', auth()->user()->boutiques->pluck('id'));
     }
 
     public static function canView(): bool

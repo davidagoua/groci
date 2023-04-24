@@ -61,10 +61,10 @@
                                     </div>
                                     <div class="col-md-4">
                                         Disponibilité:
-                                        @if($produit->is_actif)
+                                        @if($prop->is_actif)
                                             <span class="bg-warning badge">En stock</span>
                                         @else
-                                            <span class="bg-gray-700 badge">Fini</span>
+                                            <span class="bg-danger text-white badge">Epuisé</span>
                                         @endif
                                     </div>
                                 </div>
@@ -82,7 +82,9 @@
                                         </div>
                                     </div>
                                     <div class="col text-right">
-                                        <a href="#modal-localiser-{{ $prop->id }}" data-toggle="modal" class="btn-primary  btn btn-sm">
+                                        <a
+                                            onclick="refreshMap_{{ $prop->id }}()"
+                                            href="#modal-localiser-{{ $prop->id }}" data-toggle="modal" class="btn-primary  btn btn-sm">
                                             <span class="mdi mdi-map-marker"></span>
                                             <span>Localiser</span>
                                         </a>
@@ -146,7 +148,15 @@
                                                 maxZoom: 19,
                                                 attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
                                             }).addTo(map_{{ $prop->boutique->id }});
+
+                                            let refreshMap_{{ $prop->id}} = ()=>{
+                                                alert('refresh')
+                                                setTimeout(()=>{
+                                                    map_{{ $prop->boutique->id }}.invalidateSize();
+                                                }, 200)
+                                            }
                                             var marker = L.marker([{{ $prop->boutique->lat }}, {{ $prop->boutique->lng }}]).addTo(map_{{ $prop->boutique->id }});
+
                                         </script>
                                     </div>
                                 </div>

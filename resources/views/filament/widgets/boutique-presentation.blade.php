@@ -1,10 +1,15 @@
 <x-filament::widget>
     <section class="bg-white dark:bg-gray-900">
-        <div class="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
+        <div class="grid max-w-screen-xl px-4 py-4 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
+            @foreach($boutiques as $boutique)
 
-            <div class="hidden lg:mt-0 lg:col-span-5 lg:flex">
-                <img src="{{ asset("/storage/".$boutique->image) }}" height="150px" width="150px" alt="mockup">
+            <div class="col-span-3 p-3 text-center">
+                <img src="{{ asset("/storage/".$boutique->image) }}" alt="mockup">
+                <div class="text-xl">
+                    {{ $boutique->nom }}
+                </div>
             </div>
+            @endforeach
         </div>
     </section>
 </x-filament::widget>

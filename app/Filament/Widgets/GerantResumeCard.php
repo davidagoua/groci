@@ -22,6 +22,7 @@ class GerantResumeCard extends Widget
 
     public static function canView(): bool
     {
-        return auth()->user()->hasRole('GERANT_BOUTIQUE');
+        return auth()->user()->hasRole('GERANT_BOUTIQUE') && auth()->user()->boutiques->count() > 0;
+
     }
 }

@@ -8,6 +8,8 @@ class Topbar extends Component
 {
 
     public $localite = "";
+
+    public $email, $password;
     protected $queryString = ['localite'];
     public $villes = [];
 
@@ -15,6 +17,15 @@ class Topbar extends Component
     {
         $this->localite = session()->get('localite', "Tous") ;
         $this->villes = config('app.villes');
+    }
+
+    public function login()
+    {
+
+        if(auth()->attempt(['email'=> $this->email, 'password'=> $this->password])){
+            return back();
+        }
+        return back()->with('error', "Email ou Mot de passe incorrect !");
     }
 
     public function updateLocalite()

@@ -25,8 +25,6 @@ Route::controller(\App\Http\Controllers\ShopController::class)->group(function()
 Route::controller(\App\Http\Controllers\AuthController::class)->group(function(){
    Route::post('/login', 'login')->name('auth.login');
    Route::post('/register', 'register')->name('auth.register');
-   Route::post('/logout', 'logout')->name('auth.logout');
+   Route::get('/logout', 'logout')->name('auth.logout');
 });
 
-
-Route::any('register', \App\Http\Livewire\RegisterForm::class);

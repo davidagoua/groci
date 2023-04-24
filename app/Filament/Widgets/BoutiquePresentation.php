@@ -8,17 +8,18 @@ use Filament\Widgets\Widget;
 class BoutiquePresentation extends Widget
 {
     protected static string $view = 'filament.widgets.boutique-presentation';
-    public Boutique $boutique;
+    public  $boutiques;
     protected int | string | array $columnSpan = 12;
 
 
     public static function canView(): bool
     {
-        return auth()->user()->hasRole('GERANT_BOUTIQUE');
+        return auth()->user()->hasRole('GERANT_BOUTIQUE') && auth()->user()->boutiques->count() > 0 ;
     }
 
     public function mount()
     {
-        $this->boutique = auth()->user()->boutique;
+
+        $this->boutiques = auth()->user()->boutiques ;
     }
 }

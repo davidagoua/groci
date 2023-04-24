@@ -22,15 +22,17 @@
                                         <div class="login-modal-right">
 
                                             <div class="tab-content">
-                                                <div class="tab-pane active" id="login" role="tabpanel">
+                                                <form method="post"  action="{{ route('auth.login') }}" class="tab-pane active" id="login" role="tabpanel">
+                                                    @csrf
+
                                                     <h5 class="heading-design-h5">Se connecter</h5>
                                                     <fieldset class="form-group">
                                                         <label>Email</label>
-                                                        <input type="text" class="form-control" placeholder="mon@email.com">
+                                                        <input name="email" type="text" class="form-control" placeholder="mon@email.com">
                                                     </fieldset>
                                                     <fieldset class="form-group">
                                                         <label>Mot de passe</label>
-                                                        <input type="password" class="form-control" placeholder="********">
+                                                        <input name="password"  type="password" class="form-control" placeholder="********">
                                                     </fieldset>
                                                     <fieldset class="form-group">
                                                         <button type="submit" class="btn btn-lg btn-secondary btn-block">Se
@@ -38,40 +40,48 @@
                                                         </button>
                                                     </fieldset>
 
-                                                    <div class="custom-control custom-checkbox">
-                                                        <input type="checkbox" class="custom-control-input"
-                                                               id="customCheck1">
-                                                        <label class="custom-control-label" for="customCheck1">Remember
-                                                            me</label>
-                                                    </div>
-                                                </div>
-                                                <div class="tab-pane" id="register" role="tabpanel">
-                                                    <h5 class="heading-design-h5">S'inscrire maintenat !</h5>
+
+                                                </form>
+                                                <form action="{{ route('auth.register') }}" method="post" class="tab-pane" id="register" role="tabpanel">
+
+                                                    @csrf
+
+                                                    <h5 class="heading-design-h5">S'inscrire maintenant !</h5>
+
+                                                    <fieldset class="form-group">
+                                                        <input name="is_boutique" type="radio" class="" >
+                                                        <label>Je suis une boutique</label>
+                                                    </fieldset>
+                                                    <fieldset class="form-group">
+                                                        <label>Nom</label>
+                                                        <input name="name" type="text" class="form-control" >
+                                                    </fieldset>
                                                     <fieldset class="form-group">
                                                         <label>Email</label>
-                                                        <input type="text" class="form-control" placeholder="mon@email.com">
+                                                        <input name="email" type="text" class="form-control" placeholder="mon@email.com">
+                                                    </fieldset>
+                                                    <fieldset class="form-group">
+                                                        <label>Numero de téléphone</label>
+                                                        <input name="telephone" type="text" class="form-control" placeholder="070000000">
                                                     </fieldset>
                                                     <fieldset class="form-group">
                                                         <label>Mot de passe</label>
-                                                        <input type="password" class="form-control" placeholder="********">
+                                                        <input name="password" type="password" class="form-control" placeholder="********">
                                                     </fieldset>
                                                     <fieldset class="form-group">
                                                         <label>Confirmer le mot de passe</label>
-                                                        <input type="password" class="form-control" placeholder="********">
+                                                        <input name="confirm_password" type="password" class="form-control" placeholder="********">
                                                     </fieldset>
                                                     <fieldset class="form-group">
                                                         <button type="submit" class="btn btn-lg btn-secondary btn-block">
                                                             Créer mon compte
                                                         </button>
                                                     </fieldset>
-                                                    <div class="custom-control custom-checkbox">
-                                                        <input type="checkbox" class="custom-control-input"
-                                                               id="customCheck2">
-                                                        <label class="custom-control-label" for="customCheck2">I Agree with
-                                                            <a href="#">Term and Conditions</a></label>
-                                                    </div>
-                                                </div>
+
+                                                </form>
                                             </div>
+
+
                                             <div class="clearfix"></div>
                                             <div class="text-center login-footer-tab">
                                                 <ul class="nav nav-tabs" role="tablist">
@@ -96,17 +106,8 @@
             </div>
         </div>
 
-        <div class="modal fade " id="register">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <div class="login-modal">
 
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+
     @endguest
 
 
@@ -133,7 +134,7 @@
                 @endguest
 
                 @auth()
-                    <a href="#" class="ml-3 text-white mr-3"><i class="mdi mdi-logout"></i>Se déconnecter</a>
+                    <a href="{{ route('auth.logout') }}" class="ml-3 text-white mr-3"><i class="mdi mdi-logout"></i>Se déconnecter</a>
                 @endauth
             </div>
         </div>
