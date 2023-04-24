@@ -64,8 +64,20 @@ class OneProposition extends Page implements HasTable
                 ->columns(['md'=>2])
                 ->schema([
                     Select::make('produit_id')
+                        ->allowHtml()
                         ->label("Produit")
-                        ->options(Produit::query()->pluck('nom','id')),
+                        ->searchable()
+                        ->getSearchResultsUsing(function (string $search) {
+                            $produits = Produit::search($search)->get()->take(50);
+
+                            return $produits->mapWithKeys(function ($produit) {
+                                return [$produit->getKey() => static::getCleanProduitOptions($produit)];
+                            })->toArray();
+                        })
+                        ->getOptionLabelUsing(function ($value): string {
+                            $user = Produit::search($value);
+                            return static::getCleanProduitOptions($user);
+                        }),
                     TextInput::make('prix')->prefix('FCFA')
                 ])->columnSpan(2)
             ])
@@ -120,6 +132,17 @@ class OneProposition extends Page implements HasTable
                     ->suffix('FCFA')
             ])
         ];
+    }
+
+    public static function getCleanProduitOptions($model)
+    {
+        return
+            view('filament.components.select-produit')
+                ->with('name', $model?->nom)
+                ->with('unite', $model?->unite)
+                ->with('image', $model?->image()->path)
+                ->render()
+        ;
     }
 
 }
