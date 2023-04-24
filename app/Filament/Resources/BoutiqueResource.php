@@ -30,20 +30,32 @@ class BoutiqueResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('nom')->required(),
-                Forms\Components\Select::make('user_id')
-                    ->required()
-                    ->label("Gérant")
-                    ->options(
-                        User::role('GERANT_BOUTIQUE')->pluck('name','id')
-                    ),
+                Forms\Components\FileUpload::make('image')
+                    ->label("Logo")
+                    ->image(),
+
                 Forms\Components\TextInput::make('contact')
                     ->prefix('+225')
                     ->label("Contact 1")->required(),
                 Forms\Components\TextInput::make('contact2')
                     ->prefix('+225')
                     ->label("Contact 2"),
+
+                Forms\Components\TextInput::make('address')
+                    ->required()
+                    ->label("Adresse"),
+
+                Select::make('type')->options([
+                    'boutique'=>'Boutique',
+                    'grossiste' => 'Grossiste',
+                    'hyper-marche'=>'Hyper Marché',
+                    'super-marche'=>'Super Marché',
+                    'superette'=>'Superette',
+                ]),
+
                 Forms\Components\Select::make('ville')
                     ->reactive()
+                    ->required()
                     ->options( collect(config("app.villes"))->sort() ),
                 Select::make('quartier')
                     ->label("Commune")
@@ -65,11 +77,9 @@ class BoutiqueResource extends Resource
                     ->searchable()
                     ->visible(fn($get, $set) => $get('ville') == "ABIDJAN"),
 
-                Forms\Components\TextInput::make('email'),
+                Forms\Components\TextInput::make('email')->required(),
 
-                Forms\Components\FileUpload::make('image')
-                    ->label("Logo")
-                    ->image()->columnSpan(2),
+
 
                 OSMMap::make('coord')
                     ->label("Coordonnée")

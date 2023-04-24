@@ -95,6 +95,18 @@
                 </div>
             </div>
         </div>
+
+        <div class="modal fade " id="register">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="login-modal">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     @endguest
 
 
@@ -116,7 +128,7 @@
                 @guest()
                     <a href="#" data-target="#bd-example-modal" data-toggle="modal" class=" text-white ml-3 mr-3"><i
                             class="mdi mdi-lock"></i>Se connecter</a>
-                    <a href="#" data-target="#bd-example-modal" data-toggle="modal" class=" text-white"><i
+                    <a href="#register" data-target="#register" data-toggle="modal" class=" text-white"><i
                             class="mdi mdi-account-circle"></i> S'inscrire</a>
                 @endguest
 

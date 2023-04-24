@@ -29,6 +29,7 @@ class ManageBoutiques extends ManageRecords
                 unset($data['coord']);
                 $MODEL = static::getModel();
                 $boutique = new $MODEL($data);
+                $boutique->user_id = auth()->id();
                 $boutique->lat = $coord['lat'];
                 $boutique->lng = $coord['lng'];
                 $boutique->save();
