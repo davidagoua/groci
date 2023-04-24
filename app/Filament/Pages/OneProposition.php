@@ -58,7 +58,6 @@ class OneProposition extends Page implements HasTable
                 Select::make('boutique_id')
                     ->label("Boutique")
                     ->options($this->boutiques)
-                    ->visible(! auth()->user()->hasRole('GERANT_BOUTIQUE'))
                     ->columnSpan(2),
                 Repeater::make('produits')
                 ->columns(['md'=>2])

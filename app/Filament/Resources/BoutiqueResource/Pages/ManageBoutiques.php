@@ -14,7 +14,10 @@ class ManageBoutiques extends ManageRecords
 
     public function getTableQuery(): Builder
     {
-        return Boutique::query();
+        return Boutique::query()
+            ->when(auth()->user()->hasRole('GERANT_BOUTIQUE'), function(Builder $query){
+                return $query->where('user_id', auth()->id());
+            });
     }
 
 
