@@ -150,7 +150,7 @@
                                             }).addTo(map_{{ $prop->boutique->id }});
 
                                             let refreshMap_{{ $prop->id}} = ()=>{
-                                                alert('refresh')
+
                                                 setTimeout(()=>{
                                                     map_{{ $prop->boutique->id }}.invalidateSize();
                                                 }, 200)
