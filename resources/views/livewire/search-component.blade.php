@@ -57,12 +57,12 @@
                                             <label for="">Prix Maximum</label>
                                             <select class="form-control" name="prixmax" wire:model="prixmax" id="prixmax">
                                                 @if($prixmin < 500)<option value="500">500</option>@endif
-                                                @if($prixmin < 5000)<option value="5000">5000</option>@endif
-                                                @if($prixmin < 10000)<option value="10000">10000</option>@endif
-                                                @if($prixmin < 25000)<option value="25000">25000</option>@endif
-                                                @if($prixmin < 50000)<option value="50000">50000</option>@endif
-                                                @if($prixmin < 100000)<option value="100000">100000</option>@endif
-                                                @if($prixmin < 1000000 )<option value="1000000">1000000</option>@endif
+
+                                                @for($p = 5; $p <= 10; $p+2)
+
+                                                    @if($prixmin < $p)<option value="{{$p}}">{{$p}}</option>@endif
+                                                @endfor
+
                                             </select>
                                         </div>
                                     </div>
