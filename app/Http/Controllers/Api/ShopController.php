@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\ProduitResource;
 use App\Models\Boutique;
 use App\Models\Categorie;
 use App\Models\Produit;
@@ -31,7 +32,8 @@ class ShopController extends Controller
         }
 
         return $this->respondWithSuccess([
-            'produits'=> $produits->get()
+            'produits'=> ProduitResource::collection($produits->get())
+
         ]);
     }
 
