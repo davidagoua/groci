@@ -7,6 +7,7 @@ use App\Http\Resources\ProduitResource;
 use App\Models\Boutique;
 use App\Models\Categorie;
 use App\Models\Produit;
+use App\Models\Proposition;
 use F9Web\ApiResponseHelpers;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
@@ -39,8 +40,11 @@ class ShopController extends Controller
 
     public function getPropositions(Request $request, Produit $produit)
     {
+        $propositions = Proposition::query()
+            ->where('produit_id', $produit->id);
+
         return $this->respondWithSuccess([
-            'propositions'=> $produit->propositions
+            'propositions'=> ProduitResource::collection($propositions->get())
         ]);
     }
 

@@ -4,6 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
+use App\Models\Produit;
 
 class ProduitResource extends JsonResource
 {
@@ -19,7 +20,7 @@ class ProduitResource extends JsonResource
 			"created_at"=> $this->created_at  ,
 			"updated_at"=> $this->updated_at  ,
 			"categorie_id"=> $this->categorie_id ,
-			"categorie"=> $this->categorie->name ,
+			"categorie"=> $this->categorie->name ?? '' ,
 			"marque_id"=> $this->marque_id  ,
 			"fournisseur_id"=> $this->fournisseur_id  ,
 			"prix"=> $this->prix  ,
@@ -28,7 +29,8 @@ class ProduitResource extends JsonResource
 			"stock"=> $this->stock  ,
 			"description"=> $this->description ,
 			"unite"=> $this->unite ,
-			"is_actif"=> $this->is_actif
+			"is_actif"=> $this->is_actif,
+            "image"=> asset('storage/'.Produit::query()->firstOrFail('id',$this->id)->image()->path)
         ];
     }
 }
