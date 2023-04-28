@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\ProduitResource;
+use App\Http\Resources\PropositionResource;
 use App\Models\Boutique;
 use App\Models\Categorie;
 use App\Models\Produit;
@@ -44,7 +45,7 @@ class ShopController extends Controller
             ->where('produit_id', $produit->id);
 
         return $this->respondWithSuccess([
-            'propositions'=> ProduitResource::collection($propositions->get())
+            'propositions'=> PropositionResource::collection($propositions->get())
         ]);
     }
 
