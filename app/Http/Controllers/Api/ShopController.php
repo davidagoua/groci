@@ -40,7 +40,7 @@ class ShopController extends Controller
     public function getPropositions(Request $request, Produit $produit)
     {
         return $this->respondWithSuccess([
-            'produits'=> $produit->propositions
+            'propositions'=> $produit->propositions
         ]);
     }
 
