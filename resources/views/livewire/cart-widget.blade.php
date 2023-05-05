@@ -1,6 +1,6 @@
 <div>
-    <li class="list-inline-item cart-btn">
-        <a href="#" data-toggle="offcanvas" class="btn btn-link border-none"><i class="mdi mdi-cart"></i> Panier <small class="cart-value">{{ $panier_count }}</small></a>
+    <li class="list-inline-item ">
+        <a href="#" data-toggle="offcanvas" class="btn btn-link border-none"> <img src="{{ asset('nimages/panier.png') }}" alt=""></a>
     </li>
     <div>
         <div class="cart-sidebar">

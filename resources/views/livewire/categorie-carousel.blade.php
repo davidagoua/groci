@@ -9,8 +9,7 @@
                             <div class="item">
                                 <div class="category-item">
                                     <a href="{{ route('front.shop.search') }}?cats[0]={{ $item->id }}">
-                                        <img class="img-fluid" src="{{ asset('/storage/'.$item->image) }}" alt="">
-                                        <h6>{{ $item->name }}</h6>
+
                                         <p>{{ $item->produits->count() }} Produits</p>
                                     </a>
                                 </div>

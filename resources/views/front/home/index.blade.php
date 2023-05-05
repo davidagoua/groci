@@ -2,87 +2,103 @@
 
 @section('content')
 
-    <livewire:top-carousel/>
-
-    <livewire:categorie-carousel/>
-
-    <section class="product-items-slider section-padding">
-        <div class="container">
-            <div class="section-header">
-                <h5 class="heading-design-h5">Top 6 des produits les plus vendus
-                    <a class="float-right text-secondary" href="{{ route('front.shop.search') }}">Voir Tout</a>
-                </h5>
+    <section>
+        <div class="row">
+            <div class="col-md-1" style="background-image: url({{ asset('nimages/rect1.png') }})">
+                <img src="" alt="">
             </div>
-            <div class=" owl-theme" style="opacity: 1; display: block;">
-                <div class="owl-wrapper-outer">
-                    <div class="row" >
-
-                        @foreach($produits->shuffle()->take(6) as $produit)
-                            <div class="col-md-2 ">
-                                <livewire:produit-card :produit="$produit"/>
+            <div class="col p-4" style="background-image: url({{ asset('nimages/rect2.png') }})">
+                <div class="row">
+                    @foreach($categories as $categorie)
+                    <div class="col-md-3">
+                        <div class="p-3 bg-white text-center">
+                            <img class="img-fluid" src="{{ asset('/storage/'.$categorie->image) }}" alt="">
+                            <div>
+                                <h6 class="p-3">{{ $categorie->name }}</h6>
                             </div>
-                        @endforeach
+                        </div>
                     </div>
+                    @endforeach
                 </div>
             </div>
-            <div class="d-flex mt-2 justify-content-center">
-                <img src="{{ asset('/images/1.jpg') }}" alt="">
-                <img src="{{ asset('/images/2.jpg') }}" alt="">
+            <div class="col-md-1" style="background-image: url({{ asset('nimages/rect.png') }})">
+                <img src="" alt="">
+            </div>
+
+        </div>
+    </section>
+
+    <section>
+        <img src="{{ asset('nimages/IMAGE.png') }}" alt="">
+    </section>
+
+    <section class="py-3" style="background-image: url({{ asset('nimages/rect2.png') }}); background-color: #eee">
+        <div class="container">
+            <div class="font-weight-bold">
+                <h3 class="font-weight-bold">Produits de saison</h3>
+                <h5>
+                    Nos produits de saison sont disponibles, <br>
+                    Ils sont moins chers
+                </h5>
+                <div class="rounded embed-responsive">
+                    <video style="height: 300px; width: 80%" autoplay>
+                        <source  src="{{ asset('nimages/video.mp4') }}" type="video/mp4">
+                    </video>
+                </div>
+                <div class="row">
+                    @foreach($produits as $produit)
+                        <div class="col-4 mt-3">
+                            <livewire:produit-card :produit="$produit" />
+                        </div>
+                    @endforeach
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="product-items-slider section-padding">
+    <section>
         <div class="container">
-            <div class="section-header">
-                <h5 class="heading-design-h5">Top 6 des produits les plus recents
-                    <a class="float-right text-secondary" href="{{ route('front.shop.search') }}">Voir Tout</a>
-                </h5>
-            </div>
-            <div class=" owl-theme" style="opacity: 1; display: block;">
-                <div class="owl-wrapper-outer">
-                    <div class="row" >
-
-
-                        @foreach($produits->shuffle()->take(6) as $produit)
-                            <div class="col-md-2 ">
-                                <livewire:produit-card :produit="$produit"/>
-                            </div>
-                        @endforeach
-                    </div>
+            <div class="row py-5">
+                <div class="col">
+                    <img src="{{ asset('nimages/auchan.png') }}" alt="">
                 </div>
-            </div>
-            <div class="d-flex mt-2 justify-content-center">
-                <img src="{{ asset('/images/1.jpg') }}" alt="">
-                <img src="{{ asset('/images/2.jpg') }}" alt="">
+                <div class="col">
+                    <img src="{{ asset('nimages/ocofrais.png') }}" alt="">
+                </div>
+                <div class="col">
+                    <img src="{{ asset('nimages/sococe.png') }}" alt="">
+                </div>
+                <div class="col">
+                    <img src="{{ asset('nimages/bonprix.png') }}" alt="">
+                </div>
+                <div class="col">
+                    <img src="{{ asset('nimages/carrefour.png') }}" alt="">
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="product-items-slider section-padding">
-        <div class="container">
-            <div class="section-header">
-                <h5 class="heading-design-h5">Top 6 des produits les mieux notés
-                    <a class="float-right text-secondary" href="{{ route('front.shop.search') }}">Voir Tout</a>
-                </h5>
-            </div>
-            <div class=" owl-theme" style="opacity: 1; display: block;">
-                <div class="owl-wrapper-outer">
-                    <div class="row" >
+    <section>
+        <img src="{{ asset('nimages/banner.png') }}" alt="">
+    </section>
 
-
-                        @foreach($produits->shuffle()->take(6) as $produit)
-                            <div class="col-md-2 mb-2 ">
-                                <livewire:produit-card :produit="$produit"/>
-                            </div>
-                        @endforeach
+    <section class="text-center bg-ownred" style="background-image: url({{ asset('nimages/rect2.png') }}); background-color: ">
+        <div class=" p-5">
+            <h4 class="text-white">NEWSLETTER</h4>
+            <h4>Pour rester informé des promotions et de nos produits</h4>
+            <div>
+                <form action="">
+                    <div class="d-flex justify-content-center">
+                        <input type="email" class="p-3 rounded-0 w-25 border-0" >
+                        <button class="btn px-5 ml-2 rounded-0 rounded-0 tewt-white" style="background-color: black; color: white !important;">ENVOYEZ</button>
                     </div>
-                </div>
-            </div>
-            <div class="d-flex mt-2 justify-content-center">
-                <img src="{{ asset('/images/1.jpg') }}" alt="">
-                <img src="{{ asset('/images/2.jpg') }}" alt="">
+                </form>
             </div>
         </div>
     </section>
+
+    <section class="text-center p-2">
+        <img src="{{ asset('nimages/group.png') }}" alt="">
+    </section>
+
 @endsection

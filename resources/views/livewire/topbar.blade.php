@@ -105,37 +105,66 @@
                 </div>
             </div>
         </div>
-
-
-
     @endguest
 
 
-    <div class=" px-5 bg-verde d-flex justify-content-between">
+    <div class=" px-5 bg-ownred p-3 d-flex justify-content-center">
         <div>
-        </div>
-        <div>
-            <div class="">
-                <a href="#" class=" text-white"><i aria-hidden="true" class="mdi mdi-map-marker-circle"></i>{{ $localite }} </a>
 
-                <select wire:model="localite" wire:change="updateLocalite" id="ville" name="ville">
-                    <option value="Tous">Tous</option>
+        </div>
+
+    </div>
+    <div class="shadow" >
+        <div class="container d-flex justify-content-between p-2  align-items-center">
+            <div>
+                <img src="{{ asset('nimages/logo.png') }}" alt="">
+            </div>
+            <div>
+                <div class="">
+                    @if(false)
+                        <a href="#" class=" text-white"><i aria-hidden="true" class="mdi mdi-map-marker-circle"></i>{{ $localite }} </a>
+
+                    @endif
+                    @guest()
+                        <div class="d-flex align-items-center">
+                            <a href="#register" data-target="#bd-example-modal" data-toggle="modal" class=" text-black">
+                                <h5>Inscription</h5>
+                            </a>
+                            <a href="#" data-target="#bd-example-modal" style="color: white !important" data-toggle="modal" class="btn rounded-0  bg-ownred text-white ml-3 mr-3">
+                                <h5 style="color: white !important;">Connexion</h5>
+                            </a>
+                            <div>|</div>
+                            <div>
+                                <livewire:cart-widget/>
+                            </div>
+                        </div>
+                    @endguest
+
+                    @auth()
+                        <a href="{{ route('auth.logout') }}" class="ml-3 text-white mr-3"><h5>Se déconnecter</h5></a>
+                    @endauth
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="text-center text-white bg-dark px-2" style="padding: 110px 0px">
+        <h5 class="text-white">ECOMMERCE & COMPARATEUR DE PRIX </h5>
+        <h1 class="text-white">C'EST MOINS CHERE</h1>
+        <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, officia!</span>
+        <div class="row mt-4">
+
+            <div class="col-12 offset-md-2 col-md-4">
+                <livewire:topsearch/>
+            </div>
+            <div class="col-12  col-md-4">
+                <select wire:model="localite" style="color: black" class="form-control p-4 border-0 rounded-0" wire:change="updateLocalite" id="ville" name="ville">
+                    <option value="Tous" selected>Toutes les villes</option>
                     @foreach(
                     $villes as $ville
                     )
                         <option value="{{ $ville }}">{{ $ville }}</option>
                     @endforeach
                 </select>
-                @guest()
-                    <a href="#" data-target="#bd-example-modal" data-toggle="modal" class=" text-white ml-3 mr-3"><i
-                            class="mdi mdi-lock"></i>Se connecter</a>
-                    <a href="#register" data-target="#bd-example-modal" data-toggle="modal" class=" text-white"><i
-                            class="mdi mdi-account-circle"></i> S'inscrire</a>
-                @endguest
-
-                @auth()
-                    <a href="{{ route('auth.logout') }}" class="ml-3 text-white mr-3"><i class="mdi mdi-logout"></i>Se déconnecter</a>
-                @endauth
             </div>
         </div>
     </div>

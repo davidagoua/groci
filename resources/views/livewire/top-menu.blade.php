@@ -1,21 +1,29 @@
 <div>
 
     <div>
-        <nav class="navbar navbar-expand-lg navbar-light osahan-menu-2 pad-none-mobile">
-            <div class="container-fluid">
-                <div class="collapse navbar-collapse" id="navbarText">
-                    <ul class="navbar-nav mr-auto mt-2 mt-lg-0 margin-auto">
-                        <li class="nav-item">
-                            <a href="{{ route('front.home') }}" class="nav-link">Acceuil</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('front.shop.search') }}" class="nav-link">Selection par budget</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('front.contact') }}">Contact</a>
-                        </li>
-                    </ul>
+        <nav class="navbar navbar-expand-lg navbar-light p-0 osahan-menu-2 pad-none-mobile">
+            <div class="container-fluid p-0">
+                <div class="collapse p-0 navbar-collapse" id="navbarText">
+                    <div class="row align-content-stretch mr-auto p-0 mt-lg-0 margin-auto">
+                        <div class="nav-item  col-4 rounded-0 ">
+                            <a style="font-size: 1.6em;" href="{{ route('front.home') }}"  class="bg-ownred h-100 @if( request()->path() != '/') opacity-50 @endif d-flex rounded-0 py-3 align-items-center text-white btn  ">
+                                <span class="mdi mdi-home"></span>&nbsp;&nbsp;
+                                <span>Acceuil</span>
+                            </a>
+                        </div>
+                        <div class="nav-item  col-4 rounded-0 ">
+                            <a style="font-size: 1.6em;" href="{{ route('front.shop.search') }}"  class="bg-ownred h-100 @if( request()->path() != '/search') opacity-50 @endif d-flex rounded-0 py-3 align-items-center text-white btn  ">
+                                <span class="mdi mdi-basket"></span>&nbsp;&nbsp;
+                                <span>Selection par budget</span>
+                            </a>
+                        </div>
+                        <div class="nav-item  col-4 rounded-0 ">
+                            <a style="font-size: 1.6em;" href="{{ route('front.contact') }}"  class="bg-ownred h-100 @if( request()->path() != '/contact') opacity-50 @endif d-flex rounded-0 py-3 align-items-center text-white btn  ">
+                                <span class="mdi mdi-comment-question"></span>&nbsp;&nbsp;
+                                <span>Contact</span>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </nav>

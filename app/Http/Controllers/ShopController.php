@@ -12,7 +12,6 @@ class ShopController extends Controller
     public function search(Request $request)
     {
 
-
         return view("front.shop.search");
     }
 
@@ -36,5 +35,10 @@ class ShopController extends Controller
     {
         session('ville', $ville);
         return back();
+    }
+
+    public function produit_matching()
+    {
+        return view('front.shop.produit_matching');
     }
 }

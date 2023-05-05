@@ -6,6 +6,7 @@ use App\Models\Boutique;
 use App\Models\Categorie;
 use App\Models\Produit;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\Cache;
 use Livewire\Component;
 use Livewire\WithPagination;
 use function PHPUnit\Framework\isEmpty;
@@ -25,7 +26,7 @@ class SearchComponent extends Component
 
 
     public function mount(){
-        $this->boutiques = Boutique::query()->get();
+        $this->boutiques = Cache::remember('all_boutiques', 3600, fn() => Boutique::query()->get());
         $this->categories = Categorie::query()->enfant()->get();
     }
 
