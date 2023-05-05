@@ -4,15 +4,15 @@
 
     <section>
         <div class="row">
-            <div class="col-md-1" style="background-image: url({{ asset('nimages/rect1.png') }})">
-                <img src="" alt="">
+            <div class="col-md-1" style="background-image: url({{ asset('nimages/rect1.png') }}); background-repeat: no-repeat; background-size: cover">
+
             </div>
             <div class="col p-4" style="background-image: url({{ asset('nimages/rect2.png') }})">
                 <div class="row">
                     @foreach($categories as $categorie)
                     <div class="col-md-3">
                         <div class="p-3 bg-white text-center">
-                            <img class="img-fluid" src="{{ asset('/storage/'.$categorie->image) }}" alt="">
+                            <img class="img-fluid"  style="height: 150px" src="{{ asset('/storage/'.$categorie->image) }}" alt="">
                             <div>
                                 <h6 class="p-3">{{ $categorie->name }}</h6>
                             </div>
@@ -21,8 +21,8 @@
                     @endforeach
                 </div>
             </div>
-            <div class="col-md-1" style="background-image: url({{ asset('nimages/rect.png') }})">
-                <img src="" alt="">
+            <div class="col-md-1" style="background-image: url({{ asset('nimages/rect.png') }}); ; background-repeat: no-repeat">
+
             </div>
 
         </div>
