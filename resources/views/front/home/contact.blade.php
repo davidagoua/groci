@@ -1,6 +1,11 @@
 @extends('front.base')
 
 @section('content')
+
+    <livewire:another-top-bar/>
+
+
+
     <section class="section-padding">
         <div class="container">
             <div class="row">

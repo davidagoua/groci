@@ -14,14 +14,14 @@
             <div class="col p-4" style="background-image: url({{ asset('nimages/rect2.png') }})">
                 <div class="row">
                     @foreach($categories as $categorie)
-                    <div class="col-md-3">
+                    <a href="{{ route('front.shop.search') }}?cats[0]={{ $categorie->id }}" class="col-md-3 d-block">
                         <div class="p-3 bg-white text-center">
                             <img class="img-fluid"  style="height: 150px" src="{{ asset('/storage/'.$categorie->image) }}" alt="">
                             <div>
                                 <h6 class="p-3">{{ $categorie->name }}</h6>
                             </div>
                         </div>
-                    </div>
+                    </a>
                     @endforeach
                 </div>
             </div>
@@ -101,8 +101,6 @@
         </div>
     </section>
 
-    <section class="text-center p-2">
-        <img src="{{ asset('nimages/group.png') }}" alt="">
-    </section>
+
 
 @endsection

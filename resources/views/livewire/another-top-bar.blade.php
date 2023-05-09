@@ -128,19 +128,19 @@
                     @guest()
                         <div class="d-flex justify-content-between align-items-center">
                             <a href="{{ route('front.home') }}"  class=" text-black">
-                                <h5>Acceuil</h5>
+                                <h6>Acceuil</h6>
                             </a>
                             <a href="{{ route('front.shop.search') }}"  class=" text-black">
-                                <h5>Selection par budget</h5>
+                                <h6>Selection par budget</h6>
                             </a>
                             <a href="{{ route('front.contact') }}" class=" text-black">
-                                <h5>Contact</h5>
+                                <h6>Contact</h6>
                             </a>
                             <a href="#register" data-target="#bd-example-modal" data-toggle="modal" class=" text-black">
-                                <h5>Inscription</h5>
+                                <h6>Inscription</h6>
                             </a>
                             <a href="#" data-target="#bd-example-modal" style="color: white !important" data-toggle="modal" class="btn rounded-0  bg-ownred text-white ml-3 mr-3">
-                                <h5 style="color: white !important;">Connexion</h5>
+                                <h6 style="color: white !important;">Connexion</h6>
                             </a>
                             <div>|</div>
                             <div>
@@ -156,7 +156,7 @@
             </div>
         </div>
     </div>
-    <div class="p-5" style="background-image: url({{ asset('nimages/car1.png') }})">
+    <div class="p-5" style="background-image: url({{ asset('nimages/banner2.png') }}); background-size: cover; background-repeat: no-repeat">
         <p class="m-4">&nbsp;</p>
         <p class="m-4">&nbsp;</p>
     </div>

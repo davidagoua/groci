@@ -14,8 +14,6 @@
 
     <link href="/front/vendor/icons/css/materialdesignicons.min.css" media="all" rel="stylesheet" type="text/css"/>
 
-    <link href="/front/vendor/select2/css/select2-bootstrap.css"/>
-    <link href="/front/vendor/select2/css/select2.min.css" rel="stylesheet"/>
 
     <link href="/front/css/osahan.css" rel="stylesheet">
 
@@ -60,6 +58,10 @@
 
 
 @include('front.parts.footer')
+
+<section class="text-center p-2">
+    <img src="{{ asset('nimages/group.png') }}" alt="">
+</section>
 
 @if(true)
     <section style="background-color: black" class=" text-white" >
@@ -121,18 +123,11 @@
 
 
 </script>
-<script src="/front/vendor/select2/js/select2.min.js" type="text/javascript"></script>
 
 <script src="/front/vendor/owl-carousel/owl.carousel.js" type="text/javascript"></script>
 
 <script src="/front/js/custom.js" type="text/javascript"></script>
 
-<script src="/front/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js"
-        data-cf-settings="fb3ffff9a2f2592259cfd08d-|49" defer=""></script>
-<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vaafb692b2aea4879b33c060e79fe94621666317369993"
-        integrity="sha512-0ahDYl866UMhKuYcW078ScMalXqtFJggm7TmlUtp0UlD4eQk0Ixfnm5ykXKvGJNFjLMoortdseTfsRT8oCfgGA=="
-        data-cf-beacon='{"rayId":"7a8486894add2a2c","version":"2023.2.0","r":1,"token":"dd471ab1978346bbb991feaa79e6ce5c","si":100}'
-        crossorigin="anonymous"></script>
 
 
 @livewireScripts

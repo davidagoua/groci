@@ -116,9 +116,9 @@
     </div>
     <div class="shadow" >
         <div class="container d-flex justify-content-between p-2  align-items-center">
-            <div>
+            <a href="/">
                 <img src="{{ asset('nimages/logo.png') }}" alt="">
-            </div>
+            </a>
             <div>
                 <div class="">
                     @if(false)
