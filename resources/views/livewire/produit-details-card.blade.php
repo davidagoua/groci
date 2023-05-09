@@ -1,4 +1,4 @@
-<div>
+<div style="background-color: #F4F4F4">
 
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
           integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
@@ -14,17 +14,13 @@
             integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
             crossorigin=""></script>
 
-    <section class="shop-single section-padding pt-3">
+    <section class="shop-single section-padding pt-3" style="background-image: url({{ asset('nimages/rect2.png') }});">
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <span class="badge badge-primary">{{ $produit->categorie->name }}</span>
-                            <h2>{{ $produit->nom }}</h2>
-                            <h4>{{ $produit->unite }}</h4>
-                        </div>
-                    </div>
+                    <span class="badge badge-primary">{{ $produit->categorie->name }}</span>
+                    <h2>{{ $produit->nom }}</h2>
+
                     <div class="card mt-2">
                         <div class="card-body">
                             <img src="{{ asset('/storage/'. $produit->image()->path )}}" alt="">
@@ -36,57 +32,36 @@
                     @foreach($produit->propositions as $prop)
 
                         <div class="card mb-2">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-md-3 text-center">
+                            <div class="card-body p-1">
+                                <div class="row align-items-center">
+                                    <div class="col-md-2 text-center">
                                         <div>
                                             <img height="75" width="75" src="{{ asset('/storage/'. $prop->boutique->image) }}" alt="{{ $prop->boutique->nom }}">
                                         </div>
 
                                     </div>
-                                    <div class="col-md-5">
-                                        <div class="text-success font-weight-bold">
-                                            <span>Prix: </span><span>{{ $prop->prix }} FCFA</span>
-                                        </div>
-                                        <div class="">
-                                            <b>Contact:</b><span>{{ $prop->boutique->contact }}</span>
-                                        </div>
-                                        <div class="">
-                                            <b>Nom:</b><span>{{ $prop->boutique->nom }}</span>
-                                        </div>
-                                        <div class="">
-                                            <b>Email:</b><span>{{ $prop->boutique->email }}</span>
-                                        </div>
-
-                                    </div>
                                     <div class="col-md-4">
-                                        Disponibilité:
+                                        <h6 class="mb-0">
+                                            <span class="font-weight-light">Prix/</span><span class="text-danger font-weight-bold">{{ $prop->prix }} FCFA/{{ $prop->produit->unite }}</span>
+                                        </h6>
+                                    </div>
+                                    <div class="col-md-2">
                                         @if($prop->is_actif)
-                                            <span class="bg-warning badge">En stock</span>
+                                            <span class="text-success">En stock</span>
                                         @else
-                                            <span class="bg-danger text-white badge">Epuisé</span>
+                                            <span class="text-danger">Indisponible</span>
                                         @endif
                                     </div>
-                                </div>
-                                <div class="row mt-2">
-                                    <div class="col-md-4 col-6">
-                                        <div class="d-flex justify-content-around ">
-                                            <a href="{{ route('front.shop.add_cart', ['proposition'=> $prop]) }}" class="btn btn-sm btn-warning">
-                                                <span class="mdi mdi-cart-plus"></span>
-                                                <span>Acheter</span>
-                                            </a>
-                                            <a href="#modal-info-{{ $prop->id }}" data-toggle="modal" class="btn btn-sm btn-primary">
-                                                <span class="mdi mdi-information"></span>
-                                                <span>Info</span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="col text-right">
-                                        <a
-                                            onclick="refreshMap_{{ $prop->id }}()"
-                                            href="#modal-localiser-{{ $prop->id }}" data-toggle="modal" class="btn-primary  btn btn-sm">
-                                            <span class="mdi mdi-map-marker"></span>
-                                            <span>Localiser</span>
+                                    <div class="col-md-4">
+                                        <a href="{{ route('front.shop.add_cart', ['proposition'=> $prop]) }}" class="btn " style="background-color: #F4F4F4">
+                                            <span style="font-size: 1.8em" class="mdi text-warning mdi-basket"></span>
+                                        </a>
+                                        <a href="#modal-info-{{ $prop->id }}" data-toggle="modal" class="btn " style="background-color: #F4F4F4">
+                                            <span style="font-size: 1.8em" class="mdi text-success mdi-phone"></span>
+                                        </a>
+                                        <a onclick="refreshMap_{{ $prop->id }}()"
+                                           href="#modal-localiser-{{ $prop->id }}" data-toggle="modal" class="btn " style="background-color: #F4F4F4">
+                                            <span style="font-size: 1.8em" class="mdi text-danger mdi-map-marker"></span>
                                         </a>
                                     </div>
                                 </div>
@@ -170,10 +145,11 @@
 
     <section class="product-items-slider section-padding">
         <div class="container">
-            <div class="section-header">
-                <h5 class="heading-design-h5">Vous pourriez aimer aussi ces produits
+            <div class="section-header d-flex justify-content-between align-items-center">
+                <h5 class="heading-design-h5">Autres produits
                     <a class="float-right text-secondary" href="{{ route('front.shop.search') }}">Voir Tout</a>
                 </h5>
+
             </div>
             <div class=" owl-theme" style="opacity: 1; display: block;">
                 <div class="owl-wrapper-outer">
@@ -187,6 +163,47 @@
                         @endforeach
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section class=" bg-white">
+        <div class="container">
+            <div class="row py-5">
+                <div class="col">
+                    <img src="{{ asset('nimages/auchan.png') }}" alt="">
+                </div>
+                <div class="col">
+                    <img src="{{ asset('nimages/ocofrais.png') }}" alt="">
+                </div>
+                <div class="col">
+                    <img src="{{ asset('nimages/sococe.png') }}" alt="">
+                </div>
+                <div class="col">
+                    <img src="{{ asset('nimages/bonprix.png') }}" alt="">
+                </div>
+                <div class="col">
+                    <img src="{{ asset('nimages/carrefour.png') }}" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <img src="{{ asset('nimages/banner.png') }}" alt="">
+    </section>
+
+    <section class="text-center p-3 bg-ownred" style="background-image: url({{ asset('nimages/rect2.png') }}); background-color: ">
+        <div class=" p-5">
+            <h4 class="text-white">NEWSLETTER</h4>
+            <h4 style="color: black">Pour rester informé des promotions et de nos produits</h4>
+            <div class="mt-4">
+                <form action="">
+                    <div class="d-flex justify-content-center">
+                        <input type="email" class="p-3 rounded-0 w-25 border-0" >
+                        <button class="btn px-5 ml-2 rounded-0 rounded-0 tewt-white" style="background-color: black; color: white !important;">ENVOYEZ</button>
+                    </div>
+                </form>
             </div>
         </div>
     </section>

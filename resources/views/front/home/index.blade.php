@@ -36,7 +36,7 @@
         <img src="{{ asset('nimages/IMAGE.png') }}" alt="">
     </section>
 
-    <section class="py-3" style="background-image: url({{ asset('nimages/rect2.png') }}); background-color: #eee">
+    <section class="py-3" style="background-image: url({{ asset('nimages/rect2.png') }}); background-color: # bg-white">
         <div class="container">
             <div class="font-weight-bold">
                 <h3 class="font-weight-bold">Produits de saison</h3>
