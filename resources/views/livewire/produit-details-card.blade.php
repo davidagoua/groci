@@ -162,7 +162,7 @@
 
 
                         @foreach($related_produits as $produit)
-                            <div class="col-md-2 ">
+                            <div class="col-md-3 ">
                                 <livewire:produit-card :produit="$produit"/>
                             </div>
                         @endforeach
