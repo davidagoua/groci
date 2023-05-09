@@ -119,14 +119,23 @@
             <div>
                 <img src="{{ asset('nimages/logo.png') }}" alt="">
             </div>
-            <div>
+            <div class="flex-grow-1 ml-5">
                 <div class="">
                     @if(false)
                         <a href="#" class=" text-white"><i aria-hidden="true" class="mdi mdi-map-marker-circle"></i>{{ $localite }} </a>
 
                     @endif
                     @guest()
-                        <div class="d-flex align-items-center">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <a href="{{ route('front.home') }}"  class=" text-black">
+                                <h5>Acceuil</h5>
+                            </a>
+                            <a href="{{ route('front.shop.search') }}"  class=" text-black">
+                                <h5>Selection par budget</h5>
+                            </a>
+                            <a href="{{ route('front.contact') }}" class=" text-black">
+                                <h5>Contact</h5>
+                            </a>
                             <a href="#register" data-target="#bd-example-modal" data-toggle="modal" class=" text-black">
                                 <h5>Inscription</h5>
                             </a>
@@ -147,27 +156,9 @@
             </div>
         </div>
     </div>
-    <div class="text-center text-white bg-dark px-2"
-         style="padding: 110px 0px; background-image: url({{ asset('/nimages/car1.png') }}); background-size: cover; background-repeat: no-repeat; backdrop-filter: contrast(50%)"
-    >
-        <h5 class="text-white">ECOMMERCE & COMPARATEUR DE PRIX </h5>
-        <h1 class="text-white">C'EST MOINS CHERE</h1>
-        <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, officia!</span>
-        <div class="row mt-4">
-
-            <div class="col-12 offset-md-2 col-md-4">
-                <livewire:topsearch/>
-            </div>
-            <div class="col-12  col-md-4">
-                <select wire:model="localite" style="color: black" class="form-control p-4 border-0 rounded-0" wire:change="updateLocalite" id="ville" name="ville">
-                    <option value="Tous" selected>Toutes les villes</option>
-                    @foreach(
-                    $villes as $ville
-                    )
-                        <option value="{{ $ville }}">{{ $ville }}</option>
-                    @endforeach
-                </select>
-            </div>
-        </div>
+    <div class="p-5" style="background-image: url({{ asset('nimages/car1.png') }})">
+        <p class="m-4">&nbsp;</p>
+        <p class="m-4">&nbsp;</p>
     </div>
 </div>
+

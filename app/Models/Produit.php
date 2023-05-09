@@ -69,4 +69,8 @@ class Produit extends Model implements HasMedia
         return 'produits_index';
     }
 
+    public function scopeFilter($query, $filter, $filters)
+    {
+        return $filter->apply($query, $filters);
+    }
 }

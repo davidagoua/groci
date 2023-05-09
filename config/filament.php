@@ -316,6 +316,7 @@ return [
     'middleware' => [
         'auth' => [
             Authenticate::class,
+            \App\Http\Middleware\EnsureIsActif::class
         ],
         'base' => [
             EncryptCookies::class,

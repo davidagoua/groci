@@ -2,6 +2,10 @@
 
 @section('content')
 
+    <livewire:topbar/>
+
+    <livewire:top-menu/>
+
     <section>
         <div class="row">
             <div class="col-md-1" style="background-image: url({{ asset('nimages/rect1.png') }}); background-repeat: no-repeat; background-size: cover">
@@ -40,8 +44,8 @@
                     Nos produits de saison sont disponibles, <br>
                     Ils sont moins chers
                 </h5>
-                <div class="rounded embed-responsive">
-                    <video style="height: 300px; width: 80%" autoplay>
+                <div class="rounded mt-3 embed-responsive" style="height: 450px; width: 100%">
+                    <video class="embed-responsive-item" class="w-100"  autoplay>
                         <source  src="{{ asset('nimages/video.mp4') }}" type="video/mp4">
                     </video>
                 </div>
@@ -82,11 +86,11 @@
         <img src="{{ asset('nimages/banner.png') }}" alt="">
     </section>
 
-    <section class="text-center bg-ownred" style="background-image: url({{ asset('nimages/rect2.png') }}); background-color: ">
+    <section class="text-center p-3 bg-ownred" style="background-image: url({{ asset('nimages/rect2.png') }}); background-color: ">
         <div class=" p-5">
             <h4 class="text-white">NEWSLETTER</h4>
-            <h4>Pour rester informé des promotions et de nos produits</h4>
-            <div>
+            <h4 style="color: black">Pour rester informé des promotions et de nos produits</h4>
+            <div class="mt-4">
                 <form action="">
                     <div class="d-flex justify-content-center">
                         <input type="email" class="p-3 rounded-0 w-25 border-0" >

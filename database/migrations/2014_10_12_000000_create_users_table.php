@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('telephone')->nullable();
             $table->string('first_name')->nullable();
             $table->string('last_name')->nullable();
-            $table->boolean('is_actif')->default(true);
+            $table->boolean('is_actif')->default(false);
             $table->rememberToken();
             $table->timestamps();
         });

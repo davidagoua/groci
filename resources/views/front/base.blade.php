@@ -54,9 +54,7 @@
     @stack('css')
 </head>
 <body>
-    <livewire:topbar/>
 
-<livewire:top-menu/>
 
 @yield('content')
 

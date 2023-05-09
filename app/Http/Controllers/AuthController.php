@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Actions\SendSms;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -42,8 +43,11 @@ class AuthController extends Controller
 
         $user->name = $data['name'];
         $user->email = $data['email'];
+        $user->telephone = $data['telephone'];
         $user->password = Hash::make($data['password']) ;
+        $user->is_actif = false;
         $user->save();
+        $user->generateCode();
 
         auth()->login($user);
         if($user->hasRole('GERANT_BOUTIQUE')){

@@ -9,6 +9,9 @@
 @endpush
 
 @section('content')
+
+    <livewire:another-top-bar/>
+
     <livewire:produit-details-card :produit="$produit"/>
 
 @endsection

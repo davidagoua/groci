@@ -1,8 +1,9 @@
 <div>
-    <section class="shop-list section-padding">
-        <div class="container">
+    <section class="shop-list section-padding" style="background-color: #efefef">
+        <div class="container-fluid">
             <div class="row">
-                <div class="col-md-3">
+
+                <div class="col-md-2">
                     <div class="shop-filters">
                         <div id="accordion">
                             <div class="card">
@@ -27,6 +28,7 @@
                                     </div>
                                 </div>
                             </div>
+                            @if(false)
                             <div class="card">
                                 <div class="card-header" id="headingTwo">
                                     <h5 class="mb-0">
@@ -68,6 +70,7 @@
                                     </div>
                                 </div>
                             </div>
+                            @endif
                             <div class="card">
                                 <div class="card-header" id="headingThree">
                                     <h5 class="mb-0">
@@ -91,28 +94,58 @@
                                     </div>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                     <div class="left-ad mt-4">
                         <img class="img-fluid" src="http://via.placeholder.com/254x557" alt="">
                     </div>
                 </div>
-                <div class="col-md-9">
+
+                <div class="col-md-10">
                     <a href="#"><img class="img-fluid mb-3" src="img/shop.jpg" alt=""></a>
                     <div class="shop-head">
-                        <a href="#"><span class="mdi mdi-home"></span> Recherche des produits</a>
-                        <div class="btn-group float-right mt-2">
-                            <button wire:click="resetFilters" type="button" class="btn btn-dark " >
-                                Effacer les filtres&nbsp;&nbsp;&nbsp;
-                            </button>
+                        <div class="btn-group float-right mt-2 ">
+                            <a href="{{ route('front.shop.search') }}" class="btn btn-link text-dark " >
+                                Effacer les filtres
+                            </a>
 
                         </div>
-                        <h5 class="mb-3">Produits </h5>
+                        <h5 class="mb-3"> Recherche des produits </h5>
 
                     </div>
+                    <form method="get" class="row my-3">
+                        <div class="col-4">
+                            <input name="filter[nom]" type="text" placeholder="Rechercher un produit" wire:model="searchText" class="bg-white p-4 border-0 w-full rounded-0 form-control">
+                        </div>
+                        <div class="col-4">
+                            <select name="" class="bg-white p-4 border-0 w-full rounded-0 form-control" id="">
+                                <option value="Tous" selected>Toutes les villes</option>
+                                @foreach(
+                                $villes as $ville
+                                )
+                                    <option value="{{ $ville }}">{{ $ville }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="col-2">
+                            <select name="sort" class="bg-white p-4 border-0 w-full rounded-0 form-control" id="">
+                                <option value="prix" selected>Prix</option>
+                                <option value="nom" >Nom</option>
+                                <option value="boutique_id" >Boutique</option>
+                                <option value="categorie_id" >Categorie</option>
+                            </select>
+                        </div>
+                        <div class="col">
+                            <button class="btn h-100 w-100 btn-dark rounded-0">
+                                <span class="mdi mdi-search"></span>
+                                <span>Rechercher</span>
+                            </button>
+                        </div>
+                    </form>
                     <div class="row">
                         @foreach($produits as $p)
-                            <div class="col-md-4 mb-3">
+                            <div class="col-md-3 mb-3">
                                 <x-product-card :produit="$p"/>
                             </div>
                         @endforeach
