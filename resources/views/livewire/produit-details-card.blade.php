@@ -14,14 +14,19 @@
             integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
             crossorigin=""></script>
 
-    <section class="shop-single section-padding pt-3" style="background-image: url({{ asset('nimages/rect2.png') }});">
+    <section class="shop-single section-padding pt-5" style="background-image: url({{ asset('nimages/rect2.png') }});">
         <div class="container">
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-12 col-md-5">
                     <span class="badge badge-primary">{{ $produit->categorie->name }}</span>
                     <h2>{{ $produit->nom }}</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
 
-                    <div class="card mt-2">
+
+                    <div class="card">
                         <div class="card-body">
                             <img src="{{ asset('/storage/'. $produit->image()->path )}}" alt="">
                         </div>
@@ -32,7 +37,7 @@
                     @foreach($produit->propositions as $prop)
 
                         <div class="card mb-2">
-                            <div class="card-body p-1">
+                            <div class="card-body p-3">
                                 <div class="row align-items-center">
                                     <div class="col-md-2 text-center">
                                         <div>
@@ -40,7 +45,7 @@
                                         </div>
 
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-5">
                                         <h6 class="mb-0">
                                             <span class="font-weight-light">Prix/</span><span class="text-danger font-weight-bold">{{ $prop->prix }} FCFA/{{ $prop->produit->unite }}</span>
                                         </h6>
@@ -52,15 +57,15 @@
                                             <span class="text-danger">Indisponible</span>
                                         @endif
                                     </div>
-                                    <div class="col-md-4">
-                                        <a href="{{ route('front.shop.add_cart', ['proposition'=> $prop]) }}" class="btn " style="background-color: #F4F4F4">
+                                    <div class="col-md-3 px-0">
+                                        <a href="{{ route('front.shop.add_cart', ['proposition'=> $prop]) }}" class="btn p-2" style="background-color: #F4F4F4">
                                             <span style="font-size: 1.8em" class="mdi text-warning mdi-basket"></span>
                                         </a>
-                                        <a href="#modal-info-{{ $prop->id }}" data-toggle="modal" class="btn " style="background-color: #F4F4F4">
+                                        <a href="#modal-info-{{ $prop->id }}" data-toggle="modal" class="btn p-2" style="background-color: #F4F4F4">
                                             <span style="font-size: 1.8em" class="mdi text-success mdi-phone"></span>
                                         </a>
                                         <a onclick="refreshMap_{{ $prop->id }}()"
-                                           href="#modal-localiser-{{ $prop->id }}" data-toggle="modal" class="btn " style="background-color: #F4F4F4">
+                                           href="#modal-localiser-{{ $prop->id }}" data-toggle="modal" class="btn p-2" style="background-color: #F4F4F4">
                                             <span style="font-size: 1.8em" class="mdi text-danger mdi-map-marker"></span>
                                         </a>
                                     </div>
@@ -147,9 +152,9 @@
         <div class="container">
             <div class="section-header d-flex justify-content-between align-items-center">
                 <h5 class="heading-design-h5">Autres produits
-                    <a class="float-right text-secondary" href="{{ route('front.shop.search') }}">Voir Tout</a>
-                </h5>
 
+                </h5>
+                <a class="float-right text-danger" href="{{ route('front.shop.search') }}?cats[0]={{ $produit->categorie_id }}">Voir Tout</a>
             </div>
             <div class=" owl-theme" style="opacity: 1; display: block;">
                 <div class="owl-wrapper-outer">
