@@ -45,7 +45,7 @@
                     Ils sont moins chers
                 </h5>
                 <div class="rounded mt-3 embed-responsive" style="height: 450px; width: 100%">
-                    <video class="embed-responsive-item" class="w-100"  autoplay>
+                    <video class="embed-responsive-item" class=""  autoplay>
                         <source  src="{{ asset('nimages/video.mp4') }}" type="video/mp4">
                     </video>
                 </div>

@@ -159,7 +159,7 @@
                 <livewire:topsearch/>
             </div>
             <div class="col-12  col-md-4">
-                <select wire:model="localite" style="color: black" class="form-control p-4 border-0 rounded-0" wire:change="updateLocalite" id="ville" name="ville">
+                <select wire:model="localite" style="color: black" class="w-100 p-3 border-0 rounded-0" wire:change="updateLocalite" id="ville" name="ville">
                     <option value="Tous" selected>Toutes les villes</option>
                     @foreach(
                     $villes as $ville

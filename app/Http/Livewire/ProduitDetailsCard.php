@@ -16,7 +16,7 @@ class ProduitDetailsCard extends Component
         $this->related_produits = Produit::query()
             ->where('categorie_id', $this->produit->categorie_id)
             ->where('id', '<>', $this->produit->id)
-            ->take(6)
+            ->take(4)
             ->get();
     }
 

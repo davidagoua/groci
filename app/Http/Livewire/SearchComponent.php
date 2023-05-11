@@ -24,12 +24,24 @@ class SearchComponent extends Component
     public $prixmin, $prixmax = null;
 
     public $nb_pages = 0;
-    protected $queryString = ['cats','page','prixmin'];
+    public $localite;
+    protected $queryString = ['cats','page','prixmin','localite'];
 
 
     public function mount(){
         $this->boutiques = Cache::remember('all_boutiques', 3600, fn() => Boutique::query()->get());
         $this->categories = Categorie::query()->enfant()->get();
+        $this->localite = session()->get('localite', "Tous") ;
+    }
+
+    public function updateLocalite()
+    {
+        if($this->localite == "Tous"){
+            session()->forget('localite');
+        }else{
+            session()->put('localite', $this->localite);
+        }
+        return redirect(request()->header('Referer'));
     }
 
     public function resetFilters()

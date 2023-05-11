@@ -108,9 +108,9 @@
     @endguest
 
 
-    <div class=" px-5 bg-ownred p-3 d-flex justify-content-center">
+    <div class=" px-2 bg-ownred d-flex justify-content-center">
         <div>
-
+            <h5 style="animation-iteration-count: infinite; animation-duration: 1000ms; color: white">something</h5>
         </div>
 
     </div>
@@ -130,7 +130,7 @@
                             <a href="{{ route('front.home') }}"  class=" text-black">
                                 <h6>Acceuil</h6>
                             </a>
-                            <a href="{{ route('front.shop.search') }}"  class=" text-black">
+                            <a href="{{ route('front.shop.search') }}"  class=" text-dander">
                                 <h6>Selection par budget</h6>
                             </a>
                             <a href="{{ route('front.contact') }}" class=" text-black">
@@ -156,9 +156,6 @@
             </div>
         </div>
     </div>
-    <div class="p-5" style="background-image: url({{ asset('nimages/banner2.png') }}); background-size: cover; background-repeat: no-repeat">
-        <p class="m-4">&nbsp;</p>
-        <p class="m-4">&nbsp;</p>
-    </div>
+
 </div>
 

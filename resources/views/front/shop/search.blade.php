@@ -4,6 +4,11 @@
 
     <livewire:another-top-bar/>
 
+    <div class="p-5" style="background-image: url({{ asset('nimages/banner2.png') }}); background-size: cover; background-repeat: no-repeat">
+        <p class="m-4">&nbsp;</p>
+        <p class="m-4">&nbsp;</p>
+    </div>
+
     <livewire:search-component />
 
     <section class="text-center p-3 bg-ownred" style="background-image: url({{ asset('nimages/rect2.png') }}); background-color: ">

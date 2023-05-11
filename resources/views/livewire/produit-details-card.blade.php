@@ -24,12 +24,15 @@
             </div>
             <div class="row">
                 <div class="col-md-6">
-
-
                     <div class="card">
                         <div class="card-body">
                             <img src="{{ asset('/storage/'. $produit->image()->path )}}" alt="">
                         </div>
+                    </div>
+                    <div class="mt-4">
+                        <h6>
+                            {{ $produit->description }}
+                        </h6>
                     </div>
                 </div>
                 <div class="col-md-6">

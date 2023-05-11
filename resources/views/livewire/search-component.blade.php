@@ -28,7 +28,7 @@
                                     </div>
                                 </div>
                             </div>
-                            @if(false)
+
                             <div class="card">
                                 <div class="card-header" id="headingTwo">
                                     <h5 class="mb-0">
@@ -59,18 +59,19 @@
                                             <label for="">Prix Maximum</label>
                                             <select class="form-control" name="prixmax" wire:model="prixmax" id="prixmax">
                                                 @if($prixmin < 500)<option value="500">500</option>@endif
-
-                                                @for($p = 5; $p <= 10; $p+2)
-
-                                                    @if($prixmin < $p)<option value="{{$p}}">{{$p}}</option>@endif
-                                                @endfor
+                                                @if($prixmin  < 5000)<option value="5000">5000</option>@endif
+                                                @if($prixmin  < 10000)<option value="10000">10000</option>@endif
+                                                @if($prixmin  < 25000)<option value="25000">25000</option>@endif
+                                                @if($prixmin  < 50000)<option value="50000">50000</option>@endif
+                                                @if($prixmin  < 100000)<option value="100000">100000</option>@endif
+                                                @if($prixmin  < 1000000)<option value="1000000">1000000</option>@endif
 
                                             </select>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            @endif
+
                             <div class="card">
                                 <div class="card-header" id="headingThree">
                                     <h5 class="mb-0">
@@ -119,7 +120,7 @@
                             <input name="filter[nom]" type="text" placeholder="Rechercher un produit" wire:model="searchText" class="bg-white p-4 border-0 w-full rounded-0 form-control">
                         </div>
                         <div class="col-4">
-                            <select name="" class="bg-white p-4 border-0 w-full rounded-0 form-control" id="">
+                            <select name="" wire:change="updateLocalite" wire:model="localite" class="bg-white  border-0 w-full rounded-0 w-100 p-3" id="">
                                 <option value="Tous" selected>Toutes les villes</option>
                                 @foreach(
                                 $villes as $ville
@@ -129,7 +130,7 @@
                             </select>
                         </div>
                         <div class="col-2">
-                            <select name="sort" class="bg-white p-4 border-0 w-full rounded-0 form-control" id="">
+                            <select name="sort" class="bg-white  border-0 w-full rounded-0 w-100 p-3" id="">
                                 <option value="prix" selected>Prix</option>
                                 <option value="nom" >Nom</option>
                                 <option value="boutique_id" >Boutique</option>

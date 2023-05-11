@@ -4,7 +4,11 @@
 
     <livewire:another-top-bar/>
 
-
+    <div class="p-5" style="background-image: url({{ asset('nimages/car1.png') }}); background-size: cover; background-repeat: no-repeat">
+        <p class="m-4 text-center">&nbsp;
+            <h1 style="font-size: 5em; color: white !important;" class="text-white text-center">CONTACTEZ-NOUS</h1>
+        </p>
+    </div>
 
     <section class="section-padding">
         <div class="container">
@@ -71,7 +75,22 @@
                     </div>
                     <div id="success"></div>
 
-                    <button type="submit" class="btn btn-success">Envoyer</button>
+                    <button class="btn bg-ownred px-5 ml-2 rounded-0 rounded-0 tewt-white" type="submit" style=" color: white !important;">ENVOYEZ</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="text-center p-3 bg-ownred" style="background-image: url({{ asset('nimages/rect2.png') }}); background-color: ">
+        <div class=" p-5">
+            <h4 class="text-white">NEWSLETTER</h4>
+            <h4 style="color: black">Pour rester informé des promotions et de nos produits</h4>
+            <div class="mt-4">
+                <form action="">
+                    <div class="d-flex justify-content-center">
+                        <input type="email" class="p-3 rounded-0 w-25 border-0" >
+                        <button class="btn px-5 ml-2 rounded-0 rounded-0 tewt-white" style="background-color: black; color: white !important;">ENVOYEZ</button>
+                    </div>
                 </form>
             </div>
         </div>
