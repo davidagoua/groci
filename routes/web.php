@@ -36,3 +36,15 @@ Route::controller(\App\Http\Controllers\TwoFAController::class)->group(function(
    Route::post('/two', 'store')->name('twofactor.store');
    Route::get('/two/resend', 'resend')->name('twofactor.resend');
 });
+
+Route::get('/testmail', function(){
+    $user = \App\Models\User::firstOrCreate(
+        ['email'=>'cdavidagoua@mail.com'],
+        [
+            'name'=>'cdavidagoua',
+            'password'=> \Illuminate\Support\Facades\Hash::make('password')
+        ]
+    );
+   return \Illuminate\Support\Facades\Mail::to($user)->send(new \App\Mail\BoutiqueWelcome($user))->toString();
+    //return (new \App\Mail\BoutiqueWelcome($user))->render();
+});
