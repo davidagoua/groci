@@ -48,19 +48,19 @@
                                         </div>
 
                                     </div>
-                                    <div class="col-md-5">
+                                    <div class="col-md-5 col-8">
                                         <h6 class="mb-0">
                                             <span class="font-weight-light">Prix/</span><span class="text-danger font-weight-bold">{{ $prop->prix }} FCFA/{{ $prop->produit->unite }}</span>
                                         </h6>
                                     </div>
-                                    <div class="col-md-2">
+                                    <div class="col-md-2 col-4">
                                         @if($prop->is_actif)
                                             <span class="text-success">En stock</span>
                                         @else
                                             <span class="text-danger">Indisponible</span>
                                         @endif
                                     </div>
-                                    <div class="col-md-3 px-0">
+                                    <div class="col-md-3 col-12 px-0">
                                         <a href="{{ route('front.shop.add_cart', ['proposition'=> $prop]) }}" class="btn p-2" style="background-color: #F4F4F4">
                                             <span style="font-size: 1.8em" class="mdi text-warning mdi-basket"></span>
                                         </a>
