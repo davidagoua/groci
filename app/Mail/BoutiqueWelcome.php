@@ -28,7 +28,7 @@ class BoutiqueWelcome extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Boutique Welcome',
+            subject: 'Citoyen Welcome',
         );
     }
 

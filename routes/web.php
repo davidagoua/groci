@@ -39,7 +39,7 @@ Route::controller(\App\Http\Controllers\TwoFAController::class)->group(function(
 
 Route::get('/testmail', function(){
     $user = \App\Models\User::firstOrCreate(
-        ['email'=>'cdavidagoua@mail.com'],
+        ['email'=>'cdavidagoua@gmail.com'],
         [
             'name'=>'cdavidagoua',
             'password'=> \Illuminate\Support\Facades\Hash::make('password')

@@ -2,14 +2,18 @@
 
 namespace App\Filament\Resources\ProduitResource\Pages;
 
+use AlperenErsoy\FilamentExport\Actions\FilamentExportBulkAction;
 use App\Filament\Resources\ProduitResource;
+use App\Models\Categorie;
 use App\Models\Produit;
+use Filament\Facades\Filament;
 use Filament\Forms\Components\FileUpload;
 use Filament\Notifications\Notification;
 use Filament\Pages\Actions;
 use Filament\Resources\Pages\ManageRecords;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\SimpleExcel\SimpleExcelReader;
 
 class ManageProduits extends ManageRecords
 {
@@ -34,6 +38,13 @@ class ManageProduits extends ManageRecords
         return $record;
     }
 
+    public function getTableBulkActions(): array
+    {
+        return [
+            FilamentExportBulkAction::make('exporter')
+                ->disableAdditionalColumns(true)
+        ];
+    }
 
     protected function getActions(): array
     {
@@ -60,10 +71,19 @@ class ManageProduits extends ManageRecords
             ,
             Actions\Action::make('importer')
                 ->action(function($data){
+                    SimpleExcelReader::create(storage_path('app/public/'. $data['fichier']))->getRows()->each(function(array $row){
+                        $Model = static::getModel();
+                        $produit = new $Model;
+                        $produit->categorie_id = Categorie::query()->firstWhere('name', 'like', $row['CATEGORIE'])->id ?? 0;
+                        $produit->nom = $row['NOM'];
+                        $produit->unite = $row['UNITE'];
+                        $produit->save();
+                    });
 
+                    Filament::notify('success', "Produits Enregistrés");
                 })
                 ->form([
-                    FileUpload::make('fichier')
+                    FileUpload::make('fichier')->required()
                 ])
         ];
     }
