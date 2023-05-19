@@ -14,6 +14,7 @@ use Filament\Resources\Pages\ManageRecords;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\SimpleExcel\SimpleExcelReader;
+use Spatie\SimpleExcel\SimpleExcelWriter;
 
 class ManageProduits extends ManageRecords
 {
@@ -84,7 +85,17 @@ class ManageProduits extends ManageRecords
                 })
                 ->form([
                     FileUpload::make('fichier')->required()
-                ])
+                ]),
+
+            Actions\Action::make("Exporter")
+                ->action(function(){
+                    $writer = SimpleExcelWriter::streamDownload("Produits.xlsx");
+                    $writer->addHeader(['n°','nom','unite','prix']);
+                    $rows = $this->getTableQuery()->select(['id','nom','unite'])->get();
+                    $rows->each(fn($row)=> $writer->addRow($row));
+                    $writer->toBrowser();
+                    Filament::notify('success',"Fichier téléchargé");
+                })
         ];
     }
 }

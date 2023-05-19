@@ -3,7 +3,7 @@
            aria-label="Recherche..." type="text">
     @if(strlen($terme) >= 2)
         <div class="bg-white shadow"
-             style="position: absolute; z-index: 10; top: 50px; width: 450px; left: 14px "
+             style="position: absolute; z-index: 10; top: 50px; width: 450px; left: 14px; height: 200px; z-index: 100; overflow-y: scroll "
         >
             <ul class="list-group">
                 @forelse( $produits as $prod)

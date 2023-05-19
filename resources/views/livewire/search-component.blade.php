@@ -115,6 +115,7 @@
                         <h5 class="mb-3"> Recherche des produits </h5>
 
                     </div>
+                    @if(false)
                     <form method="get" class="row my-3">
                         <div class="col-4">
                             <input name="filter[nom]" type="text" placeholder="Rechercher un produit" wire:model="searchText" class="bg-white p-4 border-0 w-full rounded-0 form-control">
@@ -144,6 +145,7 @@
                             </button>
                         </div>
                     </form>
+                    @endif
                     <div class="row">
                         @foreach($produits as $p)
                             <div class="col-md-3 mb-3">

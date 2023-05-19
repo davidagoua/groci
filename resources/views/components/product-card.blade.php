@@ -17,7 +17,7 @@
         </div>
         <a href="{{ route('front.shop.produit_details', ['produit'=>$produit]) }}"
            class="btn btn-block rounded-0 text-white p-2 bg-ownred btn-sm">
-            <b style="font-size: 1.3em">Ajouter au panier</b>
+            <b style="font-size: 1.3em">Comparer</b>
         </a>
     </a>
 </div>

@@ -13,8 +13,20 @@
     <link href="/front/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <link href="/front/vendor/icons/css/materialdesignicons.min.css" media="all" rel="stylesheet" type="text/css"/>
-
-
+    <link href="https://cdn.jsdelivr.net/npm/pretty-checkbox@3.0/dist/pretty-checkbox.min.css" rel="stylesheet"/>
+    <style>
+        .top-link:hover {
+            background-color: red;
+            padding: 10px 12px;
+            color: white;
+        }
+        .top-link h5{
+            margin-bottom: 0px;
+        }
+        .top-link:hover h5{
+            color: white;
+        }
+    </style>
     <link href="/front/css/osahan.css" rel="stylesheet">
 
     <link rel="stylesheet" href="/front/vendor/owl-carousel/owl.carousel.css">
