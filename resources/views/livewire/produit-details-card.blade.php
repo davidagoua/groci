@@ -175,24 +175,23 @@
         </div>
     </section>
 
-    <section class=" bg-white">
+    <section>
         <div class="container">
+            <div class="text-center p-2">
+                <h3>ENSEIGNES</h3>
+            </div>
             <div class="row py-5">
-                <div class="col">
-                    <img src="{{ asset('nimages/auchan.png') }}" alt="">
-                </div>
-                <div class="col">
-                    <img src="{{ asset('nimages/ocofrais.png') }}" alt="">
-                </div>
-                <div class="col">
-                    <img src="{{ asset('nimages/sococe.png') }}" alt="">
-                </div>
-                <div class="col">
-                    <img src="{{ asset('nimages/bonprix.png') }}" alt="">
-                </div>
-                <div class="col">
-                    <img src="{{ asset('nimages/carrefour.png') }}" alt="">
-                </div>
+                @foreach($boutiques as $boutique)
+                    <div class="col">
+                        <a href="">
+
+                            <img height="100px" width="100%" src="{{ asset('/storage/'. $boutique->image) }}" alt="{{ $boutique->nom }}">
+                        </a>
+                    </div>
+                @endforeach
+            </div>
+            <div class="text-center p-3">
+                <a href="#" class="btn btn-dark px-5 py-3">VOIR TOUT</a>
             </div>
         </div>
     </section>

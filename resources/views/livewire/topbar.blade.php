@@ -119,29 +119,31 @@
             <a href="/">
                 <img src="{{ asset('nimages/logo.png') }}" alt="">
             </a>
-            <div class="w-25"></div>
-            <div class="flex-grow-1 ml-5">
-                <div class="w-75" >
-                    @guest()
-                        <div  class="d-flex  justify-content-around align-items-center">
-                            <a  href="{{ route('front.home') }}"  class="top-link text-black">
-                                <h5><span class="mdi mdi-home"></span> Acceuil</h5>
-                            </a>
-                            <a href="{{ route('front.shop.search') }}"  class=" top-link text-black">
-                                <h5><span class="mdi mdi-basket"></span> Selection par budget</h5>
-                            </a>
-                            <a href="{{ route('front.contact') }}" class=" top-link text-black">
-                                <h5><span class="mdi mdi-comment-question"></span>Aide</h5>
-                            </a>
 
-                        </div>
-                    @endguest
+            <div class="flex-grow-1 w-50 ml-5">
+                <div class="">
+                    @if(false)
+                        <a href="#" class=" text-white"><i aria-hidden="true" class="mdi mdi-map-marker-circle"></i>{{ $localite }} </a>
+                    @endif
+                    <div class="d-flex justify-content-around align-items-center">
+                        <a href="{{ route('front.home') }}"  class=" text-black">
+                            <h6>Acceuil</h6>
+                        </a>
+                        <a href="{{ route('front.shop.search') }}"  class=" text-dander">
+                            <h6>Selection par budget</h6>
+                        </a>
+                        <a href="{{ route('front.contact') }}" class=" text-black">
+                            <h6>Aide</h6>
+                        </a>
+
+                    </div>
 
                     @auth()
                         <a href="{{ route('auth.logout') }}" class="ml-3 text-white mr-3"><h5>Se déconnecter</h5></a>
                     @endauth
                 </div>
             </div>
+            <div class="w-25"></div>
         </div>
     </div>
     <div class="text-center text-white bg-dark px-2"

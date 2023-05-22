@@ -92,9 +92,11 @@ class ManageProduits extends ManageRecords
                     $writer = SimpleExcelWriter::streamDownload("Produits.xlsx");
                     $writer->addHeader(['n°','nom','unite','prix']);
                     $rows = $this->getTableQuery()->select(['id','nom','unite'])->get();
-                    $rows->each(fn($row)=> $writer->addRow($row));
+
+                    $writer->addRows($rows->toArray());
                     $writer->toBrowser();
                     Filament::notify('success',"Fichier téléchargé");
+                    return ;
                 })
         ];
     }

@@ -110,9 +110,10 @@
 
     <div class=" px-2 bg-ownred d-flex justify-content-center">
         <div>
-            <h5 style="animation-iteration-count: infinite; animation-duration: 1000ms; color: white">something</h5>
         </div>
-
+        <div>
+            <span class="badge badge-success">+225</span>
+        </div>
     </div>
     <div class="shadow" >
         <div class="container d-flex justify-content-between p-2  align-items-center">
@@ -125,8 +126,7 @@
                         <a href="#" class=" text-white"><i aria-hidden="true" class="mdi mdi-map-marker-circle"></i>{{ $localite }} </a>
 
                     @endif
-                    @guest()
-                        <div class="d-flex justify-content-between align-items-center">
+                        <div class="d-flex w-50 justify-content-around align-items-center">
                             <a href="{{ route('front.home') }}"  class=" text-black">
                                 <h6>Acceuil</h6>
                             </a>
@@ -134,20 +134,9 @@
                                 <h6>Selection par budget</h6>
                             </a>
                             <a href="{{ route('front.contact') }}" class=" text-black">
-                                <h6>Contact</h6>
+                                <h6>Aide</h6>
                             </a>
-                            <a href="#register" data-target="#bd-example-modal" data-toggle="modal" class=" text-black">
-                                <h6>Inscription</h6>
-                            </a>
-                            <a href="#" data-target="#bd-example-modal" style="color: white !important" data-toggle="modal" class="btn rounded-0  bg-ownred text-white ml-3 mr-3">
-                                <h6 style="color: white !important;">Connexion</h6>
-                            </a>
-                            <div>|</div>
-                            <div>
-                                <livewire:cart-widget/>
-                            </div>
                         </div>
-                    @endguest
 
                     @auth()
                         <a href="{{ route('auth.logout') }}" class="ml-3 text-white mr-3"><h5>Se déconnecter</h5></a>

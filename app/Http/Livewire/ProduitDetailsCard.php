@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Boutique;
 use App\Models\Produit;
 use Livewire\Component;
 
@@ -22,6 +23,8 @@ class ProduitDetailsCard extends Component
 
     public function render()
     {
-        return view('livewire.produit-details-card');
+        return view('livewire.produit-details-card', [
+            'boutiques'=> Boutique::query()->take(5)->get()
+        ]);
     }
 }
