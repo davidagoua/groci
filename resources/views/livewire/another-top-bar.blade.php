@@ -108,11 +108,13 @@
     @endguest
 
 
-    <div class=" px-2 bg-ownred d-flex justify-content-center">
-        <div>
+    <div class=" px-2 bg-ownred d-flex justify-content-between">
+        <div class="flex-grow-1">
         </div>
         <div>
-            <span class="badge badge-success">+225</span>
+            <span class="badge badge-success">
+                <h5 class="">1343</h5>
+            </span>
         </div>
     </div>
     <div class="shadow" >
