@@ -10,6 +10,7 @@ class Topsearch extends Component
 {
 
     public $terme = "";
+    public $selectedProduit = null;
 
     public function render()
     {

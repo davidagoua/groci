@@ -8,8 +8,8 @@
                 <h5>{{ $produit->nom }}</h5>
             </div>
             <div class="product-footer">
-                <b class="offer-price mb-0">{{ $produit->propositions()->min('prix') }}
-                    - {{ $produit->propositions()->max('prix') }} FCFA / {{ $produit->unite  }}<br>
+                <b class="offer-price mb-0">
+                     {{ $produit->unite  }}<br>
                 </b>
 
             </div>

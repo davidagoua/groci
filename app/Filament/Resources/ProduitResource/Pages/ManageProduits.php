@@ -13,6 +13,9 @@ use Filament\Pages\Actions;
 use Filament\Resources\Pages\ManageRecords;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use pxlrbt\FilamentExcel\Actions\Pages\ExportAction;
+use pxlrbt\FilamentExcel\Columns\Column;
+use pxlrbt\FilamentExcel\Exports\ExcelExport;
 use Spatie\SimpleExcel\SimpleExcelReader;
 use Spatie\SimpleExcel\SimpleExcelWriter;
 
@@ -97,7 +100,14 @@ class ManageProduits extends ManageRecords
                     $writer->toBrowser();
                     Filament::notify('success',"Fichier téléchargé");
                     return ;
-                })
+                }),
+            ExportAction::make()->exports([
+                ExcelExport::make()->withColumns([
+                    Column::make('id'),
+                    Column::make('nom'),
+                    Column::make('unite'),
+                ]),
+            ])
         ];
     }
 }

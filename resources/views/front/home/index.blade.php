@@ -70,7 +70,7 @@
                 @endforeach
             </div>
             <div class="text-center p-3">
-                <a href="#" class="btn btn-dark px-5 py-3">VOIR TOUT</a>
+                <a href="{{ route('front.boutiques') }}" class="btn btn-dark px-5 py-3">VOIR TOUT</a>
             </div>
         </div>
     </section>

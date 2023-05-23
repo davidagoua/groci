@@ -13,12 +13,10 @@
     <section class="section-padding">
         <div class="container">
             <div class="row">
-                <div class="col-lg-4 col-md-4">
-                    <h6 class="text-dark"><i class="mdi mdi-home-map-marker"></i> Infoline du Secretariat technique :</h6>
+                <div class="col-12 col-md-6">
+                    <h6 class="text-dark"><i class="mdi mdi-home-map-marker"></i> Infoline:</h6>
                     <p>Abidjan Cocody Angré, 8ème Tranche Cité Djibi 1, 06 BP 1178
                         Abidjan 06</p>
-                    <h6 class="text-dark"><i class="mdi mdi-user"></i> Support :</h6>
-                    <p> KAEDABI GROUPE INTERNATIONAL SA</p>
                     <h6 class="text-dark"><i class="mdi mdi-phone"></i> Tél :</h6>
                     <p>+225 27 24 35 58 17</p>
                     <h6 class="text-dark"><i class="mdi mdi-phone"></i> Fax :</h6>
@@ -28,18 +26,27 @@
                     <p>mkmorris@kaedabi.com</p>
 
                 </div>
-                <div class="col-lg-8 col-md-8">
+                <div class="col-12 col-md-6">
                     <form class="col-lg-12 col-md-12" name="sentMessage" id="contactForm" novalidate="">
 
 
-                        <div class="row">
-
-                            <div class="control-group form-group col-md-12">
-                                <div class="controls">
-                                    <label>Adresse Email <span class="text-danger">*</span></label>
-                                    <input type="email" placeholder="" class="form-control" id="email" required="" data-validation-required-message="Please enter your email address.">
-                                    <div class="help-block"></div></div>
-                            </div>
+                        <div class="control-group form-group">
+                            <div class="controls">
+                                <label>Adresse Email <span class="text-danger">*</span></label>
+                                <input type="email" placeholder="" class="form-control" id="email" required="" data-validation-required-message="Please enter your email address.">
+                                <div class="help-block"></div></div>
+                        </div>
+                        <div class="control-group form-group">
+                            <div class="controls">
+                                <label>Nom & Prenoms <span class="text-danger">*</span></label>
+                                <input type="text" placeholder="" class="form-control" id="nom" required="" data-validation-required-message="Please enter your email address.">
+                                <div class="help-block"></div></div>
+                        </div>
+                        <div class="control-group form-group">
+                            <div class="controls">
+                                <label>Téléphone<span class="text-danger">*</span></label>
+                                <input type="text" placeholder="" class="form-control" id="telephone" required="" data-validation-required-message="Please enter your email address.">
+                                <div class="help-block"></div></div>
                         </div>
                         <div class="control-group form-group">
                             <div class="controls">
@@ -49,7 +56,7 @@
                         </div>
                         <div id="success"></div>
 
-                        <button class="btn bg-ownred px-5 ml-2 rounded-0 rounded-0 tewt-white" type="submit" style=" color: white !important;">ENVOYEZ</button>
+                        <button class="btn btn-lg bg-ownred px-5 ml-2 rounded-0 rounded-0 tewt-white" type="submit" style=" color: white !important;">ENVOYEZ</button>
                     </form>
                 </div>
             </div>

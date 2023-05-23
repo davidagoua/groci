@@ -16,6 +16,8 @@ Route::get("/contact",[
     'contact'
 ])->name('front.contact');
 
+Route::get('/boutiques', [\App\Http\Controllers\HomeController::class, 'boutiques'])->name('front.boutiques');
+
 Route::controller(\App\Http\Controllers\ShopController::class)->group(function(){
     Route::any("/search", 'search')->name('front.shop.search');
     Route::any("/recherche", 'search')->name('front.shop.recherche');

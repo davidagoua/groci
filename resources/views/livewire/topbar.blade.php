@@ -107,45 +107,8 @@
         </div>
     @endguest
 
+    <livewire:another-top-bar/>
 
-    <div class=" px-5 bg-ownred p-3 d-flex justify-content-center">
-        <div>
-
-        </div>
-
-    </div>
-    <div class="shadow" >
-        <div class="container d-flex justify-content-between p-2  align-items-center">
-            <a href="/">
-                <img src="{{ asset('nimages/logo.png') }}" alt="">
-            </a>
-
-            <div class="flex-grow-1 w-50 ml-5">
-                <div class="">
-                    @if(false)
-                        <a href="#" class=" text-white"><i aria-hidden="true" class="mdi mdi-map-marker-circle"></i>{{ $localite }} </a>
-                    @endif
-                    <div class="d-flex justify-content-around align-items-center">
-                        <a href="{{ route('front.home') }}"  class=" text-black">
-                            <h6>Acceuil</h6>
-                        </a>
-                        <a href="{{ route('front.shop.search') }}"  class=" text-dander">
-                            <h6>Selection par budget</h6>
-                        </a>
-                        <a href="{{ route('front.contact') }}" class=" text-black">
-                            <h6>Aide</h6>
-                        </a>
-
-                    </div>
-
-                    @auth()
-                        <a href="{{ route('auth.logout') }}" class="ml-3 text-white mr-3"><h5>Se déconnecter</h5></a>
-                    @endauth
-                </div>
-            </div>
-            <div class="w-25"></div>
-        </div>
-    </div>
     <div class="text-center text-white bg-dark px-2"
          style="padding: 110px 0px; background-image: url({{ asset('/nimages/car1.png') }}); background-size: cover; background-repeat: no-repeat; backdrop-filter: contrast(50%)"
     >

@@ -108,13 +108,18 @@
     @endguest
 
 
-    <div class=" px-2 bg-ownred d-flex justify-content-between">
-        <div class="flex-grow-1">
+    <div class=" px-2 bg-ownred d-flex justify-content-between align-items-center   ">
+        <div class="flex-grow-1 text-center">
+            <h5 id="change-animation-type-example" class="text-white animation zoom-in" style="animation-iteration-count: infinite; animation-duration: 1000ms;">
+                Profitez des reductions de plus de 70% sur le top 6 des produits les plus vendus
+            </h5>
         </div>
         <div>
-            <span class="badge badge-success">
-                <h5 class="">1343</h5>
-            </span>
+            <div class="p-2" style="background-color: forestgreen">
+                <h4 class="text-white mt-0">
+                    <span class="mdi mdi-phone"></span>
+                    1343</h4>
+            </div>
         </div>
     </div>
     <div class="shadow" >
@@ -124,25 +129,24 @@
             </a>
             <div class="flex-grow-1 ml-5">
                 <div class="">
-                    @if(false)
-                        <a href="#" class=" text-white"><i aria-hidden="true" class="mdi mdi-map-marker-circle"></i>{{ $localite }} </a>
+                    <div class="d-flex  justify-content-between align-items-center">
+                        <a class="px-4 py-3" href="{{ route('front.home') }}" >
+                            <h6 class="@if(request()->routeIs('front.home')) text-danger @else text-black @endif ">Acceuil</h6>
+                        </a>
+                        <a class="px-4 py-3" href="{{ route('front.shop.search') }}"  class=" text-dander">
+                            <h6 class="@if(request()->routeIs('front.shop.search')) text-danger @else text-black @endif ">Selection par budget</h6>
+                        </a>
+                        <a class="px-4 py-3" href="{{ route('front.contact') }}" class=" text-black">
+                            <h6 class="@if(request()->routeIs('front.contact')) text-danger @else text-black @endif ">Aide</h6>
+                        </a>
 
-                    @endif
-                        <div class="d-flex w-50 justify-content-around align-items-center">
-                            <a href="{{ route('front.home') }}"  class=" text-black">
-                                <h6>Acceuil</h6>
-                            </a>
-                            <a href="{{ route('front.shop.search') }}"  class=" text-dander">
-                                <h6>Selection par budget</h6>
-                            </a>
-                            <a href="{{ route('front.contact') }}" class=" text-black">
-                                <h6>Aide</h6>
-                            </a>
+                        <div class="flex-grow-1 text-right">
+                            @if(request()->routeIs('front.shop.search'))
+                            <livewire:cart-widget/>
+                            @endif
                         </div>
+                    </div>
 
-                    @auth()
-                        <a href="{{ route('auth.logout') }}" class="ml-3 text-white mr-3"><h5>Se déconnecter</h5></a>
-                    @endauth
                 </div>
             </div>
         </div>

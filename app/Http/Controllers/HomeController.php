@@ -29,6 +29,8 @@ class HomeController extends Controller
 
     public function boutiques()
     {
-        return view("");
+        $boutiques = Boutique::query()->get();
+        return view("front.home.boutiques", compact('boutiques'));
     }
+
 }
