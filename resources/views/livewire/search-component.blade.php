@@ -20,10 +20,12 @@
                                     <div class="card-body card-shop-filters">
 
                                         @foreach($categories as $cat)
-                                        <div class="custom-control custom-checkbox">
-                                            <input wire:model="cats" value="{{ $cat->id }}" type="checkbox" class="custom-control-input" id="cb{{ $cat->id }}">
-                                            <label class="custom-control-label" for="cb{{ $cat->id }}">{{ $cat->name }}</label>
-                                        </div>
+                                            <div class="custom-control custom-checkbox">
+                                                <input wire:model="cats" value="{{ $cat->id }}" type="checkbox"
+                                                       class="custom-control-input" id="cb{{ $cat->id }}">
+                                                <label class="custom-control-label"
+                                                       for="cb{{ $cat->id }}">{{ $cat->name }}</label>
+                                            </div>
                                         @endforeach
                                     </div>
                                 </div>
@@ -44,27 +46,309 @@
                                     <div class="card-body card-shop-filters">
                                         <div class="mb-3">
                                             <label for="">Prix Minimum</label>
-                                            <select class="form-control" name="prixmin" wire:model="prixmin" id="prixmin">
-                                                @if($prixmax == null || $prixmax >0)<option value="0">0</option>@endif
-                                                @if($prixmax == null || $prixmax >500)<option value="500">500</option>@endif
-                                                @if($prixmax == null || $prixmax >5000)<option value="5000">5000</option>@endif
-                                                @if($prixmax == null || $prixmax >10000)<option value="10000">10000</option>@endif
-                                                @if($prixmax == null || $prixmax >25000)<option value="25000">25000</option>@endif
-                                                @if($prixmax == null || $prixmax >50000)<option value="50000">50000</option>@endif
-                                                @if($prixmax == null || $prixmax >100000)<option value="100000">100000</option>@endif
-                                                @if($prixmax == null || $prixmax >1000000)<option value="1000000">1000000</option>@endif
+                                            <select class="form-control" name="prixmin" wire:model="prixmin"
+                                                    id="prixmin">
+                                                @if($prixmax == null || $prixmax >0)
+                                                    <option value="0">0</option>
+                                                @endif
+                                                @if($prixmax == null || $primax > 5000)
+                                                    <option value="5000">5000 FCFA</option>
+                                                @endif
+                                                @if($prixmax == null || $primax > 10000)
+                                                    <option value="10000">10000 FCFA</option>
+                                                @endif
+                                                @if($prixmax == null || $primax > 15000)
+                                                    <option value="15000">15000 FCFA</option>
+                                                @endif
+                                                @if($prixmax == null || $primax > 20000)
+                                                    <option value="20000">20000 FCFA</option>
+                                                @endif
+                                                @if($prixmax == null || $primax > 25000)
+                                                    <option value="25000">25000 FCFA</option>
+                                                @endif
+                                                @if($prixmax == null || $primax > 30000)
+                                                    <option value="30000">30000 FCFA</option>
+                                                @endif
+                                                @if($prixmax == null || $primax > 35000)
+                                                    <option value="35000">35000 FCFA</option>
+                                                @endif
+                                                @if($prixmax == null || $primax > 40000)
+                                                    <option value="40000">40000 FCFA</option>
+                                                @endif
+                                                @if($prixmax == null || $primax > 45000)
+                                                    <option value="45000">45000 FCFA</option>
+                                                @endif
+                                                @if($prixmax == null || $primax > 50000)
+                                                    <option value="50000">50000 FCFA</option>
+                                                @endif
+                                                @if($prixmax == null || $primax > 55000)
+                                                    <option
+                                                        value="55000">55000 FCFA
+                                                    </option>
+                                                @endif
+                                                @if($prixmax == null || $primax > 60000)
+                                                    <option
+                                                        value="60000">60000 FCFA
+                                                    </option>
+                                                @endif
+                                                @if($prixmax == null || $primax > 65000)
+                                                    <option
+                                                        value="65000">65000 FCFA
+                                                    </option>
+                                                @endif
+                                                @if($prixmax == null || $primax > 70000)
+                                                    <option
+                                                        value="70000">70000 FCFA
+                                                    </option>
+                                                @endif
+                                                @if($prixmax == null || $primax > 75000)
+                                                    <option
+                                                        value="75000">75000 FCFA
+                                                    </option>
+                                                @endif
+                                                @if($prixmax == null || $primax > 80000)
+                                                    <option
+                                                        value="80000">80000 FCFA
+                                                    </option>
+                                                @endif
+                                                @if($prixmax == null || $primax > 85000)
+                                                    <option
+                                                        value="85000">85000 FCFA
+                                                    </option>
+                                                @endif
+                                                @if($prixmax == null || $primax > 90000)
+                                                    <option
+                                                        value="90000">90000 FCFA
+                                                    </option>
+                                                @endif
+                                                @if($prixmax == null || $primax > 95000)
+                                                    <option
+                                                        value="95000">95000 FCFA
+                                                    </option>
+                                                @endif
+                                                @if($prixmax == null || $primax > 100000)
+                                                    <option
+                                                        value="100000">100000 FCFA
+                                                    </option>
+                                                @endif
+                                                @if($prixmax == null || $primax > 150000)
+                                                    <option
+                                                        value="150000">150000 FCFA
+                                                    </option>
+                                                @endif
+                                                @if($prixmax == null || $primax > 200000)
+                                                    <option
+                                                        value="200000">200000 FCFA
+                                                    </option>
+                                                @endif
+                                                @if($prixmax == null || $primax > 250000)
+                                                    <option
+                                                        value="250000">250000 FCFA
+                                                    </option>
+                                                @endif
+                                                @if($prixmax == null || $primax > 300000)
+                                                    <option
+                                                        value="300000">300000 FCFA
+                                                    </option>
+                                                @endif
+                                                @if($prixmax == null || $primax > 350000)
+                                                    <option
+                                                        value="350000">350000 FCFA
+                                                    </option>
+                                                @endif
+                                                @if($prixmax == null || $primax > 400000)
+                                                    <option
+                                                        value="400000">400000 FCFA
+                                                    </option>
+                                                @endif
+                                                @if($prixmax == null || $primax > 450000)
+                                                    <option
+                                                        value="450000">450000 FCFA
+                                                    </option>
+                                                @endif
+                                                @if($prixmax == null || $primax > 500000)
+                                                    <option
+                                                        value="500000">500000 FCFA
+                                                    </option>
+                                                @endif
+                                                @if($prixmax == null || $primax > 600000)
+                                                    <option
+                                                        value="600000">600000 FCFA
+                                                    </option>
+                                                @endif
+                                                @if($prixmax == null || $primax > 700000)
+                                                    <option
+                                                        value="700000">700000 FCFA
+                                                    </option>
+                                                @endif
+                                                @if($prixmax == null || $primax > 800000)
+                                                    <option
+                                                        value="800000">800000 FCFA
+                                                    </option>
+                                                @endif
+                                                @if($prixmax == null || $primax > 900000)
+                                                    <option
+                                                        value="900000">900000 FCFA
+                                                    </option>
+                                                @endif
+                                                @if($prixmax == null || $primax > 1000000)
+                                                    <option
+                                                        value="1000000">1000000 FCFA
+                                                    </option>
+                                                @endif
                                             </select>
                                         </div>
                                         <div class="mb-3">
                                             <label for="">Prix Maximum</label>
-                                            <select class="form-control" name="prixmax" wire:model="prixmax" id="prixmax">
-                                                @if($prixmin < 500)<option value="500">500</option>@endif
-                                                @if($prixmin  < 5000)<option value="5000">5000</option>@endif
-                                                @if($prixmin  < 10000)<option value="10000">10000</option>@endif
-                                                @if($prixmin  < 25000)<option value="25000">25000</option>@endif
-                                                @if($prixmin  < 50000)<option value="50000">50000</option>@endif
-                                                @if($prixmin  < 100000)<option value="100000">100000</option>@endif
-                                                @if($prixmin  < 1000000)<option value="1000000">1000000</option>@endif
+                                            <select class="form-control" name="prixmax" wire:model="prixmax"
+                                                    id="prixmax">
+
+
+                                                @if( $prixmin < 5000)
+                                                    <option value="5000">5000 FCFA</option>
+                                                @endif
+                                                @if( $prixmin < 10000)
+                                                    <option value="10000">10000 FCFA</option>
+                                                @endif
+                                                @if( $prixmin < 15000)
+                                                    <option value="15000">15000 FCFA</option>
+                                                @endif
+                                                @if( $prixmin < 20000)
+                                                    <option value="20000">20000 FCFA</option>
+                                                @endif
+                                                @if( $prixmin < 25000)
+                                                    <option value="25000">25000 FCFA</option>
+                                                @endif
+                                                @if( $prixmin < 30000)
+                                                    <option value="30000">30000 FCFA</option>
+                                                @endif
+                                                @if( $prixmin < 35000)
+                                                    <option value="35000">35000 FCFA</option>
+                                                @endif
+                                                @if( $prixmin < 40000)
+                                                    <option value="40000">40000 FCFA</option>
+                                                @endif
+                                                @if( $prixmin < 45000)
+                                                    <option value="45000">45000 FCFA</option>
+                                                @endif
+                                                @if( $prixmin < 50000)
+                                                    <option value="50000">50000 FCFA</option>
+                                                @endif
+                                                @if( $prixmin < 55000)
+                                                    <option
+                                                        value="55000">55000 FCFA
+                                                    </option>
+                                                @endif
+                                                @if( $prixmin < 60000)
+                                                    <option
+                                                        value="60000">60000 FCFA
+                                                    </option>
+                                                @endif
+                                                @if( $prixmin < 65000)
+                                                    <option
+                                                        value="65000">65000 FCFA
+                                                    </option>
+                                                @endif
+                                                @if( $prixmin < 70000)
+                                                    <option
+                                                        value="70000">70000 FCFA
+                                                    </option>
+                                                @endif
+                                                @if( $prixmin < 75000)
+                                                    <option
+                                                        value="75000">75000 FCFA
+                                                    </option>
+                                                @endif
+                                                @if( $prixmin < 80000)
+                                                    <option
+                                                        value="80000">80000 FCFA
+                                                    </option>
+                                                @endif
+                                                @if( $prixmin < 85000)
+                                                    <option
+                                                        value="85000">85000 FCFA
+                                                    </option>
+                                                @endif
+                                                @if( $prixmin < 90000)
+                                                    <option
+                                                        value="90000">90000 FCFA
+                                                    </option>
+                                                @endif
+                                                @if( $prixmin < 95000)
+                                                    <option
+                                                        value="95000">95000 FCFA
+                                                    </option>
+                                                @endif
+                                                @if( $prixmin < 100000)
+                                                    <option
+                                                        value="100000">100000 FCFA
+                                                    </option>
+                                                @endif
+                                                @if( $prixmin < 150000)
+                                                    <option
+                                                        value="150000">150000 FCFA
+                                                    </option>
+                                                @endif
+                                                @if( $prixmin < 200000)
+                                                    <option
+                                                        value="200000">200000 FCFA
+                                                    </option>
+                                                @endif
+                                                @if( $prixmin < 250000)
+                                                    <option
+                                                        value="250000">250000 FCFA
+                                                    </option>
+                                                @endif
+                                                @if( $prixmin < 300000)
+                                                    <option
+                                                        value="300000">300000 FCFA
+                                                    </option>
+                                                @endif
+                                                @if( $prixmin < 350000)
+                                                    <option
+                                                        value="350000">350000 FCFA
+                                                    </option>
+                                                @endif
+                                                @if( $prixmin < 400000)
+                                                    <option
+                                                        value="400000">400000 FCFA
+                                                    </option>
+                                                @endif
+                                                @if( $prixmin < 450000)
+                                                    <option
+                                                        value="450000">450000 FCFA
+                                                    </option>
+                                                @endif
+                                                @if( $prixmin < 500000)
+                                                    <option
+                                                        value="500000">500000 FCFA
+                                                    </option>
+                                                @endif
+                                                @if( $prixmin < 600000)
+                                                    <option
+                                                        value="600000">600000 FCFA
+                                                    </option>
+                                                @endif
+                                                @if( $prixmin < 700000)
+                                                    <option
+                                                        value="700000">700000 FCFA
+                                                    </option>
+                                                @endif
+                                                @if( $prixmin < 800000)
+                                                    <option
+                                                        value="800000">800000 FCFA
+                                                    </option>
+                                                @endif
+                                                @if( $prixmin < 900000)
+                                                    <option
+                                                        value="900000">900000 FCFA
+                                                    </option>
+                                                @endif
+                                                @if( $prixmin < 1000000)
+                                                    <option
+                                                        value="1000000">1000000 FCFA
+                                                    </option>
+                                                @endif
 
                                             </select>
                                         </div>
@@ -87,10 +371,13 @@
                                     <div class="card-body card-shop-filters">
 
                                         @foreach($boutiques as $bt)
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" wire:model="boutiques_filters" value="{{ $bt->id }}" class="custom-control-input" id="b{{ $bt->id }}">
-                                            <label class="custom-control-label" for="b{{ $bt->id }}">{{ $bt->nom }}</label>
-                                        </div>
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" wire:model="boutiques_filters"
+                                                       value="{{ $bt->id }}" class="custom-control-input"
+                                                       id="b{{ $bt->id }}">
+                                                <label class="custom-control-label"
+                                                       for="b{{ $bt->id }}">{{ $bt->nom }}</label>
+                                            </div>
                                         @endforeach
                                     </div>
                                 </div>
@@ -107,7 +394,7 @@
                     <a href="#"><img class="img-fluid mb-3" src="img/shop.jpg" alt=""></a>
                     <div class="shop-head">
                         <div class="btn-group float-right mt-2 ">
-                            <a href="{{ route('front.shop.search') }}" class="btn btn-link text-dark " >
+                            <a href="{{ route('front.shop.search') }}" class="btn btn-link text-dark ">
                                 Effacer les filtres
                             </a>
 
@@ -116,35 +403,38 @@
 
                     </div>
                     @if(false)
-                    <form method="get" class="row my-3">
-                        <div class="col-4">
-                            <input name="filter[nom]" type="text" placeholder="Rechercher un produit" wire:model="searchText" class="bg-white p-4 border-0 w-full rounded-0 form-control">
-                        </div>
-                        <div class="col-4">
-                            <select name="" wire:change="updateLocalite" wire:model="localite" class="bg-white  border-0 w-full rounded-0 w-100 p-3" id="">
-                                <option value="Tous" selected>Toutes les villes</option>
-                                @foreach(
-                                $villes as $ville
-                                )
-                                    <option value="{{ $ville }}">{{ $ville }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <div class="col-2">
-                            <select name="sort" class="bg-white  border-0 w-full rounded-0 w-100 p-3" id="">
-                                <option value="prix" selected>Prix</option>
-                                <option value="nom" >Nom</option>
-                                <option value="boutique_id" >Boutique</option>
-                                <option value="categorie_id" >Categorie</option>
-                            </select>
-                        </div>
-                        <div class="col">
-                            <button class="btn h-100 w-100 btn-dark rounded-0">
-                                <span class="mdi mdi-search"></span>
-                                <span>Rechercher</span>
-                            </button>
-                        </div>
-                    </form>
+                        <form method="get" class="row my-3">
+                            <div class="col-4">
+                                <input name="filter[nom]" type="text" placeholder="Rechercher un produit"
+                                       wire:model="searchText"
+                                       class="bg-white p-4 border-0 w-full rounded-0 form-control">
+                            </div>
+                            <div class="col-4">
+                                <select name="" wire:change="updateLocalite" wire:model="localite"
+                                        class="bg-white  border-0 w-full rounded-0 w-100 p-3" id="">
+                                    <option value="Tous" selected>Toutes les villes</option>
+                                    @foreach(
+                                    $villes as $ville
+                                    )
+                                        <option value="{{ $ville }}">{{ $ville }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="col-2">
+                                <select name="sort" class="bg-white  border-0 w-full rounded-0 w-100 p-3" id="">
+                                    <option value="prix" selected>Prix</option>
+                                    <option value="nom">Nom</option>
+                                    <option value="boutique_id">Boutique</option>
+                                    <option value="categorie_id">Categorie</option>
+                                </select>
+                            </div>
+                            <div class="col">
+                                <button class="btn h-100 w-100 btn-dark rounded-0">
+                                    <span class="mdi mdi-search"></span>
+                                    <span>Rechercher</span>
+                                </button>
+                            </div>
+                        </form>
                     @endif
                     <div class="row">
                         @foreach($produits as $p)

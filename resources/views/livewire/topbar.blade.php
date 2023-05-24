@@ -114,7 +114,6 @@
     >
         <h5 class="text-white">COMPARATEUR DE PRIX </h5>
         <h1 class="text-white">C'EST MOINS CHER</h1>
-        <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, officia!</span>
         <div class="row mt-4">
 
             <div class="col-12 offset-md-2 col-md-4">

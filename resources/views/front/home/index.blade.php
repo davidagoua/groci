@@ -4,6 +4,7 @@
 
     <livewire:topbar/>
 
+    <div class="bg-ownred p-3 "><h3 class="text-center text-white">Categories</h3></div>
 
     <section>
         <div class="row w-100 p-0 m-0">

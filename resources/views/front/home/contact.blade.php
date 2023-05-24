@@ -16,13 +16,17 @@
             <div class="row">
                 <div class="col-12 col-md-6">
                     <h6 class="text-dark"><i class="mdi mdi-home-map-marker"></i> Infoline:</h6>
-                    <p>Abidjan Cocody Angré, 8ème Tranche Cité Djibi 1, 06 BP 1178
-                        Abidjan 06</p>
+
                     <h6 class="text-dark"><i class="mdi mdi-phone"></i> Tél :</h6>
                     <p>+225 27 24 35 58 17</p>
 
                     <h6 class="text-dark"><i class="mdi mdi-email"></i> Email :</h6>
-                    <p>support@kaedabi.com A</p>
+                    <p>support@kaedabi.com </p>
+                    <p>
+                        <span class="p-2 rounded text-white" style="background-color: #00d084">
+                            <span class="mdi mdi-phone"></span>
+                            Numero Vert gratuit 1343</span>
+                    </p>
 
                 </div>
                 <div class="col-12 col-md-6">

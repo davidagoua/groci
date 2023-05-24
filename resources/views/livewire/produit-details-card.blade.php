@@ -166,7 +166,7 @@
 
                         @foreach($related_produits as $produit)
                             <div class="col-md-3 ">
-                                <livewire:produit-card :produit="$produit"/>
+                                <x-product-card :produit="$produit"/>
                             </div>
                         @endforeach
                     </div>
