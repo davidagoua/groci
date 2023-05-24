@@ -125,7 +125,7 @@
     <div class="shadow" >
         <div class="container d-flex justify-content-between p-2  align-items-center">
             <a href="/">
-                <img src="{{ asset('nimages/logo.png') }}" alt="">
+                <img src="{{ asset('nimages/logo.jpg') }}" width="220px" alt="">
             </a>
             <div class="flex-grow-1 ml-5">
                 <div class="">
@@ -141,7 +141,7 @@
                         </a>
 
                         <div class="flex-grow-1 text-right">
-                            @if(request()->routeIs('front.shop.search'))
+                            @if(request()->routeIs('front.shop.search') || request()->routeIs('front.shop.produit_details'))
                             <livewire:cart-widget/>
                             @endif
                         </div>

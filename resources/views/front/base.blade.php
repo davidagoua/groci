@@ -28,11 +28,16 @@
         }
     </style>
     <link href="/front/css/osahan.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.6.0/css/glide.core.min.css" integrity="sha512-tYKqO78H3mRRCHa75fms1gBvGlANz0JxjN6fVrMBvWL+vOOy200npwJ69OBl9XEsTu3yVUvZNrdWFIIrIf8FLg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.6.0/css/glide.theme.min.css" integrity="sha512-8vDOoSF7kZUYkn7BiQulRCTvpRoenljlkQDZhM6+IqDJi5jHDH9QEYH9NfMBB8LlqiYc7O17YGxbGx7dOxKrpw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/splidejs/4.1.4/js/splide.min.js" integrity="sha512-4TcjHXQMLM7Y6eqfiasrsnRCc8D/unDeY1UGKGgfwyLUCTsHYMxF7/UHayjItKQKIoP6TTQ6AMamb9w2GMAvNg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="/front/vendor/owl-carousel/owl.carousel.css">
     <link rel="stylesheet" href="/front/vendor/owl-carousel/owl.theme.css">
     @livewireStyles
+    <script src="
+    https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js
+    "></script>
+        <link href="
+    https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
+    " rel="stylesheet">
 
     <style>
         .top-categories-search {
@@ -83,6 +88,7 @@
                 <div class="">
                     <p class="mb-0 text-white">&copy; Copyright 2023 <strong class="text-white">Conseil National de lutte Contre la Vie Chère</strong>. Tous
                         droit réservé<br>
+                        Powered by Kaedabi
                     </p>
                 </div>
 
@@ -128,8 +134,10 @@
     }
 
 </script>
+<script src="/front/vendor/owl-carousel/owl.carousel.js" type="text/javascript"></script>
 <script src="/front/vendor/jquery/jquery.min.js" type="text/javascript"></script>
 <script src="/front/vendor/bootstrap/js/bootstrap.bundle.min.js" type="text/javascript"></script>
+<script src="/front/vendor/select2/js/select2.min.js" type="711dde6a56fdbf3b9a7f3eae-text/javascript"></script>
 <script>
     const myModal = new bootstrap.Modal('#bd-example-modal');
     myModal.show()
@@ -137,7 +145,6 @@
 
 </script>
 
-<script src="/front/vendor/owl-carousel/owl.carousel.js" type="text/javascript"></script>
 
 <script src="/front/js/custom.js" type="text/javascript"></script>
 

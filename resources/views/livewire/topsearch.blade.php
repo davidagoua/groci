@@ -9,6 +9,7 @@
                 @forelse( $produits as $prod)
 
                     <li class="list-group-item">
+                        <img src="{{ asset('/storage/'. $prod->image()->path) }}" alt="">
                         <a class="d-block" href="{{ route('front.shop.produit_details', ['produit'=>$prod]) }}">{{ $prod->nom }} <span class="text-danger">({{$prod->unite}})</span></a>
                     </li>
                 @empty

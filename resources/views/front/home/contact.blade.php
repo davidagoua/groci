@@ -6,6 +6,7 @@
 
     <div class="p-5" style="background-image: url({{ asset('nimages/car1.png') }}); background-size: cover; background-repeat: no-repeat">
         <p class="m-4 text-center">&nbsp;
+        <h4 class="text-white text-center">Pour toute question ?</h4>
             <h1 style="font-size: 5em; color: white !important;" class="text-white text-center">CONTACTEZ-NOUS</h1>
         </p>
     </div>
@@ -19,11 +20,9 @@
                         Abidjan 06</p>
                     <h6 class="text-dark"><i class="mdi mdi-phone"></i> Tél :</h6>
                     <p>+225 27 24 35 58 17</p>
-                    <h6 class="text-dark"><i class="mdi mdi-phone"></i> Fax :</h6>
-                    <p>(225) 123-0247</p>
 
                     <h6 class="text-dark"><i class="mdi mdi-email"></i> Email :</h6>
-                    <p>mkmorris@kaedabi.com</p>
+                    <p>support@kaedabi.com A</p>
 
                 </div>
                 <div class="col-12 col-md-6">

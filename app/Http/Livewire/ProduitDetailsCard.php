@@ -23,8 +23,6 @@ class ProduitDetailsCard extends Component
 
     public function render()
     {
-        return view('livewire.produit-details-card', [
-            'boutiques'=> Boutique::query()->take(5)->get()
-        ]);
+        return view('livewire.produit-details-card');
     }
 }

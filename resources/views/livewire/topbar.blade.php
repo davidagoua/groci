@@ -112,7 +112,7 @@
     <div class="text-center text-white bg-dark px-2"
          style="padding: 110px 0px; background-image: url({{ asset('/nimages/car1.png') }}); background-size: cover; background-repeat: no-repeat; backdrop-filter: contrast(50%)"
     >
-        <h5 class="text-white">ECOMMERCE & COMPARATEUR DE PRIX </h5>
+        <h5 class="text-white">COMPARATEUR DE PRIX </h5>
         <h1 class="text-white">C'EST MOINS CHER</h1>
         <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, officia!</span>
         <div class="row mt-4">
