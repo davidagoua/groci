@@ -274,6 +274,10 @@
         new Splide( '.splide',{
             perPage: 6,
             rewind : true,
+            type   : 'loop',
+            autoScroll: {
+                speed: 1,
+            },
         } ).mount();
     </script>
 @endsection
