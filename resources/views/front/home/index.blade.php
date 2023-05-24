@@ -5,17 +5,13 @@
     <livewire:topbar/>
 
 
-
     <section>
-        <div class="p-4 text-center bg-ownred">
-            <h3 class="text-white">Categories de produits</h3>
-        </div>
-        <div class="row">
-            <div class="col-md-1"
-                 style="background-image: url({{ asset('nimages/rect1.png') }}); background-repeat: no-repeat; background-size: cover">
+        <div class="row w-100 p-0 m-0">
+            <div class="col-md-1 p-0"
+                 style="background-image: url({{ asset('nimages/rect1.png') }}); background-repeat: no-repeat; background-size: contains">
 
             </div>
-            <div class="col p-4" style="background-image: url({{ asset('nimages/rect2.png') }})">
+            <div class="col m-0" style="background-image: url({{ asset('nimages/rect2.png') }})">
                 <div class="row">
                     @foreach($categories as $categorie)
                         <a href="{{ route('front.shop.search') }}?cats[0]={{ $categorie->id }}"
@@ -31,7 +27,7 @@
                     @endforeach
                 </div>
             </div>
-            <div class="col-md-1"
+            <div class="col-md-1 p-0"
                  style="background-image: url({{ asset('nimages/rect.png') }}); ; background-repeat: no-repeat">
 
             </div>
@@ -51,7 +47,7 @@
                 Ils sont moins chers
             </h5>
             <div class="rounded mt-3 " style="height: 450px; width: 100%">
-                <video width="1500" height="400" muted loop class="" class="" autoplay>
+                <video width="800" height="400" muted loop class="" class="" autoplay>
                     <source src="{{ asset('nimages/video.mp4') }}" type="video/mp4">
                 </video>
             </div>
