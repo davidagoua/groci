@@ -5,6 +5,7 @@ namespace App\Filament\Pages;
 use App\Models\Boutique;
 use App\Models\Produit;
 use App\Models\Proposition;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
@@ -19,6 +20,7 @@ use Filament\Tables\Concerns\InteractsWithTable;
 use Filament\Tables\Contracts\HasTable;
 use Filament\Tables\Filters\SelectFilter;
 use Illuminate\Database\Eloquent\Builder;
+use Spatie\SimpleExcel\SimpleExcelReader;
 
 class OneProposition extends Page implements HasTable
 {
@@ -51,9 +53,7 @@ class OneProposition extends Page implements HasTable
     public function getActions(): array
     {
         return [
-
-
-          Action::make("créer")
+            Action::make("créer")
             ->form([
                 Select::make('boutique_id')
                     ->label("Boutique")
@@ -89,7 +89,25 @@ class OneProposition extends Page implements HasTable
                     ]);
                 }
             })
-            ->successNotificationTitle("Propositions crées")
+            ->successNotificationTitle("Propositions crées"),
+
+            Action::make('importer')
+                ->form([
+                    Select::make('boutique_id')
+                        ->label("Boutique")
+                        ->options($this->boutiques),
+                    FileUpload::make('fichier')
+                ])
+                ->action(function($data){
+                    $reader = SimpleExcelReader::create(storage_path('app/public/'. $data['fichier']));
+                    $reader->getRows()->each(function($row) use($data){
+                        Proposition::create([
+                            'produit_id'=> $row['n°'],
+                            'prix'=> (int)  $row['prix'],
+                            'boutique_id'=> $data['boutique_id'],
+                        ]);
+                    });
+                })
         ];
     }
 
