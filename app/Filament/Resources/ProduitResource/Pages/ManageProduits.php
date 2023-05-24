@@ -91,23 +91,7 @@ class ManageProduits extends ManageRecords
                 ]),
 
             Actions\Action::make("Exporter")
-                ->action(function(){
-                    $writer = SimpleExcelWriter::streamDownload("Produits.xlsx");
-                    $writer->addHeader(['n°','nom','unite','prix']);
-                    $rows = $this->getTableQuery()->select(['id','nom','unite'])->get();
-
-                    $writer->addRows($rows->toArray());
-                    $writer->toBrowser();
-                    Filament::notify('success',"Fichier téléchargé");
-                    return ;
-                }),
-            ExportAction::make()->exports([
-                ExcelExport::make()->withColumns([
-                    Column::make('id'),
-                    Column::make('nom'),
-                    Column::make('unite'),
-                ]),
-            ])
+                ->url(route('dowload_produit'), true),
         ];
     }
 }

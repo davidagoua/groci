@@ -59,15 +59,22 @@
             <div class="text-center p-2">
                 <h3>ENSEIGNES</h3>
             </div>
-            <div class="row py-5">
-                @foreach($boutiques as $boutique)
-                <div class="col">
-                    <a href="">
-
-                        <img height="100px" width="100%" src="{{ asset('/storage/'. $boutique->image) }}" alt="{{ $boutique->nom }}">
-                    </a>
+            <div class="glide py-5">
+                <div class="glide__track" data-glide-el="track">
+                    <ul class="glide__slides">
+                        @foreach($boutiques as $boutique)
+                            <li class="glide__slide">
+                                <img height="100px" width="100%" src="{{ asset('/storage/'. $boutique->image) }}" alt="{{ $boutique->nom }}">
+                            </li>
+                        @endforeach
+                    </ul>
                 </div>
-                @endforeach
+
+                <div class="glide__arrows" data-glide-el="controls">
+                    <button class="glide__arrow glide__arrow--left" data-glide-dir="<"> << </button>
+                    <button class="glide__arrow glide__arrow--right" data-glide-dir=">"> >> </button>
+                </div>
+
             </div>
             <div class="text-center p-3">
                 <a href="{{ route('front.boutiques') }}" class="btn btn-dark px-5 py-3">VOIR TOUT</a>

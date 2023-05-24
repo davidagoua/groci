@@ -1,6 +1,9 @@
 <?php
 
+use App\Models\Produit;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Spatie\SimpleExcel\SimpleExcelWriter;
 
 
 Route::get('/', [
@@ -50,3 +53,12 @@ Route::get('/testmail', function(){
    return \Illuminate\Support\Facades\Mail::to($user)->send(new \App\Mail\BoutiqueWelcome($user))->toString();
     //return (new \App\Mail\BoutiqueWelcome($user))->render();
 });
+
+Route::get('/download-produit',function(Request $request){
+    $writer = SimpleExcelWriter::streamDownload("Produits.xlsx");
+    $writer->addHeader(['n°','nom','unite','prix']);
+    $rows = Produit::query()->select(['id','nom','unite'])->get();
+    $writer->addRows($rows->toArray());
+    $writer->toBrowser();
+})  ->name('dowload_produit')
+    ->middleware(['auth']);
