@@ -101,10 +101,11 @@ class OneProposition extends Page implements HasTable
                 ->action(function($data){
                     $reader = SimpleExcelReader::create(storage_path('app/public/'. $data['fichier']));
                     $reader->getRows()->each(function($row) use($data){
-                        Proposition::create([
-                            'produit_id'=> $row['n°'],
-                            'prix'=> (int)  $row['prix'],
+                        Proposition::query()->updateOrCreate([
                             'boutique_id'=> $data['boutique_id'],
+                            'produit_id'=> $row['n°'],
+                        ],[
+                            'prix'=> (int)  $row['prix'],
                         ]);
                     });
                 })
