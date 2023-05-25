@@ -23,6 +23,7 @@ Route::controller(\App\Http\Controllers\Api\ShopController::class)
     ->prefix("/shop")
     ->group(function(){
         Route::get("/produits", 'getProduits');
+        Route::get('/produits/{produit}', 'getOneProduit');
         Route::get('/produits/{produit}/propositions', 'getPropositions');
         Route::get('/boutiques', 'getBoutiques');
         Route::get('/categories', 'getCategories');

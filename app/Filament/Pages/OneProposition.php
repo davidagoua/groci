@@ -5,6 +5,7 @@ namespace App\Filament\Pages;
 use App\Models\Boutique;
 use App\Models\Produit;
 use App\Models\Proposition;
+use App\Models\StatePrix;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Select;
@@ -101,11 +102,18 @@ class OneProposition extends Page implements HasTable
                 ->action(function($data){
                     $reader = SimpleExcelReader::create(storage_path('app/public/'. $data['fichier']));
                     $reader->getRows()->each(function($row) use($data){
-                        Proposition::query()->updateOrCreate([
+                        $proposition = Proposition::query()->updateOrCreate([
                             'boutique_id'=> $data['boutique_id'],
                             'produit_id'=> $row['n°'],
                         ],[
                             'prix'=> (int)  $row['prix'],
+                        ]);
+
+                        StatePrix::query()->create([
+                           'proposition_id'=> $proposition->id,
+                           'value'=> (int)  $row['prix'],
+                           'produit_id'=> $row['n°'],
+                            'boutique_id'=> $data['boutique_id']
                         ]);
                     });
                 })

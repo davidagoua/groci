@@ -69,4 +69,9 @@ class ShopController extends Controller
             'categories'=> $categories->get()
         ]);
     }
+
+    public function getOneProduit(Request $request, Produit $produit)
+    {
+        return $this->respondWithSuccess(new ProduitResource($produit));
+    }
 }
