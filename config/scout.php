@@ -136,6 +136,9 @@ return [
             // 'users' => [
             //     'filterableAttributes'=> ['id', 'name', 'email'],
             // ],
+            \App\Models\Produit::class => [
+                'filterableAttributes'=>['nom','description']
+            ]
         ],
     ],
 
