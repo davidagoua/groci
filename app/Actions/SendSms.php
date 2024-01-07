@@ -21,7 +21,7 @@ class SendSms
             'sender'=> config('SMS_SENDER', "CNLVC") ,
             'to'=> collect($contacts)->join(';'),
             'text'=>$message,
-            'datetime'=> now()->toDateTimeLocalString()
+            'datetime'=> now()->format('d/m/y H:i')
         ]);
     }
 }
