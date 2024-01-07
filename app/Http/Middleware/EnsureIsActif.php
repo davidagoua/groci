@@ -15,7 +15,7 @@ class EnsureIsActif
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(!auth()->user()->is_actif && ! auth()->user()->hasRole('admin') ){
+        if(!auth()->user()->is_actif && ! auth()->user()->email === 'admin@volibear.io' ){
             return redirect()->route('twofactor.index');
         }
         return $next($request);
