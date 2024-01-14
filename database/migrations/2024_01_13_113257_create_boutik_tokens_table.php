@@ -11,15 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('propositions', function (Blueprint $table) {
+        Schema::create('boutik_tokens', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
             $table->unsignedBigInteger('boutique_id');
-            $table->unsignedBigInteger('produit_id');
-            $table->unsignedBigInteger('prix');
-            $table->string('code_pos')->nullable();
-            $table->string('code_barre')->nullable();
-            $table->unsignedBigInteger('fake_prix')->nullable();
+            $table->string('token');
             $table->boolean('is_actif')->default(true);
         });
     }
@@ -29,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('propositions');
+        Schema::dropIfExists('boutik_tokens');
     }
 };

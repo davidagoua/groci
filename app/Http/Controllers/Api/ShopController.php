@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Actions\SeedingProduct;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\ProduitResource;
 use App\Http\Resources\PropositionResource;
+use App\Models\BoutikToken;
 use App\Models\Boutique;
 use App\Models\Categorie;
 use App\Models\Produit;
@@ -12,6 +14,8 @@ use App\Models\Proposition;
 use F9Web\ApiResponseHelpers;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 class ShopController extends Controller
 {
@@ -64,7 +68,6 @@ class ShopController extends Controller
     public function getCategories(Request $request)
     {
         $categories = Categorie::query();
-
         return $this->respondWithSuccess([
             'categories'=> $categories->get()
         ]);
@@ -73,5 +76,38 @@ class ShopController extends Controller
     public function getOneProduit(Request $request, Produit $produit)
     {
         return $this->respondWithSuccess(new ProduitResource($produit));
+    }
+
+    public function createProducts(Request $request)
+    {
+        // verificationn API token
+        $token = $request->headers->get('Authorization');
+        if(!$token){
+            return abort(403, message: "API Token should be present");
+        }
+
+        $boutique = BoutikToken::query()
+            ->firstWhere('token', '=', Str::of($token)->split("/\s+/")[1])
+            ?->first();
+        if(! $boutique){
+            return abort(403, message: "Invalid API Token");
+        }
+
+        $validator = Validator::make($request->input(), [
+            'products'=>'required',
+            "products.*.code_pos"=>'required',
+            "products.*.code_barre"=>'required',
+            "products.*.prix"=>'required',
+        ]);
+
+        if($validator->fails()){
+            return $this->respondFailedValidation($validator->errors()->toJson());
+        }
+
+        SeedingProduct::run([
+            "boutique_id"=>$boutique->id,
+            "products"=>$validator->validated()['products']
+        ]);
+        return $this->respondCreated();
     }
 }

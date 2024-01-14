@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->unsignedBigInteger('categorie_id');
+            $table->unsignedBigInteger('code_pos')->nullable();
+            $table->string('code_barre')->nullable();
             $table->unsignedBigInteger('marque_id')->nullable();
             $table->unsignedBigInteger('fournisseur_id')->nullable();
             $table->unsignedBigInteger('prix')->nullable();
