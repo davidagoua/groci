@@ -105,6 +105,8 @@ class OneProposition extends Page implements HasTable
                         $proposition = Proposition::query()->updateOrCreate([
                             'boutique_id'=> $data['boutique_id'],
                             'produit_id'=> $row['n°'],
+                            'code_pos'=> $row['code_pos'],
+                            'code_barre'=> $row['code_barre'],
                         ],[
                             'prix'=> (int)  $row['prix'],
                         ]);
