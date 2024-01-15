@@ -26,10 +26,15 @@ class BoutikTokenResource extends Resource
 
     public static function form(Form $form): Form
     {
+        $boutiques = auth()->user()->hasRole('Super Admin') ?
+            Boutique::query()->select('nom','id')->get()->pluck('nom','id') :
+            auth()->user()->boutiques()->select('nom','id')->get()->pluck('nom','id');
+
         return $form
             ->schema([
                 Forms\Components\Select::make('boutique_id')
-                    ->options(Boutique::query()->select('nom','id')->get()->pluck('nom','id')),
+                    ->label('Boutique')
+                    ->options($boutiques),
                 Forms\Components\Hidden::make('token')->default(Str::random(60))
             ]);
     }
