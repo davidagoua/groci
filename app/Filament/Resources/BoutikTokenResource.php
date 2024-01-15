@@ -24,6 +24,7 @@ class BoutikTokenResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-collection';
 
+
     public static function form(Form $form): Form
     {
         $boutiques = auth()->user()->hasRole('Super Admin') ?
@@ -44,7 +45,10 @@ class BoutikTokenResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('boutique.nom'),
-                Tables\Columns\TextColumn::make('token'),
+
+                Tables\Columns\TextColumn::make('token')
+                    ->copyable()
+                    ->copyMessage("Clé d'API Copiée"),
                 Tables\Columns\TextColumn::make('created_at')->label("Date de creation"),
             ])
             ->filters([
@@ -66,4 +70,6 @@ class BoutikTokenResource extends Resource
             'index' => Pages\ManageBoutikTokens::route('/'),
         ];
     }
+
+
 }
