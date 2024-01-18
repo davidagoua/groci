@@ -43,7 +43,7 @@ class AppServiceProvider extends ServiceProvider
             asset('style.css')
         ]);
 
-        if(env('APP_ENV','production')){
+        if(env('APP_ENV','production') == 'production'){
             URL::forceScheme("https");
         }
     }

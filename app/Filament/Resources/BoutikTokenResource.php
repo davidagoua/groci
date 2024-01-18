@@ -46,7 +46,6 @@ class BoutikTokenResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('boutique.nom'),
-
                 Tables\Columns\TextColumn::make('token')
                     ->copyable()
                     ->copyMessage("Clé d'API Copiée"),

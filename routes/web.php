@@ -54,6 +54,12 @@ Route::get('/testmail', function(){
     //return (new \App\Mail\BoutiqueWelcome($user))->render();
 });
 
+Route::get('/clear-cart', function(Request $request){
+    session()->remove('panier');
+    session()->flash('info', "Panier vidé");
+    return redirect()->back();
+})->name('shop.clear-cart');
+
 Route::get('/download-produit',function(Request $request){
     $writer = SimpleExcelWriter::streamDownload("Produits.xlsx");
     $writer->addHeader(['n°','nom','unite','prix']);

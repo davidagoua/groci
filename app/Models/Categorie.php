@@ -22,7 +22,7 @@ class Categorie extends Model implements HasMedia
 
     public function categorie(): BelongsTo
     {
-        return $this->belongsTo(Categorie::class);
+        return $this->belongsTo(Categorie::class, 'parent_id');
     }
 
     public static function booted()

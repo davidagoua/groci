@@ -6,7 +6,7 @@
         <div class="cart-sidebar">
             <div class="cart-sidebar-header">
                 <h5>
-                    Panier <span class="text-success">({{ $panier_count }} Produits)</span> <a data-toggle="offcanvas" class="float-right" href="#"><i class="mdi mdi-close"></i>
+                    Panier <span class="text-success">({{ $panier_count }} Produits)</span> &nbsp;&nbsp; <a data-toggle="offcanvas" class="float-right" href="#"><i class="mdi mdi-close"></i>
                     </a>
                 </h5>
             </div>
@@ -24,10 +24,10 @@
 
             <div class="cart-sidebar-footer">
                 <div class="cart-store-details">
-                    <h6>Montant Total <strong class="float-right text-danger">{{ $total }} FCFA</strong></h6>
+                    <h6>Montant Total &nbsp;&nbsp; <strong class="float-right text-danger">{{ $total }} FCFA</strong></h6>
                 </div>
                 <button class="btn btn-secondary btn-lg btn-block text-left" type="button"><span class="float-left"><i class="mdi mdi-cart-outline"></i> Proceder au paiement </span><span class="float-right"><strong>{{ $total }} FCFA</strong> <span class="mdi mdi-chevron-right"></span></span></button>
-                <button wire:click="clear_cart" class="btn btn-dark mt-1 btn-lg btn-block text-left" type="button"><span class="float-left"><i class="mdi mdi-trash-outline"></i>Vider le panier</span> </button>
+                <a href="{{ route('shop.clear-cart') }}" class="btn btn-dark btn-lg btn-block text-left" type="button"><span class=""><i class="mdi mdi-trash-outline"></i>Vider le panier</span> </a>
             </div>
         </div>
     </div>

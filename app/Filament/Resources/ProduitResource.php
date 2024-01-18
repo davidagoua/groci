@@ -32,7 +32,7 @@ class ProduitResource extends Resource
                     Forms\Components\TextInput::make('nom')->label("Nom"),
                     Forms\Components\Select::make('categorie_id')
                         ->label("Categorie")
-                        ->options(Categorie::all()->pluck('name','id')),
+                        ->options(Categorie::query()->orderBy('name') ->get()->pluck('name','id')),
                     Forms\Components\TextInput::make('unite')->placeholder('400kg'),
                     Forms\Components\FileUpload::make('images')->multiple()
                 ])
@@ -44,6 +44,7 @@ class ProduitResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('nom')->searchable(isIndividual: true),
+                Tables\Columns\TextColumn::make('unite'),
                 Tables\Columns\ImageColumn::make('image')
                     ->getStateUsing(fn($record)=> $record->image()->path)
                     ->label("Image"),
