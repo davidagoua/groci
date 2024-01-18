@@ -90,7 +90,7 @@
         <h3>ESPACE COMMERÇANT</h3>
         <div class="row mt-4 align-items-center">
             <div class="col-12 col-md-6">
-                <img src="{{ asset('nimages/espacecom.jpeg') }}" style="height: 350px" class="shadow">
+                <img src="{{ asset('nimages/espacecom.jpg') }}" style="height: 350px" class="shadow">
 
             </div>
             <div class="col-6 text-left">
