@@ -387,7 +387,7 @@
                     </div>
                     <div class="left-ad mt-4">
                         @forelse($bannieres as $ban)
-                            <img class="img-fluid" src="{{$ban->image}}" alt="">
+                            <img class="img-fluid" src="{{ asset('/storage/'.$ban->image)  }}" alt="">
                         @empty
                         <img class="img-fluid" src="http://via.placeholder.com/254x557" alt="">
                         @endforelse
