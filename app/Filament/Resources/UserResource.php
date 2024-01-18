@@ -4,6 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\UserResource\Pages;
 use App\Filament\Resources\UserResource\RelationManagers;
+use App\Models\Boutique;
 use App\Models\User;
 use Filament\Forms;
 use Filament\Resources\Form;
@@ -29,6 +30,10 @@ class UserResource extends Resource
                 Forms\Components\TextInput::make('email'),
                 Forms\Components\TextInput::make('password')->password(),
                 Forms\Components\Select::make('role')->options(Role::all()->pluck('name','id')),
+                Forms\Components\Select::make('boutique_id')
+                    ->label("Boutique")
+                    ->options(Boutique::query()->get()->pluck('nom','id'))
+                    ->multiple()
             ]);
     }
 
@@ -51,6 +56,7 @@ class UserResource extends Resource
                 Tables\Actions\DeleteBulkAction::make(),
             ]);
     }
+
 
     public static function getPages(): array
     {

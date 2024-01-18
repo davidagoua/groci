@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\UserResource\Pages;
 
 use App\Filament\Resources\UserResource;
+use App\Models\Boutique;
 use App\Models\User;
 use Filament\Pages\Actions;
 use Filament\Resources\Pages\ManageRecords;
@@ -18,6 +19,9 @@ class ManageUsers extends ManageRecords
         return User::query();
     }
 
+
+
+
     protected function getActions(): array
     {
         return [
@@ -29,6 +33,10 @@ class ManageUsers extends ManageRecords
                     $user->password = Hash::make($data['password']);
                     $user->assignRole($role);
                     $user->save();
+                    $user->refresh();
+                    Boutique::query()->whereIn('id', $data['boutique_id'])->update([
+                        'user_id'=>$user->id
+                    ]);
                 })
                 ->successNotificationTitle("Utilisateur Crée"),
         ];
