@@ -21,7 +21,8 @@ use Illuminate\View\View;
 class BoutikTokenResource extends Resource
 {
     protected static ?string $model = BoutikToken::class;
-
+    protected static ?string $navigationGroup = "Paramètres";
+    protected static ?string $label = "API key";
     protected static ?string $navigationIcon = 'heroicon-o-collection';
 
 

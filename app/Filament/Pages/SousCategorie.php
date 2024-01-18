@@ -55,7 +55,8 @@ class SousCategorie extends Page implements HasTable
                     TextInput::make('name')->label("Nom de la categorie"),
                     Select::make('parent_id')->label("Categorie Parent")
                         ->options(Categorie::parent()->get()->pluck('name','id')),
-                    FileUpload::make('image')->columnSpan(2),
+                    FileUpload::make('image')
+                        ->columnSpan(2),
                 ])
             ]),
 
