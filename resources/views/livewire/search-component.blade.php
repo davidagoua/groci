@@ -1,4 +1,6 @@
 <div>
+    <script src=" https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js "></script>
+    <link href=" https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css " rel="stylesheet">
     <section class="shop-list section-padding" style="background-color: #efefef">
         <div class="container-fluid">
             <div class="row">
@@ -386,11 +388,23 @@
                         </div>
                     </div>
                     <div class="left-ad mt-4">
+
+                            <section class="splide" aria-labelledby="carousel-heading">
+
+                                <div class="splide__track">
+                                    <ul class="splide__list">
                         @forelse($bannieres as $ban)
-                            <img class="img-fluid" src="{{ asset('/storage/'.$ban->image)  }}" alt="">
+                                        <li class="splide__slide">
+                                            <img class="img-fluid" src="{{ asset('/storage/'.$ban->image)  }}" alt="">
+                                        </li>
                         @empty
-                        <img class="img-fluid" src="http://via.placeholder.com/254x557" alt="">
+                                    <li class="splide__slide">
+                                        <img class="img-fluid" src="http://via.placeholder.com/254x557" alt="">
+                                    </li>
                         @endforelse
+                                    </ul>
+                                </div>
+                            </section>
                     </div>
                 </div>
 
@@ -462,4 +476,12 @@
             </div>
         </div>
     </section>
+    <script>
+        new Splide( '.splide', {
+            type    : 'loop',
+            autoplay: 'pause',
+            perPage : 1,
+
+        }).mount();
+    </script>
 </div>
