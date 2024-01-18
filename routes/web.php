@@ -68,3 +68,11 @@ Route::get('/download-produit',function(Request $request){
     $writer->toBrowser();
 })  ->name('dowload_produit')
     ->middleware(['auth']);
+
+Route::post('/newsletter', function (Request $request){
+    $data = $request->validate([
+        'email'=>'required|email'
+    ]);
+    \App\Models\Prospect::create($data);
+    return back();
+})->name('newsletter');
