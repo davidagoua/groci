@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Filters\ProductFilters;
+use App\Models\Banniere;
 use App\Models\Boutique;
 use App\Models\Categorie;
 use App\Models\Produit;
@@ -18,7 +19,7 @@ class SearchComponent extends Component
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
 
-    public  $categories, $searchText;
+    public  $categories, $searchText, $bannieres;
     public $cats = [];
     public $boutiques_filters = [];
     public $prixmin, $prixmax = null;
@@ -31,6 +32,7 @@ class SearchComponent extends Component
     public function mount(){
         $this->boutiques = Cache::remember('all_boutiques', 3600, fn() => Boutique::query()->get());
         $this->categories = Categorie::query()->enfant()->get();
+        $this->bannieres = Banniere::query()->get();
         $this->localite = session()->get('localite', "Tous") ;
     }
 
