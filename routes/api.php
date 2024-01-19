@@ -22,6 +22,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::controller(\App\Http\Controllers\Api\ShopController::class)
     ->prefix("/shop")
     ->group(function(){
+        Route::get("/propositions", 'getPropositions');
         Route::get("/produits", 'getProduits');
         Route::post("/produits", 'createProducts');
         Route::get('/produits/{produit}', 'getOneProduit');
