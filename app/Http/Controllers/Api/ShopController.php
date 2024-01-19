@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Actions\SeedingProduct;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\CategorieResource;
 use App\Http\Resources\ProduitResource;
 use App\Http\Resources\PropositionResource;
 use App\Models\BoutikToken;
@@ -69,7 +70,7 @@ class ShopController extends Controller
     {
         $categories = Categorie::query();
         return $this->respondWithSuccess([
-            'categories'=> $categories->get()
+            'categories'=> CategorieResource::collection($categories->get())
         ]);
     }
 
