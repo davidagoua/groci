@@ -323,6 +323,5 @@ return [
         "DJEKANOU"=>"DJEKANOU",
         "YAMOUSSOUKRO"=>"YAMOUSSOUKRO",
         "ATTIEGOUAKRO"=>"ATTIEGOUAKRO",
-
     ])->sort()
 ];

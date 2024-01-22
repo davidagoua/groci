@@ -111,4 +111,9 @@ class ShopController extends Controller
         ]);
         return $this->respondCreated();
     }
+
+    public function getVilles()
+    {
+        return $this->respondWithSuccess(config('app.villes'));
+    }
 }

@@ -17,6 +17,7 @@ class PropositionResource extends JsonResource
         return [
             'produit_id'=> $this->produit_id,
             'produit'=> $this->produit->nom,
+            'image'=> asset('storage/'.$this->produit->image_produits()->first()->path),
             'boutique_id'=> [
                 "nom"=> $this->boutique->nom ,
                 "image"=> asset('/storage/'.$this->boutique->image) ,
