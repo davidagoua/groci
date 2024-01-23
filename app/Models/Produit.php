@@ -40,6 +40,11 @@ class Produit extends Model implements HasMedia
         });
     }
 
+    public function getMinPriceAttribute()
+    {
+        return $this->propositions()->min('prix');
+    }
+
     public function propositions(): HasMany
     {
         return $this->hasMany(Proposition::class)->orderBy('prix');

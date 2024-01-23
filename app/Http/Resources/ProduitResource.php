@@ -24,6 +24,7 @@ class ProduitResource extends JsonResource
 			"marque_id"=> $this->marque_id  ,
 			"fournisseur_id"=> $this->fournisseur_id  ,
 			"prix"=> $this->prix  ,
+			"min-price"=> $this->minPrice  ,
 			"fake_price"=> $this->fake_price  ,
 			"nom"=> $this->nom  ,
 			"stock"=> $this->stock  ,
