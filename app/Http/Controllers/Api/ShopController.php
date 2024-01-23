@@ -115,7 +115,7 @@ class ShopController extends Controller
     public function getVilles()
     {
         return $this->respondWithSuccess([
-            'villes'=>config('app.villes')
+            'villes'=>array_keys(config('app.villes'))
         ]);
     }
 }
