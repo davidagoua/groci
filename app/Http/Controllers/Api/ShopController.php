@@ -68,7 +68,7 @@ class ShopController extends Controller
 
     public function getCategories(Request $request)
     {
-        $categories = Categorie::query();
+        $categories = Categorie::enfant();
         return $this->respondWithSuccess([
             'categories'=> CategorieResource::collection($categories->get())
         ]);
