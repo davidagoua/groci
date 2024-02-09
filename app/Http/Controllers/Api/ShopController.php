@@ -139,6 +139,7 @@ class ShopController extends Controller
 
             $resume[] = [
                 'boutique_id'=>$key,
+                'required_nombre'=> count($data['commandes']),
                 'nom'=>$value[0]['boutique']['nom'],
                 'image'=> asset('storage/', $value[0]['boutique']['image']),
                 'nombre_produit'=> count($value),
