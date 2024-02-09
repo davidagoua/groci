@@ -30,4 +30,5 @@ Route::controller(\App\Http\Controllers\Api\ShopController::class)
         Route::get('/boutiques', 'getBoutiques');
         Route::get('/categories', 'getCategories');
         Route::get('/villes', 'getVilles');
+        Route::post('/resume', 'getResume');
     });

@@ -15,9 +15,10 @@ class PropositionResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
+            'id'=>$this->id,
             'produit_id'=> $this->produit_id,
             'produit'=> $this->produit->nom,
-            'image'=> asset('storage/'.$this->produit->image_produits()->first()->path),
+            'image'=> asset('storage/'.$this->produit->image_produits()->first()?->path),
             'boutique_id'=> [
                 "nom"=> $this->boutique->nom ,
                 "image"=> asset('/storage/'.$this->boutique->image) ,

@@ -68,7 +68,7 @@ class ShopController extends Controller
 
     public function getCategories(Request $request)
     {
-        $categories = Categorie::query();
+        $categories = Categorie::enfant();
         return $this->respondWithSuccess([
             'categories'=> CategorieResource::collection($categories->get())
         ]);
@@ -116,6 +116,21 @@ class ShopController extends Controller
     {
         return $this->respondWithSuccess([
             'villes'=>collect(config('app.villes'))->keys()
+        ]);
+    }
+
+    public function getResume(Request $request)
+    {
+        $data = $request->validate([
+           'commandes'=>'array'
+        ]);
+        $propositions = Proposition::query()
+            ->whereIn('produit_id', collect($data['commandes'])->keys())
+            ->with('boutique:id,nom,image')
+            ->get()
+            ->groupBy('boutique_id');
+        return $this->respondWithSuccess([
+            'boutiques'=>$propositions
         ]);
     }
 }
