@@ -121,6 +121,7 @@ class ShopController extends Controller
 
     public function getResume(Request $request)
     {
+        $resume = array();
         $data = $request->validate([
            'commandes'=>'array'
         ]);
@@ -128,9 +129,26 @@ class ShopController extends Controller
             ->whereIn('produit_id', collect($data['commandes'])->keys())
             ->with('boutique:id,nom,image')
             ->get()
-            ->groupBy('boutique_id');
+            ->map(function($proposition) use ($data){
+                $proposition['somme'] = $data['commandes'][$proposition['produit_id']] * $proposition->prix;
+                return $proposition;
+            })
+            ->groupBy('boutique_id')
+            ;
+        foreach ($propositions as $key=> $value){
+
+            $resume[] = [
+                'boutique_id'=>$key,
+                'nom'=>$value[0]['boutique']['nom'],
+                'image'=> asset('storage/', $value[0]['boutique']['image']),
+                'nombre_produit'=> count($value),
+                'prix_total'=> collect($value)->sum(fn($v) => $v->somme ),
+                'propositions'=> $value
+            ];
+        }
         return $this->respondWithSuccess([
-            'boutiques'=>$propositions
+            // 'boutiques'=>$propositions,
+            'boutiques'=>$resume
         ]);
     }
 }
