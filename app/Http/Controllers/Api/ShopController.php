@@ -142,6 +142,7 @@ class ShopController extends Controller
                 'required_nombre'=> count($data['commandes']),
                 'nom'=>$value[0]['boutique']['nom'],
                 'image'=> asset('storage/', $value[0]['boutique']['image']),
+                'image_in'=> $value[0]['boutique']['image'],
                 'nombre_produit'=> count($value),
                 'prix_total'=> collect($value)->sum(fn($v) => $v->somme ),
                 'propositions'=> $value
