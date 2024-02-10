@@ -131,6 +131,7 @@ class ShopController extends Controller
             ->get()
             ->map(function($proposition) use ($data){
                 $proposition['somme'] = $data['commandes'][$proposition['produit_id']] * $proposition->prix;
+                $proposition['quantite'] = $data['commandes'][$proposition['produit_id']] ;
                 return $proposition;
             })
             ->groupBy('boutique_id')
