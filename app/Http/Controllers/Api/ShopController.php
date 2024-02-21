@@ -130,6 +130,13 @@ class ShopController extends Controller
             ->with('boutique:id,nom,image')
             ->get()
             ->map(function($proposition) use ($data){
+                try{
+                    $proposition['image'] = Produit::query()->whereId($data['commandes'][$proposition['produit_id']])
+                        ->first()?->image()->path;
+                }catch (\Exception $e){
+                    $proposition['image'] = "";
+                }
+
                 $proposition['somme'] = $data['commandes'][$proposition['produit_id']] * $proposition->prix;
                 $proposition['quantite'] = $data['commandes'][$proposition['produit_id']] ;
                 return $proposition;
