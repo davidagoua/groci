@@ -131,8 +131,7 @@ class ShopController extends Controller
             ->get()
             ->map(function($proposition) use ($data){
                 try{
-                    $proposition['image'] = Produit::query()->whereId($data['commandes'][$proposition['produit_id']])
-                        ->first()?->image()->path;
+                    $proposition['image'] = Produit::query()->firstWhere('id', '=', $data['commandes'][$proposition['produit_id']])?->image()->path;
                 }catch (\Exception $e){
                     $proposition['image'] = "";
                 }
