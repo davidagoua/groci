@@ -16,6 +16,7 @@ class Vente extends Page implements HasTable
     protected static ?string $navigationIcon = 'heroicon-o-shopping-bag';
     protected static ?string $navigationGroup = "Boutique";
     protected static string $view = 'filament.pages.vente';
+    protected static bool $shouldRegisterNavigation = false;
 
     public function getTableQuery(): Builder
     {
