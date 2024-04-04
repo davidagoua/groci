@@ -14,7 +14,7 @@
                     </li>
                 @empty
                     <li class="list-group-item">
-                        Aucun Produits trouvé...
+                        Aucun Produit trouvé...
                     </li>
                 @endforelse
             </ul>

@@ -14,7 +14,7 @@
                         <div class="nav-item  col-4 rounded-0 ">
                             <a style="font-size: 1.6em;" href="{{ route('front.shop.search') }}"  class="bg-ownred h-100 @if( request()->path() != '/search') opacity-50 @endif d-flex rounded-0 py-3 align-items-center text-white btn  ">
                                 <span style="font-size: 2em" class="mdi mdi-basket"></span>&nbsp;&nbsp;
-                                <span>Selection par budget</span>
+                                <span>Selection par produit</span>
                             </a>
                         </div>
                         <div class="nav-item  col-4 rounded-0 ">

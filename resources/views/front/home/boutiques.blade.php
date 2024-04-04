@@ -20,7 +20,7 @@
 
     <div class="p-5" style="background-image: url({{ asset('nimages/car1.png') }}); background-size: cover; background-repeat: no-repeat">
         <p class="m-4 text-center">&nbsp;
-        <h1 style="font-size: 5em; color: white !important;" class="text-white text-center">ENSEIGNES DISPONIBLE</h1>
+        <h1 style="font-size: 5em; color: white !important;" class="text-white text-center">ENSEIGNES DISPONIBLES</h1>
         </p>
     </div>
 

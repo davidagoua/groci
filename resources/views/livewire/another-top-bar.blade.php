@@ -111,7 +111,7 @@
     <div class=" px-2 bg-ownred d-flex justify-content-between align-items-center   ">
         <div class="flex-grow-1 text-center">
             <h5 id="change-animation-type-example" class="text-white animation zoom-in" style="animation-iteration-count: infinite; animation-duration: 1000ms;">
-                Profitez des reductions de plus de 70% sur le top 6 des produits les plus vendus
+                Profitez des réductions de plus de 70% sur le top 6 des produits les plus vendus
             </h5>
         </div>
         <div>
@@ -131,10 +131,10 @@
                 <div class="">
                     <div class="d-flex  justify-content-between align-items-center">
                         <a class="px-4 py-3" href="{{ route('front.home') }}" >
-                            <h6 class="@if(request()->routeIs('front.home')) text-danger @else text-black @endif ">Acceuil</h6>
+                            <h6 class="@if(request()->routeIs('front.home')) text-danger @else text-black @endif ">Accueil</h6>
                         </a>
                         <a class="px-4 py-3" href="{{ route('front.shop.search') }}"  class=" text-dander">
-                            <h6 class="@if(request()->routeIs('front.shop.search')) text-danger @else text-black @endif ">Selection par budget</h6>
+                            <h6 class="@if(request()->routeIs('front.shop.search')) text-danger @else text-black @endif ">Selection par produits</h6>
                         </a>
                         <a class="px-4 py-3" href="{{ route('front.contact') }}" class=" text-black">
                             <h6 class="@if(request()->routeIs('front.contact')) text-danger @else text-black @endif ">Aide</h6>

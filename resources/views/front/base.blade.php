@@ -87,7 +87,7 @@
             <div class="text-center text-white ">
                 <div class="">
                     <p class="mb-0 text-white">&copy; Copyright 2023 <strong class="text-white">Conseil National de lutte Contre la Vie Chère</strong>. Tous
-                        droit réservé<br>
+                        droit réservés<br>
                     </p>
                 </div>
 
@@ -112,7 +112,7 @@
 
     @if(session('danger'))
     Swal.fire(
-        'Felicitation',
+        'Félicitation',
         "{{ session()->get('info') }}",
         'danger'
     )
@@ -120,7 +120,7 @@
 
     @if(session('success'))
     Swal.fire(
-        'Felicitation',
+        'Félicitation',
         "{{ session()->get('success') }}",
         'success'
     )

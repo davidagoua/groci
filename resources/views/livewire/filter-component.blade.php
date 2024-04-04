@@ -16,7 +16,7 @@
                                 <x-product-card :produit="$produit"/>
                             </div>
                         @empty
-                            <span>Aucun produits disponible</span>
+                            <span>Aucuns produits disponible</span>
                         @endforelse
                     </div>
                 </div>
