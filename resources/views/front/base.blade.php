@@ -77,9 +77,9 @@
 
 @include('front.parts.footer')
 
-<section class="text-center p-2">
+<section class="text-center p-2 flex">
     <img src="{{ asset('nimages/group.png') }}" alt="">
-    <img src="{{ asset('images/common.png') }}">
+    <img src="{{ asset('images/common.png') }}" height="100" width="200">
 </section>
 
 @if(true)

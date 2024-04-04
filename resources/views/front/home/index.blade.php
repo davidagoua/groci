@@ -85,7 +85,22 @@
     <section>
         <img src="{{ asset('nimages/banner.png') }}" alt="">
     </section>
-
+    <section class="row align-items-center py-4 px-12 justify-center" style="background-color: rgba(239,34,34,0.81)">
+        <div class="col-md-2 "></div>
+        <div class="col-md-4 text-white">
+            <h4 class="text-white">Téléchargez l'application maintenant</h4>
+        </div>
+        <div>
+            <a class="btn btn-outline p-2" href=""  style="border: 1px solid white; border-radius: 45px">
+                <img src="https://static-00.iconduck.com/assets.00/google-play-icon-479x512-dbi8m5ss.png" width="25"/>&nbsp;&nbsp;
+                <span class="text-white">Télécharger l'application</span>
+            </a> &nbsp;&nbsp;&nbsp;
+            <a class="btn btn-outline p-2" href="" style="border: 1px solid white; border-radius: 45px">
+                <img src="https://logos-world.net/wp-content/uploads/2021/03/App-Store-Logo-2020.png" width="45"/>&nbsp;&nbsp;
+                <span class="text-white">Télécharger l'application</span>
+            </a>
+        </div>
+    </section>
     <section class="text-center p-5" style="background-image: url({{ asset('nimages/rect2.png') }})">
         <h3>ESPACE COMMERÇANT</h3>
         <div class="row mt-4 align-items-center">
@@ -94,10 +109,6 @@
 
             </div>
             <div class="col-6 text-left">
-                <h6 class="text-left mb-4">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem explicabo facere fuga harum
-                    id labore provident quas repudiandae sit suscipit.
-                </h6>
                 <button data-target="#login-modal" data-toggle="modal" class="btn btn-dark btn-lg px-5 py-3 "
                         style="border-radius: 0px !important;">SE CONNECTER
                 </button>

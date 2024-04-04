@@ -134,7 +134,7 @@
                             <h6 class="@if(request()->routeIs('front.home')) text-danger @else text-black @endif ">Accueil</h6>
                         </a>
                         <a class="px-4 py-3" href="{{ route('front.shop.search') }}"  class=" text-dander">
-                            <h6 class="@if(request()->routeIs('front.shop.search')) text-danger @else text-black @endif ">Selection par produits</h6>
+                            <h6 class="@if(request()->routeIs('front.shop.search')) text-danger @else text-black @endif ">Sélection par produits</h6>
                         </a>
                         <a class="px-4 py-3" href="{{ route('front.contact') }}" class=" text-black">
                             <h6 class="@if(request()->routeIs('front.contact')) text-danger @else text-black @endif ">Aide</h6>

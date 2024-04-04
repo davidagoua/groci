@@ -15,19 +15,60 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 col-md-6">
-                    <h6 class="text-dark"><i class="mdi mdi-home-map-marker"></i> Infoline:</h6>
 
-                    <h6 class="text-dark"><i class="mdi mdi-phone"></i> Tél :</h6>
-                    <p>+225 27 24 35 58 17</p>
+                    <div>
+                        <div>
+                            <img src="{{ asset('images/logo.jpg') }}" alt="" width="250">
 
-                    <h6 class="text-dark"><i class="mdi mdi-email"></i> Email :</h6>
-                    <p>support@c-moinscher.ci </p>
-                    <p>
-                        <span class="p-2 rounded text-white" style="background-color: #00d084">
-                            <span class="mdi mdi-phone"></span>
+                        </div>
+                        <div>
+                            <div class="d-flex">
+                                <h5 class="text-dark"><i class="mdi mdi-phone"></i> </h5> &nbsp;&nbsp;
+                                <h5>+225 27 24 35 58 17</h5>
+                            </div>
+                            <div class="d-flex">
+                                <h5 class="text-dark"><i class="mdi mdi-email"></i> </h5> &nbsp;&nbsp;
+                                <h5>support@c-moinscher.ci </h5>
+                            </div>
+
+                            <p>
+                            <span class="p-2 rounded text-white" style="background-color: #00d084">
+                                <span class="mdi mdi-phone"></span>
                             Numero Vert gratuit 1343</span>
-                    </p>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="mt-5">
+                        <p>
+                            <h4 class=" font-weight-bold">Partenaire Communication</h4>
+                        </p>
+                        <div>
+                            <img src="{{ asset('images/common.png') }}" alt="" width="250">
 
+                        </div>
+                        <div>
+                            <div class="d-flex">
+                                <h5 class="text-dark"><i class="mdi mdi-phone"></i> </h5> &nbsp;&nbsp;
+                                <h5>+225 27 22 41 16 62</h5>
+                            </div>
+
+                            <div class="d-flex">
+                                <h5 class="text-dark"><i class="mdi mdi-phone"></i> </h5> &nbsp;&nbsp;
+                                <h5>+225 27 22 41 17 64</h5>
+                            </div>
+
+                            <div class="d-flex">
+                                <h5 class="text-dark"><i class="mdi mdi-email"></i> </h5> &nbsp;&nbsp;
+                                <h5>direction@comon.ci </h5>
+                            </div>
+
+                            <div class="d-flex">
+                                <h5 class="text-dark"><i class="mdi mdi-home-map-marker"></i> </h5> &nbsp;&nbsp;
+                                <h5>2 Plateaux - vallons, Rue des jardins 28 BP 1073 Abidjan 28 </h5>
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
                 <div class="col-12 col-md-6">
                     <form class="col-lg-12 col-md-12" name="sentMessage" id="contactForm" novalidate="">
