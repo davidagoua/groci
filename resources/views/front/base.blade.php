@@ -79,6 +79,7 @@
 
 <section class="text-center p-2">
     <img src="{{ asset('nimages/group.png') }}" alt="">
+    <img src="{{ asset('images/common.png') }}">
 </section>
 
 @if(true)
