@@ -122,9 +122,16 @@ class ShopController extends Controller
     public function getResume(Request $request)
     {
         $resume = array();
-        $data = $request->validate([
-           'commandes'=>'array'
+
+        $validator = Validator::make($request->input(), [
+            'commandes'=>'array|required'
         ]);
+
+        if($validator->fails()){
+            return $this->respondFailedValidation($validator->errors()->toJson());
+        }
+        $data = $validator->validated();
+
         $propositions = Proposition::query()
             ->whereIn('produit_id', collect($data['commandes'])->keys())
             ->with('boutique:id,nom,image')

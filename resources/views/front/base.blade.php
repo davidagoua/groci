@@ -141,6 +141,10 @@
     const myModal = new bootstrap.Modal('#bd-example-modal');
     myModal.show()
 
+    setTimeout(() => {
+        alert('popup !');
+    }, 3000);
+
 
 </script>
 
