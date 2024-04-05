@@ -88,7 +88,7 @@
     <section class="row align-items-center py-4 px-12 justify-center" style="background-color: rgba(239,34,34,0.81)">
         <div class="col-md-2 "></div>
         <div class="col-md-4 text-white">
-            <h4 class="text-white">Téléchargez l'application maintenant</h4>
+            <h4 class="text-white">Télécharger l'application maintenant</h4>
         </div>
         <div>
             <a class="btn btn-outline p-2" href=""  style="border: 1px solid white; border-radius: 45px">
