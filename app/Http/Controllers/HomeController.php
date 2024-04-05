@@ -17,7 +17,7 @@ class HomeController extends Controller
             ->get()
             ->take(20);
         $boutiques = Boutique::query()->take(12)->get();
-        $categories = Categorie::query()->enfant()->get();
+        $categories = Categorie::query()->enfant()->take(16)->get();
 
         return view('front.home.index', compact('produits','categories','boutiques'));
     }
