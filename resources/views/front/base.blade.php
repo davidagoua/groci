@@ -134,22 +134,17 @@
     }
 
 </script>
-<script src="/front/vendor/owl-carousel/owl.carousel.js" type="text/javascript"></script>
 <script src="/front/vendor/jquery/jquery.min.js" type="text/javascript"></script>
+<script src="/front/vendor/owl-carousel/owl.carousel.js" type="text/javascript"></script>
 <script src="/front/vendor/bootstrap/js/bootstrap.bundle.min.js" type="text/javascript"></script>
 <script src="/front/vendor/select2/js/select2.min.js" type="711dde6a56fdbf3b9a7f3eae-text/javascript"></script>
 <script>
-    const myModal = new bootstrap.Modal('#bd-example-modal');
-    myModal.show()
-
 
 
 </script>
 
 
 <script src="/front/js/custom.js" type="text/javascript"></script>
-
-
 
 @livewireScripts
 @stack('js')
