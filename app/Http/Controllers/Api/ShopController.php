@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Actions\SeedingProduct;
+use App\Actions\SeedPropositions;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\CategorieResource;
 use App\Http\Resources\ProduitResource;
@@ -28,6 +29,9 @@ class ShopController extends Controller
             ->when($request->input('categorie'), function(Builder $query){
                 return $query->where('categorie_id', request()->input('categorie'));
             })
+            ->when($request->query('barcode'), function(Builder $query){
+                return $query->firstWhere('code_barre', request()->input('barcode'));
+            })
             ->when($request->input('boutiques'), function(Builder $query){
                 return $query->whereHas('propositions', function(Builder $query){
                     return $query->whereIn('boutique_id', request()->input('boutiques'));
@@ -40,7 +44,6 @@ class ShopController extends Controller
 
         return $this->respondWithSuccess([
             'produits'=> ProduitResource::collection($produits->get())
-
         ]);
     }
 
@@ -95,7 +98,6 @@ class ShopController extends Controller
         }
 
         $validator = Validator::make($request->input(), [
-            'products'=>'required',
             "products.*.code_pos"=>'required',
             "products.*.code_barre"=>'required',
             "products.*.prix"=>'required',
@@ -105,10 +107,7 @@ class ShopController extends Controller
             return $this->respondFailedValidation($validator->errors()->toJson());
         }
 
-        SeedingProduct::run([
-            "boutique_id"=>$boutique->id,
-            "products"=>$validator->validated()['products']
-        ]);
+        SeedPropositions::run([$boutique->id,], $validator->validated()['products']);
         return $this->respondCreated();
     }
 

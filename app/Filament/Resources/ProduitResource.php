@@ -29,11 +29,13 @@ class ProduitResource extends Resource
             ->schema([
               Forms\Components\Grid::make(2)
                 ->schema([
-                    Forms\Components\TextInput::make('nom')->label("Nom"),
+                    Forms\Components\TextInput::make('code_barre')->label("Code Barre")->required(),
+                    Forms\Components\TextInput::make('code_poss')->label("Code POS"),
+                    Forms\Components\TextInput::make('nom')->label("Nom")->required(),
                     Forms\Components\Select::make('categorie_id')
                         ->label("Categorie")
                         ->options(Categorie::query()->orderBy('name') ->get()->pluck('name','id')),
-                    Forms\Components\TextInput::make('unite')->placeholder('400kg'),
+                    Forms\Components\TextInput::make('unite')->placeholder('400kg')->required(),
                     Forms\Components\FileUpload::make('images')->multiple()
                 ])
             ]);
@@ -43,6 +45,7 @@ class ProduitResource extends Resource
     {
         return $table
             ->columns([
+                Tables\Columns\TextColumn::make('code_barre')->searchable(isIndividual: true),
                 Tables\Columns\TextColumn::make('nom')->searchable(isIndividual: true),
                 Tables\Columns\TextColumn::make('unite'),
                 Tables\Columns\ImageColumn::make('image')

@@ -2,6 +2,7 @@
 
 namespace App\Filament\Pages;
 
+use App\Actions\SeedPropositions;
 use App\Models\Boutique;
 use App\Models\Produit;
 use App\Models\Proposition;
@@ -56,7 +57,8 @@ class OneProposition extends Page implements HasTable
         return [
             Action::make("créer")
             ->form([
-                Select::make('boutique_id')
+                Select::make('boutique_ids')
+                    ->multiple()
                     ->label("Boutique")
                     ->options($this->boutiques)
                     ->columnSpan(2),
@@ -82,19 +84,25 @@ class OneProposition extends Page implements HasTable
                 ])->columnSpan(2)
             ])
             ->action(function(array $data){
-                foreach ($data['produits'] as $item) {
-                    Proposition::create([
-                        'produit_id'=> $item['produit_id'],
-                        'prix'=> $item['prix'],
-                        'boutique_id'=> $data['boutique_id'],
-                    ]);
+
+                foreach ($data['boutique_ids'] as $boutique_id){
+                    foreach ($data['produits'] as $item) {
+
+                        Proposition::create([
+                            'produit_id'=> $item['produit_id'],
+                            'prix'=> $item['prix'],
+                            'boutique_id'=> $boutique_id,
+                        ]);
+                    }
                 }
+
             })
             ->successNotificationTitle("Propositions crées"),
 
             Action::make('importer')
                 ->form([
-                    Select::make('boutique_id')
+                    Select::make('boutique_ids')
+                        ->multiple()
                         ->label("Boutique")
                         ->options($this->boutiques),
                     FileUpload::make('fichier')
@@ -102,21 +110,7 @@ class OneProposition extends Page implements HasTable
                 ->action(function($data){
                     $reader = SimpleExcelReader::create(storage_path('app/public/'. $data['fichier']));
                     $reader->getRows()->each(function($row) use($data){
-                        $proposition = Proposition::query()->updateOrCreate([
-                            'boutique_id'=> $data['boutique_id'],
-                            'produit_id'=> $row['n°'],
-                            'code_pos'=> $row['code_pos'],
-                            'code_barre'=> $row['code_barre'],
-                        ],[
-                            'prix'=> (int)  $row['prix'],
-                        ]);
-
-                        StatePrix::query()->create([
-                           'proposition_id'=> $proposition->id,
-                           'value'=> (int)  $row['prix'],
-                           'produit_id'=> $row['n°'],
-                            'boutique_id'=> $data['boutique_id']
-                        ]);
+                        SeedPropositions::run($data['boutique_ids'], $row);
                     });
                 })
         ];
@@ -125,6 +119,7 @@ class OneProposition extends Page implements HasTable
     public function getTableColumns(): array
     {
         return [
+          TextColumn::make('produit.code_barre')->searchable(isIndividual: true)->label("Code barre"),
           TextColumn::make('produit.nom')->searchable(isIndividual: true),
           TextColumn::make('produit.categorie.name')->searchable(isIndividual: true),
           TextColumn::make('prix')->suffix(' FCFA')->sortable(),

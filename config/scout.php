@@ -137,7 +137,8 @@ return [
             //     'filterableAttributes'=> ['id', 'name', 'email'],
             // ],
             \App\Models\Produit::class => [
-                'filterableAttributes'=>['nom','description']
+                'filterableAttributes'=>['nom','description','code_barre'],
+                'sortableAttributes'=>['nom']
             ]
         ],
     ],
