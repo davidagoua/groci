@@ -29,8 +29,8 @@ class ShopController extends Controller
             ->when($request->input('categorie'), function(Builder $query){
                 return $query->where('categorie_id', request()->input('categorie'));
             })
-            ->when($request->query('barcode'), function(Builder $query){
-                return $query->firstWhere('code_barre', request()->input('barcode'));
+            ->when($request->input('barcode'), function(Builder $query){
+                return $query->where('code_barre', request()->input('barcode'));
             })
             ->when($request->input('boutiques'), function(Builder $query){
                 return $query->whereHas('propositions', function(Builder $query){
