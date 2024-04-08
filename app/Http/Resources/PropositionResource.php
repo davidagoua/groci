@@ -34,7 +34,7 @@ class PropositionResource extends JsonResource
                 "type"=> $this->boutique->type
             ],
             'prix'=> $this->prix,
-            'disponible' => $this->is_actif
+            'disponible' => $this->is_actif,
         ];
     }
 }

@@ -132,23 +132,22 @@ class ShopController extends Controller
         $data = $validator->validated();
 
         $propositions = Proposition::query()
-            ->whereIn('produit_id', collect($data['commandes'])->keys())
+            ->whereIn('id', collect($data['commandes'])->keys())
             ->with('boutique:id,nom,image')
             ->get()
             ->map(function($proposition) use ($data){
                 try{
-                    /*
                     $proposition['image'] = Produit::query()
-                    ->firstWhere('id', '=', $data['commandes'][$proposition['produit_id']])
-                    ->image_produits()->first()?->path;
-                    */
-                    $proposition['image'] = Produit::query()->firstWhere('id', '=', $data['commandes'][$proposition['produit_id']])?->image()->path;
+                    ->firstWhere('id', '=', $proposition['produit_id'])
+                    ->image()?->path;
+
+                    //$proposition['image'] = Produit::query()->firstWhere('id', '=', $data['commandes'][$proposition['produit_id']])?->image()->path;
                 }catch (\Exception $e){
                     $proposition['image'] = "";
                 }
 
-                $proposition['somme'] = $data['commandes'][$proposition['produit_id']] * $proposition->prix;
-                $proposition['quantite'] = $data['commandes'][$proposition['produit_id']] ;
+                $proposition['somme'] = $data['commandes'][$proposition['id']] * $proposition->prix;
+                $proposition['quantite'] = $data['commandes'][$proposition['id']] ;
                 return $proposition;
             })
             ->groupBy('boutique_id')
@@ -167,8 +166,8 @@ class ShopController extends Controller
             ];
         }
         return $this->respondWithSuccess([
-            // 'boutiques'=>$propositions,
             'boutiques'=>$resume
         ]);
     }
+
 }
