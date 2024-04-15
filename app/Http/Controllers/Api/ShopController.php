@@ -50,7 +50,8 @@ class ShopController extends Controller
     public function getPropositions(Request $request, Produit $produit)
     {
         $propositions = Proposition::query()
-            ->where('produit_id', $produit->id);
+            ->where('produit_id', $produit->id)
+            ->orderBy('prix');
 
         return $this->respondWithSuccess([
             'propositions'=> PropositionResource::collection($propositions->get())
