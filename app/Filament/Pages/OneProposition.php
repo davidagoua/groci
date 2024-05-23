@@ -47,7 +47,7 @@ class OneProposition extends Page implements HasTable
     public function getTableQuery(): Builder
     {
         return Proposition::query()
-            ->when(auth()->user()->hasRole('GERANT_BOUTIQUE'), function($builder){
+            ->when(auth()->user()->hasRole('GerantBoutique'), function($builder){
                 return $builder->whereIn('boutique_id', auth()->user()->boutiques()->pluck('id'));
             });
     }
