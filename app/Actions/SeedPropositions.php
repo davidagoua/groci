@@ -24,7 +24,7 @@ class SeedPropositions
             $proposition = Proposition::query()->updateOrCreate([
                 'boutique_id'=> $boutique_id,
                 'produit_id'=> $produit->id,
-                'code_pos'=> $data['code_pos'],
+                'code_pos'=> $data['code_pos'] ?? "",
                 'code_barre'=> $data['code_barre'],
             ],[
                 'prix'=> (int)  $data['prix'],

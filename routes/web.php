@@ -62,8 +62,8 @@ Route::get('/clear-cart', function(Request $request){
 
 Route::get('/download-produit',function(Request $request){
     $writer = SimpleExcelWriter::streamDownload("Produits.xlsx");
-    $writer->addHeader(['n°','nom','unite','prix']);
-    $rows = Produit::query()->select(['id','nom','unite'])->get();
+    $writer->addHeader(['n°','code_barre','nom','unite','prix']);
+    $rows = Produit::query()->select(['id','code_barre','nom','unite'])->get();
     $writer->addRows($rows->toArray());
     $writer->toBrowser();
 })  ->name('dowload_produit')
@@ -76,3 +76,8 @@ Route::post('/newsletter', function (Request $request){
     \App\Models\Prospect::create($data);
     return back();
 })->name('newsletter');
+
+
+Route::get('/download-apk', function(Request $request){
+    response()->download(storage_path('app/app-release.apk'), 'cmoinscher');
+})->name('download-apk');

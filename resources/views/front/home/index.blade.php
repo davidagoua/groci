@@ -10,7 +10,6 @@
         <div class="row w-100 p-0 m-0">
             <div class="col-md-1 p-0"
                  style="background-image: url({{ asset('nimages/rect1.png') }}); background-repeat: no-repeat; background-size: contains">
-
             </div>
             <div class="col m-0" style="background-image: url({{ asset('nimages/rect2.png') }})">
                 <div class="row">
@@ -91,7 +90,7 @@
             <h4 class="text-white">Télécharger l'application maintenant</h4>
         </div>
         <div>
-            <a class="btn btn-outline p-2" href=""  style="border: 1px solid white; border-radius: 45px">
+            <a class="btn btn-outline p-2" href="{{ route('download-apk') }}"  style="border: 1px solid white; border-radius: 45px">
                 <img src="https://static-00.iconduck.com/assets.00/google-play-icon-479x512-dbi8m5ss.png" width="25"/>&nbsp;&nbsp;
                 <span class="text-white">Télécharger l'application</span>
             </a> &nbsp;&nbsp;&nbsp;

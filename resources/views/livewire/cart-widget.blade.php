@@ -32,7 +32,5 @@
         </div>
     </div>
 
-    <script>
 
-    </script>
 </div>
