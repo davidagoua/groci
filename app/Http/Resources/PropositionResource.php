@@ -4,6 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\Carbon;
 
 class PropositionResource extends JsonResource
 {
@@ -18,7 +19,8 @@ class PropositionResource extends JsonResource
             'id'=>$this->id,
             'produit_id'=> $this->produit_id,
             'created_at'=> $this->created_at,
-            'updated_at'=> $this->updated_at,
+            'updated_at'=> (new Carbon($this->updated_at)),
+            'updated_at_humans'=> (new Carbon($this->updated_at))->diffForHumans(),
             'produit'=> $this->produit->nom,
             'image'=> asset('storage/'.$this->produit->image_produits()->first()?->path),
             'boutique_id'=> [
