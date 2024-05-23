@@ -37,7 +37,7 @@ class OneProposition extends Page implements HasTable
     {
         parent::__construct($id);
         $this->boutiques = Boutique::query()
-            ->when(auth()->user()->hasRole('GERANT_BOUTIQUE'),function($query){
+            ->when(auth()->user()->hasRole('GerantBoutique'),function($query){
                 $query->whereIn('id', auth()->user()->boutiques()->pluck('id')->toArray());
             })
             ->pluck('nom','id');
