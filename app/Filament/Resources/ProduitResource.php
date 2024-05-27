@@ -52,7 +52,9 @@ class ProduitResource extends Resource
                     ->getStateUsing(fn($record)=> $record->image()->path)
                     ->label("Image"),
                 Tables\Columns\TextColumn::make('categorie.name'),
-                Tables\Columns\ToggleColumn::make('is_actif')->label("Actif"),
+                Tables\Columns\ToggleColumn::make('is_actif')
+                    ->hidden(auth()->user()->hasRole('GerantBoutique'))
+                    ->label("Actif"),
             ])
             ->filters([
                 //

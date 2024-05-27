@@ -89,7 +89,7 @@ class ManageProduits extends ManageRecords
                 })
                 ->form([
                     FileUpload::make('fichier')->required()
-                ]),
+                ])->hidden( auth()->user()->hasRole('GerantBoutique')),
 
             Actions\Action::make("Exporter")
                 ->url(route('dowload_produit'), true),
