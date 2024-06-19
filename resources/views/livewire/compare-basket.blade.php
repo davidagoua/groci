@@ -1,3 +1,7 @@
+@extend('front.base')
+
+@section('content')
+
 <div>
 
     <div class="card">
@@ -51,3 +55,5 @@
     </div>
 
 </div>
+
+@endsection
