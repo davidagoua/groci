@@ -1,3 +1,6 @@
+@extend('front.base')
+
+@section('content')
 <div>
     <li class="list-inline-item ">
         <a href="#" data-toggle="offcanvas" class="btn btn-link border-none"> <img src="{{ asset('nimages/panier.png') }}" alt=""></a>
@@ -34,3 +37,5 @@
 
 
 </div>
+
+@endsection
