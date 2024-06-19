@@ -2,17 +2,12 @@
 
 @section('content')
 
-    <div class="container-fluid">
+    <div class="container-fluid" x-data={nbCase: 2}>
         <div class="row">
-            <div class="col-12 col-md-4">
+            <div x-for="nb in nbCase" class="col-12 col-md-4">
                 <livewire:compare-basket />
             </div>
-            <div class="col-12 col-md-4">
-                <livewire:compare-basket />
-            </div>
-            <div class="col-12 col-md-4">
-                <livewire:compare-basket />
-            </div>
+      
         </div>
     </div>
 
