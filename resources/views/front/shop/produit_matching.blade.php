@@ -5,9 +5,12 @@
     <div class="container-fluid" x-data="{nbCase: 2}">
         <div class="row p-3"><div class="flex-grow-1"></div><div><button class="btn btn-secondary" @click="nbCase++">Ajouter</button></div></div>
         <div class="row">
-            <div x-for="i in nbCase" class="col-12 col-md-4">
-                <livewire:compare-basket />
-            </div>
+            <template x-for="i in nbCase">
+                <div class="col-12 col-md-4">
+                    <livewire:compare-basket />
+                </div>
+            </template>
+            
       
         </div>
     </div>
