@@ -1,6 +1,4 @@
-@extends('front.base')
 
-@section('content')
 
 <div>
 
@@ -56,4 +54,3 @@
 
 </div>
 
-@endsection
