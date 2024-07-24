@@ -36,16 +36,7 @@ class ManageBoutiques extends ManageRecords
                 $boutique->save();
             })->label("Créer un boutique"),
             Actions\Action::make('importer')
-            ->using(function($data){
-                $coord = $data['coord'];
-                unset($data['coord']);
-                $MODEL = static::getModel();
-                $boutique = new $MODEL($data);
-                $boutique->user_id = auth()->id();
-                $boutique->lat = $coord['lat'];
-                $boutique->lng = $coord['lng'];
-                $boutique->save();
-            })->label("Importer boutique"),
+                ->label("Importer des boutiques"),
         ];
     }
 }
