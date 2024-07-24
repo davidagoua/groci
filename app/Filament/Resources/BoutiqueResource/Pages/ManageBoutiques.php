@@ -4,8 +4,10 @@ namespace App\Filament\Resources\BoutiqueResource\Pages;
 
 use App\Filament\Resources\BoutiqueResource;
 use App\Models\Boutique;
+use Filament\Forms\Components\FileUpload;
 use Filament\Pages\Actions;
 use Filament\Resources\Pages\ManageRecords;
+use Filament\Tables\Actions\BulkAction;
 use Illuminate\Database\Eloquent\Builder;
 
 class ManageBoutiques extends ManageRecords
@@ -20,7 +22,6 @@ class ManageBoutiques extends ManageRecords
             });
     }
 
-
     protected function getActions(): array
     {
         return [
@@ -33,7 +34,18 @@ class ManageBoutiques extends ManageRecords
                 $boutique->lat = $coord['lat'];
                 $boutique->lng = $coord['lng'];
                 $boutique->save();
-            }),
+            })->label("Créer un boutique"),
+            Actions\Action::make('importer')
+            ->using(function($data){
+                $coord = $data['coord'];
+                unset($data['coord']);
+                $MODEL = static::getModel();
+                $boutique = new $MODEL($data);
+                $boutique->user_id = auth()->id();
+                $boutique->lat = $coord['lat'];
+                $boutique->lng = $coord['lng'];
+                $boutique->save();
+            })->label("Importer boutique"),
         ];
     }
 }

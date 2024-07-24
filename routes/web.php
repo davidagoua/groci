@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Produit;
+use App\Models\StatePrix;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Spatie\SimpleExcel\SimpleExcelWriter;
@@ -81,3 +82,23 @@ Route::post('/newsletter', function (Request $request){
 Route::get('/download-apk', function(Request $request){
     response()->download(storage_path('app/app-release.apk'), 'cmoinscher');
 })->name('download-apk');
+
+
+Route::get('/stats/proposition/{proposition}', function(Request $request, \App\Models\Proposition $proposition){
+
+    $states = StatePrix::query()
+        ->where('proposition_id','=', (int) $proposition->id)->get();
+    $dates = $states->pluck('created_at')->toArray();
+    $prices = $states->pluck('value')->toArray();
+
+    return response()->json([
+       'dates'=>$dates,
+       'prices'=>$prices
+    ]);
+
+})->name('stats:price_state')->middleware(['auth']);
+
+Route::get('/stats/boutique/{boutique}/propositions', function(Request $request, \App\Models\Boutique $boutique){
+    return response()->json($boutique->propositions()->get());
+})->name('stats:get_propositions_by_boutique')
+    ->middleware(['auth']);

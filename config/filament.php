@@ -141,6 +141,9 @@ return [
         'register' => [
             \App\Filament\Widgets\AdminResumeCard::class
         ],
+        'default'=>[
+            \App\Filament\Widgets\OnboardingDashboard::class => false
+        ]
     ],
 
     /*

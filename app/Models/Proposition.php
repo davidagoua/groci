@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Scope;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
@@ -33,6 +34,11 @@ class Proposition extends Model
     public function produit(): BelongsTo
     {
         return $this->belongsTo(Produit::class);
+    }
+
+    public function priceState(): HasMany
+    {
+        return $this->hasMany(StatePrix::class);
     }
 
     protected static function booted()

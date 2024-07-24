@@ -8,6 +8,7 @@ use App\Models\Boutique;
 use App\Models\User;
 use Filament\Forms;
 use Filament\Forms\Components\Select;
+use Filament\Pages\Actions\Action;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
@@ -96,6 +97,13 @@ class BoutiqueResource extends Resource
                         'wheelPxPerZoomLevel' => 60
                     ])->reactive()
                 ]);
+    }
+
+    public function getActions()
+    {
+        return [
+            Action::make('importer')
+        ];
     }
 
     public static function table(Table $table): Table
