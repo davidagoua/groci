@@ -8,14 +8,14 @@
     border-radius: 0px
 }
 .filament-tables-table thead tr {
-    background: #3B746C;
+    background: rgba(224, 36, 36, 0.89);
 }
 .filament-tables-table thead tr button {
     color: white;
 }
 
 .filament-main-topbar{
-    background: #3B746C !important;
+    background: rgba(224, 36, 36, 0.89) !important;
 }
 .filament-sidebar-item a{
     border-radius: 0px !important;

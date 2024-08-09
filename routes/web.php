@@ -102,3 +102,15 @@ Route::get('/stats/boutique/{boutique}/propositions', function(Request $request,
     return response()->json($boutique->propositions()->get());
 })->name('stats:get_propositions_by_boutique')
     ->middleware(['auth']);
+
+
+Route::controller(\App\Http\Controllers\BoutiqueAdmin::class)
+->name('boutique_admin.')
+->prefix('/boutique-admin')
+->group(function(){
+    Route::get('/', 'dashboard')->name('dashboard');
+    Route::get('/produits', 'list_produits')->name('list_produits');
+    Route::any('/propositions', 'list_propositions')->name('list_propositions');
+    Route::get('/utilisateurs', 'list_utilisateurs')->name('list_utilisateurs');
+    Route::post('/utilisateurs', 'update_utilisateur')->name('update_utilisateur');
+})->middleware(['auth']);

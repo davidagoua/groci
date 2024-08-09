@@ -1,4 +1,6 @@
 <x-filament::widget>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/js/all.min.js" integrity="sha512-6sSYJqDreZRZGkJ3b+YfdhB3MzmuP9R7X1QZ6g5aIXhRvR1Y/N/P47jmnkENm7YL3oqsmI6AK+V6AD99uWDnIw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <section>
         <div class="grid xl:grid-cols-4 md:grid-cols-3 grid-cols-1 mt-6 gap-6">
 
@@ -13,7 +15,7 @@
                                     </span>
 
                     <span class="flex justify-center items-center rounded-md h-12 w-12 min-w-[48px] bg-slate-50 dark:bg-slate-800 shadow shadow-gray-100 dark:shadow-gray-700 text-green-600">
-                                        <i class="mdi mdi-account-group-outline text-[28px]"></i>
+                                        <i class="fa fa-box text-red-500"></i>
                                     </span>
                 </div>
             </div><!--end-->
@@ -28,7 +30,7 @@
                                     </span>
 
                     <span class="flex justify-center items-center rounded-md h-12 w-12 min-w-[48px] bg-slate-50 dark:bg-slate-800 shadow shadow-gray-100 dark:shadow-gray-700 text-green-600">
-                                        <i class="mdi mdi-home-city-outline text-[28px]"></i>
+                                        <i class="fa fa-home text-red-500 "></i>
                                     </span>
                 </div>
             </div><!--end-->
@@ -43,7 +45,7 @@
                                     </span>
 
                     <span class="flex justify-center items-center rounded-md h-12 w-12 min-w-[48px] bg-slate-50 dark:bg-slate-800 shadow shadow-gray-100 dark:shadow-gray-700 text-green-600">
-                                        <i class="mdi mdi-home-lightning-bolt-outline text-[28px]"></i>
+                                        <i class="fa fa-user-tie text-red-500"></i>
                                     </span>
                 </div>
             </div><!--end-->
@@ -58,7 +60,7 @@
                                     </span>
 
                     <span class="flex justify-center items-center rounded-md h-12 w-12 min-w-[48px] bg-slate-50 dark:bg-slate-800 shadow shadow-gray-100 dark:shadow-gray-700 text-green-600">
-                                        <i class="mdi mdi-home-clock-outline text-[28px]"></i>
+                                        <i class="fa fa-tag text-red-500"></i>
                                     </span>
                 </div>
             </div><!--end-->

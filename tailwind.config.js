@@ -10,7 +10,7 @@ module.exports = {
         extend: {
             colors: {
                 danger: colors.rose,
-                primary: colors.teal,
+                primary: colors.red,
                 success: colors.green,
                 warning: colors.yellow,
             },

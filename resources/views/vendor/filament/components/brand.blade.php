@@ -3,6 +3,6 @@
         'filament-brand text-xl font-bold tracking-tight',
         'dark:text-white' => config('filament.dark_mode'),
     ])>
-        {{ $brand }}
+        <img src="/images/logo.jpg"/>
     </div>
 @endif
