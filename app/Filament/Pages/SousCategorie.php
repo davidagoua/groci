@@ -11,6 +11,7 @@ use Filament\Pages\Actions\Action;
 use Filament\Pages\Actions\CreateAction;
 use Filament\Pages\Actions\EditAction;
 use Filament\Pages\Page;
+use Filament\Tables\Actions\DeleteAction;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Concerns\InteractsWithTable;
@@ -39,7 +40,7 @@ class SousCategorie extends Page implements HasTable
     public function getTableColumns(): array
     {
         return [
-          TextColumn::make('name')->label("Nom"),
+          TextColumn::make('name')->label("Nom")->searchable(),
           TextColumn::make('categorie.name')->label("Parent"),
           ImageColumn::make('image'),
         ];
@@ -68,12 +69,15 @@ class SousCategorie extends Page implements HasTable
         return [
           \Filament\Tables\Actions\EditAction::make('modifier')
               ->button()
+              ->color('secondary')
             ->form([
                 TextInput::make('name')->label("Nom de la categorie"),
                 Select::make('parent_id')->label("Categorie Parent")
                     ->options(Categorie::parent()->get()->pluck('name','id')),
                 FileUpload::make('image')->columnSpan(2),
-            ])
+            ]),
+            DeleteAction::make('supprimer')
+                ->button()
         ];
     }
 }

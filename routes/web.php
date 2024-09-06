@@ -88,7 +88,9 @@ Route::get('/stats/proposition/{proposition}', function(Request $request, \App\M
 
     $states = StatePrix::query()
         ->where('proposition_id','=', (int) $proposition->id)->get();
-    $dates = $states->pluck('created_at')->toArray();
+    $dates = $states->pluck('created_at')->map(function($value){
+        return (string) (new \Illuminate\Support\Carbon($value))->format('d/m/y');
+    })->toArray();
     $prices = $states->pluck('value')->toArray();
 
     return response()->json([

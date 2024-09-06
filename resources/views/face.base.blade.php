@@ -37,7 +37,7 @@
             background-color: white !important;
         }
         .bg-verde{
-            background-color: #3B746C;
+            background-color: #ff4342;
         }
     </style>
 
