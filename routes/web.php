@@ -116,3 +116,5 @@ Route::controller(\App\Http\Controllers\BoutiqueAdmin::class)
     Route::get('/utilisateurs', 'list_utilisateurs')->name('list_utilisateurs');
     Route::post('/utilisateurs', 'update_utilisateur')->name('update_utilisateur');
 })->middleware(['auth']);
+
+

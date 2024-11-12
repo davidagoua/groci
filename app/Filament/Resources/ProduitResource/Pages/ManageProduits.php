@@ -78,7 +78,7 @@ class ManageProduits extends ManageRecords
                     SimpleExcelReader::create(storage_path('app/public/'. $data['fichier']))->getRows()->each(function(array $row){
                         $Model = static::getModel();
                         $produit = new $Model;
-                        $produit->categorie_id = Categorie::query()->firstWhere('name', 'like', $row['CATEGORIE'])->id ?? 0;
+                        $produit->categorie_id = Categorie::query()->firstWhere('name', 'like', $row['CATEGORIE'] ?? 0)->id ?? 0;
                         $produit->nom = $row['NOM'];
                         $produit->code_barre = $row['code_barre'] ?? "";
                         $produit->unite = $row['UNITE'];
