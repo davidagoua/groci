@@ -5,7 +5,7 @@
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="//unpkg.com/alpinejs" defer></script>
-    <section class="bg-white dark:bg-gray-900" x-data="{boutique_id: {{ $boutiques[0]->id }}, selected_item: {{ $boutiques[0]->propositions[0]->id }} }">
+    <section class="bg-white dark:bg-gray-900" x-data="{boutique_id: {{ $boutiques[0]->id }}, selected_item: {{ $boutiques[0]->propositions[0]?->id ?? 0 }} }">
         <div class=" mx-auto max-w-screen-xl flex ">
             <div class="w-3/12 bg-red">
                 <div >
