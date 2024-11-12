@@ -60,7 +60,7 @@
                             });
                         }
 
-                        getStatePrices({{ $boutiques[0]->propositions[0]->id }}, '{{ $boutiques[0]->propositions[0]->produit->nom }}')
+                        getStatePrices({{ $boutiques[0]->propositions[0]?->id ?? 0 }}, '{{ $boutiques[0]->propositions[0]?->produit->nom ?? '' }}')
                     </script>
             </div>
         </div>
