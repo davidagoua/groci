@@ -18,7 +18,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 col-md-5">
-                    <span class="badge badge-primary">{{ $produit->categorie->name }}</span>
+                    <span class="badge badge-primary">{{ $produit->categorie?->name }}</span>
                     <h2>{{ $produit->nom }}</h2>
                 </div>
             </div>
