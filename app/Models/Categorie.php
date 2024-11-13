@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -37,8 +38,13 @@ class Categorie extends Model implements HasMedia
         return $query->whereNull('parent_id');
     }
 
-    public function scopeEnfant($query)
+    public function scopeEnfant(Builder $query)
     {
-        return$query->whereNotNull('parent_id');
+        return $query->whereNotNull('parent_id')->orderBy('categories.order');
+    }
+
+    public function getOrdreAttribute()
+    {
+        return $this->order != 0 ? $this->order : $this->categorie->order;
     }
 }

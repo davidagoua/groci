@@ -16,8 +16,14 @@ class HomeController extends Controller
             ->with(['categorie','fournisseur'])
             ->get()
             ->take(20);
-        $boutiques = Boutique::query()->take(12)->get();
-        $categories = Categorie::query()->enfant()->take(16)->get();
+        $boutiques = Boutique::query()
+            ->take(12)->get();
+        $categories = Categorie::query()
+            ->enfant()
+            ->take(16)
+            ->get()
+            ->sortBy('ordre')
+        ;
 
         return view('front.home.index', compact('produits','categories','boutiques'));
     }

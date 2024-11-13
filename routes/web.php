@@ -13,7 +13,7 @@ Route::get('/', [
 ])->name('front.home');
 
 
-Route::view('/test', 'welcome');
+
 
 Route::get("/contact",[
     \App\Http\Controllers\HomeController::class,
