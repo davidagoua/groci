@@ -6,6 +6,7 @@ use AlperenErsoy\FilamentExport\Actions\FilamentExportBulkAction;
 use App\Filament\Resources\ProduitResource;
 use App\Models\Categorie;
 use App\Models\Produit;
+use App\Models\Proposition;
 use Filament\Facades\Filament;
 use Filament\Forms\Components\FileUpload;
 use Filament\Notifications\Notification;
@@ -80,7 +81,7 @@ class ManageProduits extends ManageRecords
                         $produit = new $Model;
                         $produit->categorie_id = Categorie::query()->firstWhere('name', 'like', $row['CATEGORIE'] ?? 0)->id ?? 0;
                         $produit->nom = $row['NOM'];
-                        $produit->code_barre = $row['code_barre'] ?? "";
+                        $produit->code_barre = $row['CODE_BARRE'] ?? "";
                         $produit->unite = $row['UNITE'];
                         $produit->save();
                     });
@@ -93,6 +94,16 @@ class ManageProduits extends ManageRecords
 
             Actions\Action::make("Exporter")
                 ->url(route('dowload_produit'), true),
+            Actions\Action::make('Supprimer')
+                ->label('Tout Supprimer')
+                ->color('secondary')
+                ->hidden(!request()->user()->hasRole('super_admin'))
+                ->requiresConfirmation()
+                ->icon('heroicon-o-trash')
+                ->action(function(){
+                    Proposition::query()->delete();
+                    Produit::query()->delete();
+                }),
         ];
     }
 }
