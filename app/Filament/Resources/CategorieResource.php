@@ -36,7 +36,7 @@ class CategorieResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('name')->searchable(),
                 Tables\Columns\ImageColumn::make('image'),
-                Tables\Columns\TextColumn::make('order')->label("Numero d'ordre"),
+                Tables\Columns\TextInputColumn::make('order')->label("Numero d'ordre"),
                 Tables\Columns\TextColumn::make('produits_count')
                     ->label("Produits")
                     ->counts('produits')
