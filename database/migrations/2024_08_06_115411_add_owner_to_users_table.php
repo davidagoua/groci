@@ -23,7 +23,8 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            //
+            $table->dropColumn('owner_id')->nullable();
+            $table->dropColumn('boutique_id')->nullable();
         });
     }
 };
