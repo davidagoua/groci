@@ -25,7 +25,7 @@ class CategorieResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('name')->label("Nom de la categorie"),
-                Forms\Components\TextInput::make('oder')->label("Numero d'ordre"),
+                Forms\Components\TextInput::make('order')->label("Numero d'ordre"),
                 Forms\Components\FileUpload::make('image')->image(),
             ]);
     }
@@ -36,7 +36,7 @@ class CategorieResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('name')->searchable(),
                 Tables\Columns\ImageColumn::make('image'),
-                Tables\Columns\ImageColumn::make('oder')->label("Numero d'ordre"),
+                Tables\Columns\ImageColumn::make('order')->label("Numero d'ordre"),
                 Tables\Columns\TextColumn::make('produits_count')
                     ->label("Produits")
                     ->counts('produits')
