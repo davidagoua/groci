@@ -15,8 +15,8 @@
                 <div class="row">
                     @foreach($categories as $categorie)
                         <a href="{{ route('front.shop.search') }}?cats[0]={{ $categorie->id }}"
-                           class="col-md-3 d-block">
-                            <div class="p-3 bg-white text-center">
+                           class="col-md-3 d-block mt-3">
+                            <div data-aos="flip-left" data-aos-easing="ease-in-back" class="p-3  bg-white text-center" style="border: 5px solid red; border-radius: 7px">
                                 <img class="img-fluid" style="height: 150px"
                                      src="{{ asset('/storage/'.$categorie->image) }}" alt="">
                                 <div>
