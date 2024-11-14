@@ -25,7 +25,7 @@
                 <div class="row align-items-stretch">
                     @foreach($categories as $categorie)
                         <a href="{{ route('front.shop.search') }}?cats[0]={{ $categorie->id }}"
-                           class="col-md-3 d-block mt-3 category-card">
+                           class="col-md-3 col-6 d-block mt-3 category-card">
                             <div data-aos="flip-left" data-aos-easing="ease-in-back" class="p-3  bg-white text-center" style="border: 5px solid red; border-radius: 7px">
                                 <img class="img-fluid" style="height: 120px"
                                      src="{{ asset('/storage/'.$categorie->image) }}" width="100%" >
