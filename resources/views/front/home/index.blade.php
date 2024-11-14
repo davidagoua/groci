@@ -17,8 +17,8 @@
                         <a href="{{ route('front.shop.search') }}?cats[0]={{ $categorie->id }}"
                            class="col-md-3 d-block mt-3">
                             <div data-aos="flip-left" data-aos-easing="ease-in-back" class="p-3  bg-white text-center" style="border: 5px solid red; border-radius: 7px">
-                                <img class="img-fluid" style="height: 150px"
-                                     src="{{ asset('/storage/'.$categorie->image) }}" width="100%" height="100">
+                                <img class="img-fluid" style="height: 120px"
+                                     src="{{ asset('/storage/'.$categorie->image) }}" width="100%" >
                                 <div>
                                     <h6 class="p-3">{{ $categorie->name }}</h6>
                                 </div>
@@ -28,7 +28,7 @@
                 </div>
             </div>
             <div class="col-md-1 p-0"
-                 style="background-image: url({{ asset('nimages/rect.png') }}); ; background-repeat: no-repeat">
+                 style="background-image: url({{ asset('nimages/rect.png') }});  background-repeat: no-repeat">
 
             </div>
 
