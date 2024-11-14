@@ -1,5 +1,15 @@
 @extends('front.base')
 
+
+@push('css')
+<style>
+    .category-card:hover {
+        transform: scale(105%);
+    }
+</style>
+
+@endpush
+
 @section('content')
 
     <livewire:topbar/>
@@ -12,10 +22,10 @@
                  style="background-image: url({{ asset('nimages/rect1.png') }}); background-repeat: no-repeat; background-size: contains">
             </div>
             <div class="col m-0" style="background-image: url({{ asset('nimages/rect2.png') }})">
-                <div class="row">
+                <div class="row align-items-stretch">
                     @foreach($categories as $categorie)
                         <a href="{{ route('front.shop.search') }}?cats[0]={{ $categorie->id }}"
-                           class="col-md-3 d-block mt-3">
+                           class="col-md-3 d-block mt-3 category-card">
                             <div data-aos="flip-left" data-aos-easing="ease-in-back" class="p-3  bg-white text-center" style="border: 5px solid red; border-radius: 7px">
                                 <img class="img-fluid" style="height: 120px"
                                      src="{{ asset('/storage/'.$categorie->image) }}" width="100%" >
