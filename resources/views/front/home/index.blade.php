@@ -28,7 +28,7 @@
                            class="col-md-3 col-6 d-block mt-3 category-card">
                             <div data-aos="flip-left" data-aos-easing="ease-in-back" class="p-3  bg-white text-center" >
                                 <img class="img-fluid" style="border: 5px solid red; border-radius: 7px;height: 120px"
-                                     src="{{ asset('/storage/'.$categorie->image) }}" width="100%" >
+                                     src="{{ asset('/storage/'.$categorie->image) }}" width="80%" >
                                 <div>
                                     <h6 class="p-3">{{ $categorie->name }}</h6>
                                 </div>
