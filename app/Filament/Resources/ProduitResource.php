@@ -36,7 +36,9 @@ class ProduitResource extends Resource
                         ->label("Categorie")
                         ->options(Categorie::query()->orderBy('name') ->get()->pluck('name','id')),
                     Forms\Components\TextInput::make('unite')->placeholder('400kg')->required(),
-                    Forms\Components\FileUpload::make('images')
+                    Forms\Components\FileUpload::make('images')->default(function($state){
+                        return $state->image()->path;
+                    })
                 ])
             ]);
     }
@@ -58,6 +60,7 @@ class ProduitResource extends Resource
             ])
             ->filters([
                 Tables\Filters\SelectFilter::make('categorie_id')
+                    ->multiple()
                     ->options(Categorie::enfant()->get()->pluck('name','id'))
             ])
             ->actions([
