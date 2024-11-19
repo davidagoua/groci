@@ -62,12 +62,11 @@ class ProduitResource extends Resource
             ->actions([
                 Tables\Actions\EditAction::make()->using(function($record, $data){
                     $images = $data['images'];
+                    $record->image_produits()->create([
+                        'path'=> $images
+                    ]);
                     unset($data['images']);
-                    foreach ($images as $image){
-                        $record->image_produits()->create([
-                            'path'=> $image
-                        ]);
-                    }
+
                     $record->update($data);
                     return $record;
                 }),
