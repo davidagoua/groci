@@ -57,7 +57,8 @@ class ProduitResource extends Resource
                     ->label("Actif"),
             ])
             ->filters([
-                //
+                Tables\Filters\SelectFilter::make('categorie_id')
+                    ->options(Categorie::enfant()->get()->pluck('name','id'))
             ])
             ->actions([
                 Tables\Actions\EditAction::make()->using(function($record, $data){
@@ -66,7 +67,6 @@ class ProduitResource extends Resource
                         'path'=> $images
                     ]);
                     unset($data['images']);
-
                     $record->update($data);
                     return $record;
                 }),
