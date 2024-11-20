@@ -3,6 +3,7 @@
 namespace App\Filament\Widgets;
 
 use App\Models\Boutique;
+use App\Models\Produit;
 use App\Models\Proposition;
 use App\Models\User;
 use Filament\Widgets\Widget;
@@ -17,7 +18,7 @@ class AdminResumeCard extends Widget
     public function mount(){
         $this->nb_clients = User::query()->count();
         $this->nb_boutiques = Boutique::query()->count();
-        $this->nb_produits = Proposition::query()->count();
+        $this->nb_produits = Produit::query()->count();
     }
 
     public static function canView(): bool
