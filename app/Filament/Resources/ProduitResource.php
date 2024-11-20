@@ -66,7 +66,7 @@ class ProduitResource extends Resource
             ->actions([
                 Tables\Actions\EditAction::make()->using(function($record, $data){
                     $images = $data['images'];
-                    if($image != null){
+                    if($images != null){
                         $record->image_produits()->create([
                             'path'=> $images
                         ]);
