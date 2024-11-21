@@ -34,7 +34,7 @@ class ProduitResource extends Resource
                     Forms\Components\TextInput::make('nom')->label("Nom")->required(),
                     Forms\Components\Select::make('categorie_id')
                         ->label("Categorie")
-                        ->options(Categorie::query()->orderBy('name') ->get()->pluck('name','id')),
+                        ->options(Categorie::query()->enfant()->orderBy('name') ->get()->pluck('name','id')),
                     Forms\Components\TextInput::make('unite')->placeholder('400kg')->required(),
                     Forms\Components\FileUpload::make('images')->default(function($state){
                         return $state->image()->path;
