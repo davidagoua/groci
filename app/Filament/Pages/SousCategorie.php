@@ -50,7 +50,7 @@ class SousCategorie extends Page implements HasTable
     protected function getTableFilters(): array
     {
         return [
-            SelectFilter::make('categorie_id')
+            SelectFilter::make('parent_id')
                 ->label("Categorie")
                 ->multiple()
                 ->options(Categorie::parent()->get()->pluck('name','id'))
