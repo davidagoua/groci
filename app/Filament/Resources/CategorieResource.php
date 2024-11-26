@@ -42,7 +42,10 @@ class CategorieResource extends Resource
                     ->counts('produits')
             ])
             ->filters([
-                //
+                Tables\Filters\SelectFilter::make('categorie_id')
+                    ->label("Categorie")
+                    ->multiple()
+                    ->options(Categorie::parent()->get()->pluck('name','id'))
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),

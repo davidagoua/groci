@@ -19,7 +19,7 @@ class HomeController extends Controller
         $boutiques = Boutique::query()
             ->take(12)->get();
         $categories = Categorie::query()
-            ->enfant()
+            ->parent()
             ->take(16)
             ->get()
             ->sortBy('ordre')

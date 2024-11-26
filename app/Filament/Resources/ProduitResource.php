@@ -60,6 +60,7 @@ class ProduitResource extends Resource
             ])
             ->filters([
                 Tables\Filters\SelectFilter::make('categorie_id')
+                    ->label("Categorie")
                     ->multiple()
                     ->options(Categorie::enfant()->get()->pluck('name','id'))
             ])
