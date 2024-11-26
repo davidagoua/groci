@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="row">
 
-                <div class="col-md-2">
+                <div class="col-md-3">
                     <div class="shop-filters">
                         <div id="accordion">
                             <div class="card">
@@ -22,12 +22,33 @@
                                     <div class="card-body card-shop-filters">
 
                                         @foreach($categories as $cat)
+                                            <div id="accordion">
+                                                <div class="w-full">
+                                                    <a class="w-full p-2 d-flex justify-content-between  d-block" style="background-color: #eeeeee" data-toggle="collapse" data-target="#collapse-categorie-{{ $cat->id }}">
+                                                        <label class="">{{ $cat->name }}</label>
+                                                        <span class="mdi mdi-chevron-down float-right"></span>
+                                                    </a>
+
+                                                </div>
+                                                <div class="collapse" id="collapse-categorie-{{ $cat->id }}">
+                                                    @foreach($cat->enfants as $scat)
+                                                    <div class="custom-control custom-checkbox">
+                                                        <input wire:model="cats" value="{{ $scat->id }}" type="checkbox"
+                                                               class="custom-control-input" id="cb{{ $scat->id }}">
+                                                        <label class="custom-control-label"
+                                                               for="cb{{ $scat->id }}">{{ $scat->name }}</label>
+                                                    </div>
+                                                    @endforeach
+                                                </div>
+                                            </div>
+                                            @if(false)
                                             <div class="custom-control custom-checkbox">
                                                 <input wire:model="cats" value="{{ $cat->id }}" type="checkbox"
                                                        class="custom-control-input" id="cb{{ $cat->id }}">
                                                 <label class="custom-control-label"
                                                        for="cb{{ $cat->id }}">{{ $cat->name }}</label>
                                             </div>
+                                            @endif
                                         @endforeach
                                     </div>
                                 </div>
@@ -408,7 +429,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-10">
+                <div class="col-md-9">
                     <a href="#"><img class="img-fluid mb-3" src="img/shop.jpg" alt=""></a>
                     <div class="shop-head">
                         <div class="btn-group float-right mt-2 ">

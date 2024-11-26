@@ -31,7 +31,7 @@ class SearchComponent extends Component
 
     public function mount(){
         $this->boutiques = Cache::remember('all_boutiques', 3600, fn() => Boutique::query()->get());
-        $this->categories = Categorie::query()->enfant()->get();
+        $this->categories = Categorie::query()->parent()->get();
         $this->bannieres = Banniere::query()->get();
         $this->localite = session()->get('localite', "Tous") ;
     }

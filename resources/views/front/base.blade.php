@@ -88,7 +88,7 @@
         <div class="container p-1">
             <div class="text-center text-white ">
                 <div class="">
-                    <p class="mb-0 text-white">&copy; Copyright 2023 <strong class="text-white">Conseil National de lutte Contre la Vie Chère</strong>. Tous
+                    <p class="mb-0 text-white md:small">&copy; Copyright 2023 <strong class="text-white">Conseil National de lutte Contre la Vie Chère</strong>. Tous
                         droit réservés<br>
                     </p>
                 </div>

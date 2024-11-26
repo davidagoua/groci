@@ -7,7 +7,7 @@
         transform: scale(105%);
     }
 </style>
-
+<script src="//unpkg.com/alpinejs" defer></script>
 @endpush
 
 @section('content')
@@ -24,7 +24,7 @@
             <div class="col m-0" style="background-image: url({{ asset('nimages/rect2.png') }})">
                 <div class="row align-items-stretch">
                     @foreach($categories as $categorie)
-                        <a href="{{ route('front.shop.search') }}?cats[0]={{ $categorie->id }}"
+                        <a href="#" data-toggle="modal" data-target="#modal-categorie-{{ $categorie->id }}"
                            class="col-md-3 col-6 d-block mt-3 category-card">
                             <div data-aos="flip-left" data-aos-easing="ease-in-back" class="p-3  bg-white text-center" >
                                 <img class="img-fluid" style="border: 5px solid red; border-radius: 7px;height: 140px"
@@ -34,6 +34,31 @@
                                 </div>
                             </div>
                         </a>
+                        <div x-data="{q: ''}"  class="modal  fade" id="modal-categorie-{{ $categorie->id }}">
+                            <div class="modal-dialog modal-lg" >
+                                <div class="modal-content">
+                                    <div class="modal-body">
+                                        <div>
+                                            <input x-model="q" type="text" class="form-control" placeholder="Rechercher une categorie...">
+                                        </div>
+                                        <div class="row align-items-stretch">
+                                            @foreach($categorie->enfants as $scat)
+                                                <a x-show="'{{$scat->name}}'.toLowerCase().indexOf(q.toLowerCase()) !== -1"  href="{{ route('front.shop.search') }}?cats[0]={{ $scat->id }}"
+                                                   class="col-md-4 col-6  mt-3 category-card">
+                                                    <div data-aos="flip-left" data-aos-easing="ease-in-back" class="p-3  bg-white text-center" >
+                                                        <img class="img-fluid" style="border: 5px solid red; border-radius: 7px;height: 140px"
+                                                             src="{{ asset('/storage/'.$scat->image) }}" width="220px" >
+                                                        <div>
+                                                            <h6 class="p-3">{{ $scat->name }}</h6>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     @endforeach
                 </div>
             </div>
