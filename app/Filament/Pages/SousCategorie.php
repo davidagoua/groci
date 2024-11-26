@@ -16,6 +16,7 @@ use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Concerns\InteractsWithTable;
 use Filament\Tables\Contracts\HasTable;
+use Filament\Tables\Filters\SelectFilter;
 use Illuminate\Database\Eloquent\Builder;
 
 class SousCategorie extends Page implements HasTable
@@ -43,6 +44,16 @@ class SousCategorie extends Page implements HasTable
           TextColumn::make('name')->label("Nom")->searchable(),
           TextColumn::make('categorie.name')->label("Parent"),
           ImageColumn::make('image'),
+        ];
+    }
+
+    protected function getTableFilters(): array
+    {
+        return [
+            SelectFilter::make('categorie_id')
+                ->label("Categorie")
+                ->multiple()
+                ->options(Categorie::parent()->get()->pluck('name','id'))
         ];
     }
 
