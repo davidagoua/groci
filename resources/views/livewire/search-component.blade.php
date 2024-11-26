@@ -30,7 +30,7 @@
                                                     </a>
 
                                                 </div>
-                                                <div class="collapse" id="collapse-categorie-{{ $cat->id }}">
+                                                <div class="collapse @if($selectedParent == $cat->id) show @endif" id="collapse-categorie-{{ $cat->id }}">
                                                     @foreach($cat->enfants as $scat)
                                                     <div class="custom-control custom-checkbox">
                                                         <input wire:model="cats" value="{{ $scat->id }}" type="checkbox"

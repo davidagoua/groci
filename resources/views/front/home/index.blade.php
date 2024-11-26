@@ -28,7 +28,7 @@
                            class="col-md-3 col-6 d-block mt-3 category-card">
                             <div data-aos="flip-left" data-aos-easing="ease-in-back" class="p-3  bg-white text-center" >
                                 <img class="img-fluid" style="border: 5px solid red; border-radius: 7px;height: 140px"
-                                     src="{{ asset('/storage/'.$categorie->image) }}" width="220px" >
+                                     src="{{ asset('/storage/'.$categorie->image) }}" width="auto" >
                                 <div>
                                     <h6 class="p-3">{{ $categorie->name }}</h6>
                                 </div>
@@ -37,13 +37,16 @@
                         <div x-data="{q: ''}"  class="modal  fade" id="modal-categorie-{{ $categorie->id }}">
                             <div class="modal-dialog modal-lg" >
                                 <div class="modal-content">
+                                    <div class="modal-header">
+                                        <div class="modal-title">Dans la section {{ $categorie->name }}</div>
+                                    </div>
                                     <div class="modal-body">
                                         <div>
                                             <input x-model="q" type="text" class="form-control" placeholder="Rechercher une categorie...">
                                         </div>
                                         <div class="row align-items-stretch">
                                             @foreach($categorie->enfants as $scat)
-                                                <a x-show="'{{$scat->name}}'.toLowerCase().indexOf(q.toLowerCase()) !== -1"  href="{{ route('front.shop.search') }}?cats[0]={{ $scat->id }}"
+                                                <a x-show="'{{$scat->name}}'.toLowerCase().indexOf(q.toLowerCase()) !== -1"  href="{{ route('front.shop.search') }}?cats[0]={{ $scat->id }}&parent={{$categorie->id}}"
                                                    class="col-md-4 col-6  mt-3 category-card">
                                                     <div data-aos="flip-left" data-aos-easing="ease-in-back" class="p-3  bg-white text-center" >
                                                         <img class="img-fluid" style="border: 5px solid red; border-radius: 7px;height: 140px"
