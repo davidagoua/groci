@@ -62,7 +62,7 @@ class SearchComponent extends Component
             ->allowedFilters(['nom','proposition.prix'])
             ->allowedIncludes(['propositions'])
             ->allowedSorts(['nom','prix','categorie_id','boutique_id'])
-
+            /*
             ->whereHas('propositions', function(Builder $query){
                 return $query
                 ->when($this->prixmin, function(Builder $q){
@@ -77,6 +77,7 @@ class SearchComponent extends Component
                     return $q->whereIn('boutique_id', $this->boutiques_filters);
                 });
             })
+            */
             ->when(request()->filled('categorie'), function($builder) {
                 return $builder->whereIn('categorie_id', [request()->get('categorie')]);
             })

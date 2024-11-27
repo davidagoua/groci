@@ -5,6 +5,72 @@
         <div class="container-fluid">
             <div class="row">
 
+                <div class="col-md-9 d-md-none ">
+                    <a href="#"><img class="img-fluid mb-3" src="img/shop.jpg" alt=""></a>
+                    <div class="shop-head">
+                        <div class="btn-group float-right mt-2 ">
+                            <a href="{{ route('front.shop.search') }}" class="btn btn-link text-dark ">
+                                Effacer les filtres
+                            </a>
+
+                        </div>
+                        <h5 class="mb-3"> Recherche des produits </h5>
+
+                    </div>
+                    @if(false)
+                        <form method="get" class="row my-3">
+                            <div class="col-4">
+                                <input name="filter[nom]" type="text" placeholder="Rechercher un produit"
+                                       wire:model="searchText"
+                                       class="bg-white p-4 border-0 w-full rounded-0 form-control">
+                            </div>
+                            <div class="col-4">
+                                <select name="" wire:change="updateLocalite" wire:model="localite"
+                                        class="bg-white  border-0 w-full rounded-0 w-100 p-3" id="">
+                                    <option value="Tous" selected>Toutes les villes</option>
+                                    @foreach(
+                                    $villes as $ville
+                                    )
+                                        <option value="{{ $ville }}">{{ $ville }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="col-2">
+                                <select name="sort" class="bg-white  border-0 w-full rounded-0 w-100 p-3" id="">
+                                    <option value="prix" selected>Prix</option>
+                                    <option value="nom">Nom</option>
+                                    <option value="boutique_id">Boutique</option>
+                                    <option value="categorie_id">Categorie</option>
+                                </select>
+                            </div>
+                            <div class="col">
+                                <button class="btn h-100 w-100 btn-dark rounded-0">
+                                    <span class="mdi mdi-search"></span>
+                                    <span>Rechercher</span>
+                                </button>
+                            </div>
+                        </form>
+                    @endif
+                    <div class="row">
+                        @foreach($produits as $p)
+                            <div class="col-md-3 mb-3">
+                                <x-product-card :produit="$p"/>
+                            </div>
+                        @endforeach
+
+                    </div>
+                    <nav>
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item ">
+                                <span class="">
+                                {{ $produits->links() }}
+                                </span>
+                            </li>
+
+                        </ul>
+                    </nav>
+                </div>
+
                 <div class="col-md-3">
                     <div class="shop-filters">
                         <div id="accordion">
@@ -429,7 +495,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-9">
+                <div class="col-md-9 d-sm-none d-md-block ">
                     <a href="#"><img class="img-fluid mb-3" src="img/shop.jpg" alt=""></a>
                     <div class="shop-head">
                         <div class="btn-group float-right mt-2 ">
