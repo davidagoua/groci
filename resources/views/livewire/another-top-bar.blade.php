@@ -9,7 +9,8 @@
                             <div class="row">
                                 <div class="col-lg-6 pad-right-0">
                                     <div class="h-100 d-flex align-items-center justify-content-center">
-                                        <img src="{{ asset('/nimages/logo.png') }}" alt="">
+                                        <img class="d-none d-md-block " src="{{ asset('/nimages/logo.png') }}" alt="">
+                                        <img class=" d-none d-sm-block d-md-none" src="{{ asset('/nimages/logo-mini.png') }}" alt="">
                                     </div>
                                 </div>
                                 <div class="col-lg-6 pad-left-0">
