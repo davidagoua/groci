@@ -39,15 +39,18 @@
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <div class="modal-title">Dans la section {{ $categorie->name }}</div>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">×</span>
+                                        </button>
                                     </div>
                                     <div class="modal-body">
                                         <div>
                                             <input x-model="q" type="text" class="form-control" placeholder="Rechercher une categorie...">
                                         </div>
                                         <div class="row align-items-stretch">
-                                            @foreach($categorie->enfants as $scat)
+                                            @foreach($categorie->enfants()->orderBy('name')->get() as $scat)
                                                 <a x-show="'{{$scat->name}}'.toLowerCase().indexOf(q.toLowerCase()) !== -1"  href="{{ route('front.shop.search') }}?cats[0]={{ $scat->id }}&parent={{$categorie->id}}"
-                                                   class="col-md-4 col-6  mt-3 category-card">
+                                                   class="col-md-4 col-12  mt-3 category-card">
                                                     <div data-aos="flip-left" data-aos-easing="ease-in-back" class="p-3  bg-white text-center" >
                                                         <img class="img-fluid" style="border: 5px solid red; border-radius: 7px;height: 140px"
                                                              src="{{ asset('/storage/'.$scat->image) }}" width="220px" >
@@ -84,8 +87,8 @@
                 Nos produits de saison sont disponibles, <br>
                 Ils sont moins chers
             </h5>
-            <div class="rounded mt-3 " style="height: 450px; width: 100%">
-                <video width="800" height="400" muted loop class="" class="" autoplay>
+            <div class="rounded mt-3 img-responsive embed-responsive embed-responsive-16by9 " style="height: 450px; width: 100%">
+                <video width="800" height="400" muted loop class="embed-responsive-item"  autoplay>
                     <source src="{{ asset('nimages/video.mp4') }}" type="video/mp4">
                 </video>
             </div>

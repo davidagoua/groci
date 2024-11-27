@@ -45,7 +45,7 @@ class Categorie extends Model implements HasMedia
 
     public function scopeEnfant(Builder $query)
     {
-        return $query->whereNotNull('parent_id')->orderBy('categories.order');
+        return $query->whereNotNull('parent_id')->orderBy('name');
     }
 
     public function getOrdreAttribute()
