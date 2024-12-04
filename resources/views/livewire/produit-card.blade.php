@@ -5,7 +5,7 @@
         </div>
         <div class="text-center p-3">
             <div >
-                <h5 title="{{ $produit->nom }}"  class="line-clamp-1">{{ $produit->nom }}</h5>
+                <h5 title="{{ $produit->nom }}"  class="line-clamp-1 min-h-6 truncate ">{{ $produit->nom }}</h5>
             </div>
             <div class="product-footer">
                 <b class="offer-price mb-0">{{ $produit->propositions()->min('prix') }}

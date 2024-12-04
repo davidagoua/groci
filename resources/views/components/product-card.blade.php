@@ -4,8 +4,8 @@
             <img class="img-fluid" src="{{ asset('/storage/'. $produit->image()->path) }}" alt="">
         </div>
         <div class="text-center p-3">
-            <div class="">
-                <h5>{{ $produit->nom }}</h5>
+            <div class="h-3" style="height: 50px">
+                <h5 class="line-clamp-1  truncate text-ellipsis" title="{{ $produit->nom }}">{{ $produit->nom }}</h5>
             </div>
             <div class="product-footer">
                 <b class="offer-price mb-0">

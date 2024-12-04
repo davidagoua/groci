@@ -10,7 +10,7 @@
             </div>
             <div class="col">
                 <div>
-                    <div class="row">
+                    <div class="row items-stretch">
                         @forelse($produits as $produit)
                             <div class="col-3">
                                 <x-product-card :produit="$produit"/>
