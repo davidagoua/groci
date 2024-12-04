@@ -48,7 +48,7 @@
                                             <input x-model="q" type="text" class="form-control" placeholder="Rechercher une categorie...">
                                         </div>
                                         <div class="row align-items-stretch">
-                                            @foreach($categorie->enfants()->orderBy('name')->get() as $scat)
+                                            @foreach($categorie->enfants()->orderBy('order')->get() as $scat)
                                                 <a x-show="'{{$scat->name}}'.toLowerCase().indexOf(q.toLowerCase()) !== -1"  href="{{ route('front.shop.search') }}?cats[0]={{ $scat->id }}&parent={{$categorie->id}}"
                                                    class="col-md-4 col-12  mt-3 category-card">
                                                     <div data-aos="flip-left" data-aos-easing="ease-in-back" class="p-3  bg-white text-center" >

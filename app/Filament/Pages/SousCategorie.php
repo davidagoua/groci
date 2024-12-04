@@ -14,6 +14,7 @@ use Filament\Pages\Page;
 use Filament\Tables\Actions\DeleteAction;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Columns\TextInputColumn;
 use Filament\Tables\Concerns\InteractsWithTable;
 use Filament\Tables\Contracts\HasTable;
 use Filament\Tables\Filters\SelectFilter;
@@ -41,9 +42,10 @@ class SousCategorie extends Page implements HasTable
     public function getTableColumns(): array
     {
         return [
-          TextColumn::make('name')->label("Nom")->searchable(),
-          TextColumn::make('categorie.name')->label("Parent"),
-          ImageColumn::make('image'),
+            TextColumn::make('name')->label("Nom")->searchable(),
+            TextColumn::make('categorie.name')->label("Parent"),
+            ImageColumn::make('image'),
+            TextInputColumn::make('order')->label("Numero d'ordre"),
         ];
     }
 

@@ -4,14 +4,13 @@
             <img class="img-fluid" src="{{ asset('/storage/'. $produit->image()->path) }}" alt="">
         </div>
         <div class="text-center p-3">
-            <div class="">
-                <h5>{{ $produit->nom }}</h5>
+            <div >
+                <h5 title="{{ $produit->nom }}"  class="line-clamp-1">{{ $produit->nom }}</h5>
             </div>
             <div class="product-footer">
                 <b class="offer-price mb-0">{{ $produit->propositions()->min('prix') }}
                     - {{ $produit->propositions()->max('prix') }} FCFA / {{ $produit->unite  }}<br>
                 </b>
-
             </div>
 
         </div>

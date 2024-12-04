@@ -176,7 +176,7 @@
     </section>
 
 
-    <section>
+    <section class="text-center">
         <img src="{{ asset('nimages/banner.png') }}" alt="">
     </section>
 
