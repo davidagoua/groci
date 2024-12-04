@@ -70,9 +70,25 @@ class ShopController extends Controller
         ]);
     }
 
-    public function getCategories(Request $request)
+    public function getCategories(Request $request, Categorie $categorie)
     {
         $categories = Categorie::enfant();
+        return $this->respondWithSuccess([
+            'categories'=> CategorieResource::collection($categories->get())
+        ]);
+    }
+
+    public function getParentCategories(Request $request)
+    {
+        $categories = Categorie::parent();
+        return $this->respondWithSuccess([
+            'categories'=> CategorieResource::collection($categories->get())
+        ]);
+    }
+
+    public function getParentCategoriesByParent(Request $request, Categorie $categorie)
+    {
+        $categories = $categorie->enfants();
         return $this->respondWithSuccess([
             'categories'=> CategorieResource::collection($categories->get())
         ]);

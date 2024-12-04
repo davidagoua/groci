@@ -29,6 +29,9 @@ Route::controller(\App\Http\Controllers\Api\ShopController::class)
         Route::get('/produits/{produit}/propositions', 'getPropositions');
         Route::get('/boutiques', 'getBoutiques');
         Route::get('/categories', 'getCategories');
+        Route::get('/categories-parents', 'getParentCategories');
+        Route::get('/categories/{categorie}/enfants', 'getParentCategoriesByParent');
         Route::get('/villes', 'getVilles');
         Route::post('/resume', 'getResume');
+
     });
