@@ -52,4 +52,6 @@ class Categorie extends Model implements HasMedia
     {
         return $this->order != 0 ? $this->order : $this->categorie->order;
     }
+
+
 }
