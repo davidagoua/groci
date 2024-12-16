@@ -19,7 +19,8 @@ class CategorieResource extends JsonResource
             'parent_id'=> $this->categorie?->id ?? null,
             'nom'=> $this->name,
             'slug'=> $this->slug,
-            'image'=> asset("storage/".$this->image)
+            'image'=> asset("storage/".$this->image),
+            'has_child'=> $this->enfants()->count() > 0
         ];
     }
 }
