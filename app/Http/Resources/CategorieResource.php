@@ -20,7 +20,7 @@ class CategorieResource extends JsonResource
             'nom'=> $this->name,
             'slug'=> $this->slug,
             'image'=> asset("storage/".$this->image),
-            'has_child'=> $this->enfants()->count() > 0
+            'has_child'=> $this->enfants->count() > 0
         ];
     }
 }
