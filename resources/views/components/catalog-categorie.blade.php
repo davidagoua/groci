@@ -21,7 +21,7 @@
     <div class="d-flex row">
         <div class="col-md-4 border-b border-none border">
             @foreach($categorie->enfants()->get() as $scat)
-            <a class="d-block p-1 mt-2 rounded shadow bg-white text-center" :style="{'background-color': selectedId == {{$scat->id}} ? '#ff7675' : '', }" href="#" @click.prevent="getCategorieEnfants({{$scat->id}})">
+            <a class="d-block p-1 mt-2 rounded shadow bg-white text-center" :class="{'border border-danger': selectedId === {{$scat->id}}  }" href="#" @click.prevent="getCategorieEnfants({{$scat->id}})">
                <div class="d-flex align-items-center">
                    <div class="d-flex flex-grow-1 flex-column">
                        <img style="height: 100px; width: auto" src="{{ asset('/storage/'.$scat->image) }}" alt="">
