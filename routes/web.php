@@ -83,6 +83,12 @@ Route::get('/download-apk', function(Request $request){
     response()->download(storage_path('app/app-release.apk'), 'cmoinscher');
 })->name('download-apk');
 
+Route::get('/child/{categorie}', function(Request $request, \App\Models\Categorie $categorie){
+    return view('front.parts.get-child', [
+        'categorie'=>$categorie
+    ]);
+})->name('get-child');
+
 
 Route::get('/stats/proposition/{proposition}', function(Request $request, \App\Models\Proposition $proposition){
 

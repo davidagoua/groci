@@ -53,5 +53,10 @@ class Categorie extends Model implements HasMedia
         return $this->order != 0 ? $this->order : $this->categorie->order;
     }
 
+    public function sous2Categories(): HasMany
+    {
+        return $this->hasMany(Categorie::class, 'parent_id')->whereGeneration(3);
+    }
+
 
 }

@@ -16,6 +16,7 @@ class CategorieResource extends JsonResource
     {
         return [
             'id'=> $this->id,
+            'parent_id'=> $this->categorie?->id ?? null,
             'nom'=> $this->name,
             'slug'=> $this->slug,
             'image'=> asset("storage/".$this->image)

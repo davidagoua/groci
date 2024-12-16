@@ -187,4 +187,12 @@ class ShopController extends Controller
         ]);
     }
 
+    public function get_categorie_children(Request $request, Categorie $categorie)
+    {
+        $enfants = $categorie->enfants()->get();
+        return $this->respondWithSuccess([
+            'data'=>CategorieResource::collection($enfants)
+        ]);
+    }
+
 }
