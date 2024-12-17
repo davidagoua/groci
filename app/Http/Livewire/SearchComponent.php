@@ -71,10 +71,10 @@ class SearchComponent extends Component
         $produits = QueryBuilder::for(Produit::class)
             ->allowedFilters(['nom','proposition.prix'])
             ->allowedIncludes(['propositions'])
-            ->allowedSorts(['nom','prix','categorie_id','boutique_id','sous_sous_categorie_id'])
+            ->allowedSorts(['nom','prix','categorie_id','boutique_id','sous_sous_categorie_id','parent'])
 
-            ->when(request()->filled('categorie'), function($builder) {
-                return $builder->whereIn('categorie_id', [request()->get('categorie')]);
+            ->when(request()->filled('parent'), function($builder) {
+                return $builder->where('categorie_id', request()->get('parent'));
             })
             ->when(request()->filled('sous_sous_categorie_id'), function($builder) {
                 return $builder->where('sous_sous_categorie_id', (int) request()->query('sous_sous_categorie'));
