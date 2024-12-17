@@ -44,7 +44,11 @@ class ProduitResource extends Resource
                     Forms\Components\Select::make('sous_sous_categorie_id')
                         ->label("Sous Categorie")
                         ->reactive()
-                        ->options(Categorie::query()->where('generation', '=', 3)->orderBy('name') ->get()->pluck('name','id')),
+                        ->options(
+                            Categorie::query()->where('generation', '=', 3)
+
+                                ->orderBy('name') ->get()->pluck('name','id')
+                        ),
                     Forms\Components\TextInput::make('unite')->placeholder('400kg')->required(),
                     Forms\Components\FileUpload::make('images')->default(function($state){
                         return $state?->image()->path;
