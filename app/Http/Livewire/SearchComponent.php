@@ -29,12 +29,15 @@ class SearchComponent extends Component
     public $localite;
     protected $queryString = ['cats','page','prixmin','localite'];
 
+    public ?int $selectedSousSousCaetgorie = null;
+
 
     public function mount(){
         $this->boutiques = Cache::remember('all_boutiques', 3600, fn() => Boutique::query()->get());
         $this->categories = Categorie::query()->parent()->get();
         $this->bannieres = Banniere::query()->get();
         $this->localite = session()->get('localite', "Tous") ;
+        $this->selectedSousSousCategorie = (int) request()->query('sous_sous_categorie_id');
     }
 
     public function updateLocalite()
@@ -62,7 +65,7 @@ class SearchComponent extends Component
 
         $selectedParent = (int) request()->query('parent');
         $selectedGrandParent = (int) request()->query('parent2');
-        $selectedSousSousCategorie = (int) request()->query('sous_sous_categorie_id');
+        $this->selectedSousSousCategorie = (int) request()->query('sous_sous_categorie_id');
 
         $produits = QueryBuilder::for(Produit::class)
             ->allowedFilters(['nom','proposition.prix'])
@@ -104,7 +107,7 @@ class SearchComponent extends Component
             'villes'=>$villes,
             'selectedParent'=>$selectedParent,
             'selectedGrandParent'=>$selectedGrandParent,
-            'selectedSousSousCategorie'=>$selectedSousSousCategorie
+            'selectedSousSousCategorie'=>$this->selectedSousSousCategorie
         ]);
     }
 
