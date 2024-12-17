@@ -108,7 +108,7 @@
                                                         <div class="ml-3">
                                                             @foreach($scat->enfants as $sscat)
                                                                 <div class="custom-control custom-checkbox">
-                                                                    <input name="sous_sous_categorie_id" value="{{ $sscat->id }}" data-select-id="{{$selectedSousSousCategorie}}" @if($selectedSousSousCategorie == $sscat->id) checked @endif type="checkbox"
+                                                                    <input name="sous_sous_categorie_id" wire:model="sscats" value="{{ $sscat->id }}" data-select-id="{{$selectedSousSousCategorie}}" data-current-categorie="{{$sscats}}" @if($selectedSousSousCategorie == $sscat->id) checked @endif type="checkbox"
                                                                            class="custom-control-input" id="cb{{ $sscat->id }}">
                                                                     <label class="custom-control-label"
                                                                            for="cb{{ $sscat->id }}">{{ $sscat->name }}</label>
