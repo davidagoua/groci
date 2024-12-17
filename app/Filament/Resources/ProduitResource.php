@@ -63,7 +63,7 @@ class ProduitResource extends Resource
                 Tables\Filters\SelectFilter::make('categorie_id')
                     ->label("Categorie")
                     ->multiple()
-                    ->options(Categorie::whereGeneration(2)->get()->pluck('name','id'))
+                    ->options(Categorie::whereGeneration(3)->get()->pluck('name','id'))
             ])
             ->actions([
                 Tables\Actions\EditAction::make()->using(function($record, $data){
