@@ -100,7 +100,7 @@
                                                     @foreach($cat->enfants as $scat)
                                                     <div>
                                                         <div class="custom-control custom-checkbox">
-                                                            <input wire:model="cats" value="{{ $scat->id }}" type="checkbox"
+                                                            <input wire:model="cats" value="{{ $scat->id }}" type="radio"
                                                                    class="custom-control-input" id="cb{{ $scat->id }}">
                                                             <label class="custom-control-label"
                                                                    for="cb{{ $scat->id }}">{{ $scat->name }}</label>
