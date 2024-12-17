@@ -37,7 +37,7 @@ class SearchComponent extends Component
         $this->categories = Categorie::query()->parent()->get();
         $this->bannieres = Banniere::query()->get();
         $this->localite = session()->get('localite', "Tous") ;
-        $this->selectedSousSousCategorie = (int) request()->query('sous_sous_categorie_id');
+        // $this->selectedSousSousCategorie = (int) request()->query('sous_sous_categorie_id');
 
     }
 
