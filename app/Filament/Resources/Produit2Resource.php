@@ -4,7 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\Produit2Resource\Pages;
 use App\Filament\Resources\Produit2Resource\RelationManagers;
-use App\Models\Produit2;
+use App\Models\Produit;
 use Filament\Forms;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
@@ -15,7 +15,7 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class Produit2Resource extends Resource
 {
-    protected static ?string $model = Produit2::class;
+    protected static ?string $model = Produit::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-collection';
 
@@ -43,14 +43,14 @@ class Produit2Resource extends Resource
                 Tables\Actions\DeleteBulkAction::make(),
             ]);
     }
-    
+
     public static function getRelations(): array
     {
         return [
             //
         ];
     }
-    
+
     public static function getPages(): array
     {
         return [
@@ -58,5 +58,5 @@ class Produit2Resource extends Resource
             'create' => Pages\CreateProduit2::route('/create'),
             'edit' => Pages\EditProduit2::route('/{record}/edit'),
         ];
-    }    
+    }
 }
