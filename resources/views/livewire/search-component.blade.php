@@ -576,12 +576,7 @@
         </div>
     </section>
     <script>
-        new Splide( '.splide', {
-            type    : 'loop',
-            autoplay: 'pause',
-            perPage : 1,
 
-        }).mount();
 
         document.querySelectorAll('input[type="checkbox"] .sous-sous-cat').forEach(checkbox => {
             checkbox.addEventListener('change', function() {
