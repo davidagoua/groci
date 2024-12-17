@@ -66,7 +66,7 @@ class ProduitResource extends Resource
                     ->getStateUsing(fn($record)=> $record->image()->path)
                     ->label("Image"),
                 Tables\Columns\TextColumn::make('categorie.name'),
-                Tables\Columns\TextColumn::make('sous_categorie.name'),
+                Tables\Columns\TextColumn::make('sous_sous_categorie.name'),
                 Tables\Columns\ToggleColumn::make('is_actif')
                     ->hidden(auth()->user()->hasRole('GerantBoutique'))
                     ->label("Actif"),
