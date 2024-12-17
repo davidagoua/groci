@@ -39,14 +39,17 @@ class ProduitResource extends Resource
                         ->afterStateUpdated(function($state){
                             $this->selectCategorie = $state->id;
                         })
+                        ->reactive()
                         ->options(Categorie::query()->whereNot('generation', 3)->where('parent_id','<>', null)->orderBy('name') ->get()->pluck('name','id')),
 
                     Forms\Components\Select::make('sous_sous_categorie_id')
                         ->label("Sous Categorie")
-                        ->reactive()
-                        ->options(fn($get)=> Categorie::query()->where('generation', '=', 3)
+
+                        ->options(fn(callable $get)=> Categorie::query()->where('generation', '=', 3)
                             ->where('parent_id', $get('categorie_id'))
-                            ->orderBy('name') ->get()->pluck('name','id')),
+                            ->orderBy('name') ->get()->pluck('name','id')
+                        ),
+
                     Forms\Components\TextInput::make('unite')->placeholder('400kg')->required(),
                     Forms\Components\FileUpload::make('images')->default(function($state){
                         return $state?->image()->path;
