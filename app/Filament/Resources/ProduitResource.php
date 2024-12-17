@@ -35,12 +35,12 @@ class ProduitResource extends Resource
                     Forms\Components\TextInput::make('code_poss')->label("Code POS"),
                     Forms\Components\TextInput::make('nom')->label("Nom")->required(),
                     Forms\Components\Select::make('categorie_id')
-                        ->label("Categorie")
+                        ->label("Sous Categorie")
                         ->reactive()
                         ->options(Categorie::query()->whereNot('generation', 3)->where('parent_id','<>', null)->orderBy('name') ->get()->pluck('name','id')),
 
                     Forms\Components\Select::make('sous_sous_categorie_id')
-                        ->label("Sous Categorie")
+                        ->label("Sous Sous Categorie")
 
                         ->options(fn(callable $get)=> Categorie::query()->where('generation', '=', 3)
                             ->where('parent_id', $get('categorie_id'))
@@ -65,7 +65,7 @@ class ProduitResource extends Resource
                 Tables\Columns\ImageColumn::make('image')
                     ->getStateUsing(fn($record)=> $record->image()->path)
                     ->label("Image"),
-                Tables\Columns\TextColumn::make('categorie.name'),
+                Tables\Columns\TextColumn::make('categorie.name')->label('Sous Categorie'),
                 Tables\Columns\TextColumn::make('sous_sous_categorie.name'),
                 Tables\Columns\ToggleColumn::make('is_actif')
                     ->hidden(auth()->user()->hasRole('GerantBoutique'))

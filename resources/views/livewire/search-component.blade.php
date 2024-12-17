@@ -98,11 +98,23 @@
                                                 </div>
                                                 <div class="collapse @if($selectedParent == $cat->id) show @endif" id="collapse-categorie-{{ $cat->id }}">
                                                     @foreach($cat->enfants as $scat)
-                                                    <div class="custom-control custom-checkbox">
-                                                        <input wire:model="cats" value="{{ $scat->id }}" type="checkbox"
-                                                               class="custom-control-input" id="cb{{ $scat->id }}">
-                                                        <label class="custom-control-label"
-                                                               for="cb{{ $scat->id }}">{{ $scat->name }}</label>
+                                                    <div>
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input wire:model="cats" value="{{ $scat->id }}" type="checkbox"
+                                                                   class="custom-control-input" id="cb{{ $scat->id }}">
+                                                            <label class="custom-control-label"
+                                                                   for="cb{{ $scat->id }}">{{ $scat->name }}</label>
+                                                        </div>
+                                                        <div class="ml-3">
+                                                            @foreach($scat->enfants as $sscat)
+                                                                <div class="custom-control custom-checkbox">
+                                                                    <input wire:model="sscats" value="{{ $sscat->id }}" type="checkbox"
+                                                                           class="custom-control-input" id="cb{{ $sscat->id }}">
+                                                                    <label class="custom-control-label"
+                                                                           for="cb{{ $sscat->id }}">{{ $sscat->name }}</label>
+                                                                </div>
+                                                            @endforeach
+                                                        </div>
                                                     </div>
                                                     @endforeach
                                                 </div>

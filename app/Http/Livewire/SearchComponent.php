@@ -21,6 +21,7 @@ class SearchComponent extends Component
 
     public  $categories, $searchText, $bannieres;
     public $cats = [];
+    public $sscats = [];
     public $boutiques_filters = [];
     public $prixmin, $prixmax = null;
 
@@ -49,6 +50,7 @@ class SearchComponent extends Component
     public function resetFilters()
     {
         $this->cats = [];
+        $this->sscats = [];
         $this->boutiques_filters = [];
         $this->prixmin = null;
         $this->prixmax = null;
@@ -61,7 +63,7 @@ class SearchComponent extends Component
         $produits = QueryBuilder::for(Produit::class)
             ->allowedFilters(['nom','proposition.prix'])
             ->allowedIncludes(['propositions'])
-            ->allowedSorts(['nom','prix','categorie_id','boutique_id'])
+            ->allowedSorts(['nom','prix','categorie_id','boutique_id','sous_sous_categorie_id'])
             /*
             ->whereHas('propositions', function(Builder $query){
                 return $query
@@ -80,6 +82,9 @@ class SearchComponent extends Component
             */
             ->when(request()->filled('categorie'), function($builder) {
                 return $builder->whereIn('categorie_id', [request()->get('categorie')]);
+            })
+            ->when(request()->filled('sous_sous_categorie_id'), function($builder) {
+                return $builder->whereIn('sous_sous_categorie_id', [request()->get('sous_sous_categorie')]);
             })
             ->when(count(array_filter($this->cats)) , function($builder){
                 return $builder->whereIn('categorie_id', $this->cats);
