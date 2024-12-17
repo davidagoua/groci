@@ -59,7 +59,9 @@ class SearchComponent extends Component
     public function render()
     {
         $categorie = request()->filled('categorie') ? Categorie::query()->find(request()->get('categorie'))->first()->name  : "Tout";
+
         $selectedParent = (int) request()->query('parent');
+
         $produits = QueryBuilder::for(Produit::class)
             ->allowedFilters(['nom','proposition.prix'])
             ->allowedIncludes(['propositions'])
