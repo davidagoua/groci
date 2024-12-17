@@ -109,7 +109,7 @@
                                                             @foreach($scat->enfants as $sscat)
                                                                 <div class="custom-control custom-checkbox">
                                                                     <input name="sous_sous_categorie_id" value="{{ $sscat->id }}" data-select-id="{{$selectedSousSousCategorie}}" data-current-categorie="{{$sscats}}" @if($selectedSousSousCategorie == $sscat->id) checked @endif type="checkbox"
-                                                                           class="custom-control-input" id="cb{{ $sscat->id }}">
+                                                                           class="custom-control-input sous-sous-cat" id="cb{{ $sscat->id }}">
                                                                     <label class="custom-control-label"
                                                                            for="cb{{ $sscat->id }}">{{ $sscat->name }}</label>
                                                                 </div>
@@ -582,5 +582,16 @@
             perPage : 1,
 
         }).mount();
+
+        document.querySelectorAll('input[type="checkbox"] .sous-sous-cat').forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                if (this.checked) {
+                    // Conserve les autres paramètres existants
+                    const currentUrl = new URL(window.location.href);
+                    currentUrl.searchParams.set('sous_sous_categorie_id', this.value);
+                    window.location.href = currentUrl.toString();
+                }
+            });
+        });
     </script>
 </div>
