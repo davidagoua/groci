@@ -61,6 +61,7 @@ class SearchComponent extends Component
         $categorie = request()->filled('categorie') ? Categorie::query()->find(request()->get('categorie'))->first()->name  : "Tout";
 
         $selectedParent = (int) request()->query('parent');
+        $selectedGrandParent = (int) request()->query('parent2');
 
         $produits = QueryBuilder::for(Produit::class)
             ->allowedFilters(['nom','proposition.prix'])
@@ -100,7 +101,8 @@ class SearchComponent extends Component
             'produits'=> $produits->paginate(21),
             "categorie_selected"=> $categorie,
             'villes'=>$villes,
-            'selectedParent'=>$selectedParent
+            'selectedParent'=>$selectedParent,
+            'selectedGrandParent'=>$selectedParent,
         ]);
     }
 

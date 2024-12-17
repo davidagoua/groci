@@ -96,7 +96,7 @@
                                                     </a>
 
                                                 </div>
-                                                <div class="collapse @if($selectedParent == $cat->id) show @endif" id="collapse-categorie-{{ $cat->id }}">
+                                                <div class="collapse @if($selectedGrandParent == $cat->id) show @endif" id="collapse-categorie-{{ $cat->id }}">
                                                     @foreach($cat->enfants as $scat)
                                                     <div>
                                                         <div class="custom-control custom-checkbox">
