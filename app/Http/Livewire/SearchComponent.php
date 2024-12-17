@@ -102,7 +102,7 @@ class SearchComponent extends Component
             "categorie_selected"=> $categorie,
             'villes'=>$villes,
             'selectedParent'=>$selectedParent,
-            'selectedGrandParent'=>$selectedParent,
+            'selectedGrandParent'=>$selectedGrandParent,
         ]);
     }
 
