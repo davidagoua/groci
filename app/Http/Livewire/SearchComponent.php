@@ -20,7 +20,7 @@ class SearchComponent extends Component
     protected $paginationTheme = 'bootstrap';
 
     public  $categories, $searchText, $bannieres;
-    public $cats = [];
+    public ?int $cats = null;
     public $sscats = [];
     public $boutiques_filters = [];
     public $prixmin, $prixmax = null;
@@ -90,8 +90,8 @@ class SearchComponent extends Component
             ->when(request()->filled('sous_sous_categorie_id'), function($builder) {
                 return $builder->whereIn('sous_sous_categorie_id', [request()->get('sous_sous_categorie')]);
             })
-            ->when(count(array_filter($this->cats)) , function($builder){
-                return $builder->whereIn('categorie_id', $this->cats);
+            ->when($this->cats , function($builder){
+                return $builder->where('categorie_id', $this->cats);
             });
 
             $pages = $produits->get()->chunk(21);
