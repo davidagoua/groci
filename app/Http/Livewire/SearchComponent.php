@@ -29,7 +29,7 @@ class SearchComponent extends Component
     public $localite;
     protected $queryString = ['cats','page','prixmin','localite'];
 
-    public ?int $selectedSousSousCaetgorie = null;
+    public ?int $selectedSousSousCategorie = null;
 
 
     public function mount(){
