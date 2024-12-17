@@ -40,7 +40,7 @@
                 <template x-for="enfant in enfants" :key="enfant.id">
                     <a :href="'{{ route('front.shop.search') }}?cats[0]='+enfant.id +'&parent=enfant.parent_id'" class="d-block mb-2 shadow bg-white rounded align-items-center p-1 d-flex align-items-center ">
                         <div class="d-flex flex-grow-1 align-items-center">
-                            <img  style="height: 70px; width: 70px" :src="enfant.image" class="mr-3" alt="" >
+                            <img  style="height: 90px; width: auto" :src="enfant.image" class="mr-3" alt="" >
                             <span x-text="enfant.nom"></span>
                         </div>
                         <span x-show="enfant.has_child" class="mdi mdi-chevron-right"></span>
