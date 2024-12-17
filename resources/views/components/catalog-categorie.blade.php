@@ -23,7 +23,7 @@
             <a class="d-block p-1 mt-2 rounded shadow bg-white text-center"  :style="selectedId === {{$scat->id}} ? 'border: 5px solid red ' : ''  " href="#" @click.prevent="getCategorieEnfants({{$scat->id}})">
                <div class="d-flex align-items-center">
                    <div class="d-flex flex-grow-1 flex-column">
-                       <img style="height: 100px; width: auto" src="{{ asset('/storage/'.$scat->image) }}" alt="">
+                       <img style=" width: auto" src="{{ asset('/storage/'.$scat->image) }}" alt="">
                        {{ $scat->name }}
                    </div>
                    <span class="mdi mdi-chevron-right"></span>
