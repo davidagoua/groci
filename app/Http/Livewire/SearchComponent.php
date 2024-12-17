@@ -77,7 +77,7 @@ class SearchComponent extends Component
                 return $builder->whereIn('categorie_id', [request()->get('categorie')]);
             })
             ->when(request()->filled('sous_sous_categorie_id'), function($builder) {
-                return $builder->whereIn('sous_sous_categorie_id', [request()->get('sous_sous_categorie')]);
+                return $builder->where('sous_sous_categorie_id', (int) request()->query('sous_sous_categorie'));
             })
             ->when(count(array_filter($this->cats)) , function($builder){
                 return $builder->whereIn('categorie_id', $this->cats);
