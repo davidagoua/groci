@@ -28,6 +28,11 @@ class Produit extends Model implements HasMedia
         return $this->belongsTo(Categorie::class);
     }
 
+    public function sous_sous_categorie(): BelongsTo
+    {
+        return $this->belongsTo(Categorie::class, 'sous_sous_categorie');
+    }
+
     public function Marque(): BelongsTo
     {
         return $this->belongsTo(Marque::class);
