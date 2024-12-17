@@ -49,7 +49,7 @@ class SearchComponent extends Component
 
     public function resetFilters()
     {
-        $this->cats = [];
+        $this->cats = null;
         $this->sscats = [];
         $this->boutiques_filters = [];
         $this->prixmin = null;
