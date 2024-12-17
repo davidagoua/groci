@@ -39,7 +39,7 @@ class ProduitResource extends Resource
                         ->afterStateUpdated(function($state){
                             $this->selectCategorie = $state->id;
                         })
-                        ->options(Categorie::query()->enfant()->orderBy('name') ->get()->pluck('name','id')),
+                        ->options(Categorie::query()->whereNot('generation', 3)->andWhereNotNull('categorie_id')->orderBy('name') ->get()->pluck('name','id')),
 
                     Forms\Components\Select::make('sous_sous_categorie_id')
                         ->label("Sous Categorie")
