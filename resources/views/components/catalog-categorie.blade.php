@@ -38,7 +38,7 @@
             <div x-show="enfants.length > 0" x-transition>
 
                 <template x-for="enfant in enfants" :key="enfant.id">
-                    <a :href="'{{ route('front.shop.search') }}?cats[0]='+enfant.id +'&parent=enfant.parent_id'" class="d-block mb-2 shadow bg-white rounded align-items-center p-1 d-flex align-items-center ">
+                    <a :href="'{{ route('front.shop.search') }}?cats[0]='+enfant.id +'&parent=enfant.parent_id&sous_sous_categorie_id='+enfant.id" class="d-block mb-2 shadow bg-white rounded align-items-center p-1 d-flex align-items-center ">
                         <div class="d-flex flex-grow-1 align-items-center">
                             <img  style="height: 90px; width: auto" :src="enfant.image" class="mr-3" alt="" >
                             <span x-text="enfant.nom"></span>
