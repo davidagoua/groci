@@ -37,7 +37,7 @@ class SearchComponent extends Component
         $this->categories = Categorie::query()->parent()->get();
         $this->bannieres = Banniere::query()->get();
         $this->localite = session()->get('localite', "Tous") ;
-        $this->sscats = false;
+        //$this->sscats = false;
 
     }
 
@@ -72,22 +72,7 @@ class SearchComponent extends Component
             ->allowedFilters(['nom','proposition.prix'])
             ->allowedIncludes(['propositions'])
             ->allowedSorts(['nom','prix','categorie_id','boutique_id','sous_sous_categorie_id'])
-            /*
-            ->whereHas('propositions', function(Builder $query){
-                return $query
-                ->when($this->prixmin, function(Builder $q){
 
-                    return $q->where(column: 'prix', operator: '>=', value: $this->prixmin);
-                })->when($this->prixmax, function(Builder $q){
-
-                    return $q->where(column: 'prix', operator: '<=', value: $this->prixmax);
-                })
-                ->when(count(array_filter($this->boutiques_filters)), function(Builder $q){
-
-                    return $q->whereIn('boutique_id', $this->boutiques_filters);
-                });
-            })
-            */
             ->when(request()->filled('categorie'), function($builder) {
                 return $builder->whereIn('categorie_id', [request()->get('categorie')]);
             })
