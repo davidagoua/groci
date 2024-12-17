@@ -579,7 +579,9 @@
 
 
         document.querySelectorAll('input[type="checkbox"] .sous-sous-cat').forEach(checkbox => {
+            console.log('found checkbox'+checkbox);
             checkbox.addEventListener('change', function() {
+                console.log('found checkbox'+checkbox);
                 if (this.checked) {
                     // Conserve les autres paramètres existants
                     const currentUrl = new URL(window.location.href);
