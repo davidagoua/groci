@@ -578,7 +578,7 @@
     <script>
 
 
-        document.querySelectorAll('input[type="checkbox"] .sous-sous-cat').forEach(checkbox => {
+        document.querySelectorAll('input[type="checkbox"].sous-sous-cat').forEach(checkbox => {
             console.log('found checkbox'+checkbox);
             checkbox.addEventListener('change', function() {
                 console.log('found checkbox'+checkbox);
