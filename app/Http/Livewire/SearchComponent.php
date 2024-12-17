@@ -37,7 +37,7 @@ class SearchComponent extends Component
         $this->categories = Categorie::query()->parent()->get();
         $this->bannieres = Banniere::query()->get();
         $this->localite = session()->get('localite', "Tous") ;
-        // $this->selectedSousSousCategorie = (int) request()->query('sous_sous_categorie_id');
+        $this->sscats = (int) request()->query('sous_sous_categorie_id');
 
     }
 
@@ -54,7 +54,7 @@ class SearchComponent extends Component
     public function resetFilters()
     {
         $this->cats = [];
-        $this->sscats = [];
+        $this->sscats = null;
         $this->boutiques_filters = [];
         $this->prixmin = null;
         $this->prixmax = null;
