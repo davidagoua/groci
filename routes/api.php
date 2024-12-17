@@ -33,6 +33,8 @@ Route::controller(\App\Http\Controllers\Api\ShopController::class)
         Route::get('/categories/{categorie}/enfants', 'getParentCategoriesByParent');
         Route::get('/villes', 'getVilles');
         Route::post('/resume', 'getResume');
+        Route::get('/categorie/{categorie}/children/', [\App\Http\Controllers\Api\ShopController::class, 'get_categorie_children'])
+            ->name('categorie-children');
 
     });
 
