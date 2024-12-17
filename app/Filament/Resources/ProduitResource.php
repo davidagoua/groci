@@ -22,6 +22,8 @@ class ProduitResource extends Resource
     protected static ?string $navigationGroup = "Produits";
     protected static ?int $navigationSort = 30;
 
+    public $selectCategorie = null;
+
 
     public static function form(Form $form): Form
     {
@@ -34,10 +36,15 @@ class ProduitResource extends Resource
                     Forms\Components\TextInput::make('nom')->label("Nom")->required(),
                     Forms\Components\Select::make('categorie_id')
                         ->label("Categorie")
+                        ->afterStateUpdated(function($state){
+                            $this->selectCategorie = $state->id;
+                        })
                         ->options(Categorie::query()->enfant()->orderBy('name') ->get()->pluck('name','id')),
+
                     Forms\Components\Select::make('sous_sous_categorie_id')
                         ->label("Sous Categorie")
-                        ->options(Categorie::query()->whereGeneration(3)->orderBy('name') ->get()->pluck('name','id')),
+                        ->reactive()
+                        ->options(Categorie::query()->where('generation', '=', 3)->orderBy('name') ->get()->pluck('name','id')),
                     Forms\Components\TextInput::make('unite')->placeholder('400kg')->required(),
                     Forms\Components\FileUpload::make('images')->default(function($state){
                         return $state?->image()->path;
