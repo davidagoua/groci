@@ -21,7 +21,7 @@ class SearchComponent extends Component
 
     public  $categories, $searchText, $bannieres;
     public $cats = [];
-    public $sscats = [];
+    public ?int $sscats = null;
     public $boutiques_filters = [];
     public $prixmin, $prixmax = null;
 
@@ -38,6 +38,7 @@ class SearchComponent extends Component
         $this->bannieres = Banniere::query()->get();
         $this->localite = session()->get('localite', "Tous") ;
         $this->selectedSousSousCategorie = (int) request()->query('sous_sous_categorie_id');
+        $this->sscats = (int) request()->query('sous_sous_categorie_id');
     }
 
     public function updateLocalite()
