@@ -36,9 +36,6 @@ class ProduitResource extends Resource
                     Forms\Components\TextInput::make('nom')->label("Nom")->required(),
                     Forms\Components\Select::make('categorie_id')
                         ->label("Categorie")
-                        ->afterStateUpdated(function($state){
-                            $this->selectCategorie = $state->id;
-                        })
                         ->reactive()
                         ->options(Categorie::query()->whereNot('generation', 3)->where('parent_id','<>', null)->orderBy('name') ->get()->pluck('name','id')),
 
