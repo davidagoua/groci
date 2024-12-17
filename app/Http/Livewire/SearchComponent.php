@@ -62,7 +62,7 @@ class SearchComponent extends Component
 
         $selectedParent = (int) request()->query('parent');
         $selectedGrandParent = (int) request()->query('parent2');
-        $selectedSousSousCategorie = (int) request()->query('sous_sous_categorie');
+        $selectedSousSousCategorie = (int) request()->query('sous_sous_categorie_id');
 
         $produits = QueryBuilder::for(Produit::class)
             ->allowedFilters(['nom','proposition.prix'])
