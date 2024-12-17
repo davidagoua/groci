@@ -74,7 +74,7 @@ class SearchComponent extends Component
             ->allowedSorts(['nom','prix','categorie_id','boutique_id','sous_sous_categorie_id','parent'])
 
             ->when(request()->filled('parent'), function($builder) {
-                return $builder->where('categorie_id', request()->get('parent'));
+                return $builder->where('categorie_id', request()->query('parent'));
             })
             ->when(request()->filled('sous_sous_categorie_id'), function($builder) {
                 return $builder->where('sous_sous_categorie_id', (int) request()->query('sous_sous_categorie'));
