@@ -199,6 +199,7 @@ class ShopController extends Controller
     {
         $categories = Categorie::query()->get();
         return $this->respondWithSuccess([
+            'count'=> $categories->count(),
             'categories'=> CategorieResource::collection($categories)
         ]);
     }
