@@ -531,7 +531,7 @@
                                         class="bg-white  border-0 w-full rounded-0 w-100 p-3" id="">
                                     <option value="Tous" selected>Toutes les villes</option>
                                     @foreach(
-                                    $villes as $ville
+                                        $villes as $ville
                                     )
                                         <option value="{{ $ville }}">{{ $ville }}</option>
                                     @endforeach

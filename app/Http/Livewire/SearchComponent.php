@@ -72,19 +72,27 @@ class SearchComponent extends Component
             ->allowedFilters(['nom','proposition.prix'])
             ->allowedIncludes(['propositions'])
             ->allowedSorts(['nom','prix','categorie_id','boutique_id','sous_sous_categorie_id','parent'])
-
-            ->when(request()->filled('parent'), function($builder) {
+            ->when(request()->filled('sous_sous_categorie_id'), function($builder) {
+                return $builder->where('sous_sous_categorie_id', (int) request()->query('sous_sous_categorie_id'));
+            })
+            ->when(!request()->filled('sous_sous_categorie_id') && request()->filled('parent'), function($builder) {
                 return $builder->where('categorie_id', request()->query('parent'));
             })
-            ->when(request()->filled('sous_sous_categorie_id'), function($builder) {
-                return $builder->where('sous_sous_categorie_id', (int) request()->query('sous_sous_categorie'));
-            })
+            ->when(!request()->filled('sous_sous_categorie_id')
+                && !request()->filled('parent')
+                && request()->filled('parent2')
+                , function($builder) {
+                return $builder->where('categorie_id', request()->query('parent2'));
+            });
+            /*
             ->when(count(array_filter($this->cats)) , function($builder){
                 return $builder->whereIn('categorie_id', $this->cats);
             });
-
+            */
             $pages = $produits->get()->chunk(21);
             $this->nb_pages = $pages->count();
+
+
 
         $villes = config('app.villes');
         return view('livewire.search-component', [

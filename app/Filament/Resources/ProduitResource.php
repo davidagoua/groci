@@ -49,6 +49,7 @@ class ProduitResource extends Resource
 
                     Forms\Components\TextInput::make('unite')->placeholder('400kg')->required(),
                     Forms\Components\FileUpload::make('images')->default(function($state){
+
                         return $state?->image()->path;
                     })
                 ])
