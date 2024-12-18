@@ -21,6 +21,8 @@ class ProduitResource extends JsonResource
 			"updated_at"=> $this->updated_at  ,
 			"categorie_id"=> $this->categorie_id ,
 			"categorie"=> $this->categorie->name ?? '' ,
+			"sous_sous_categorie_id"=> $this->sous_sous_categorie_id ?? '' ,
+			"sous_sous_categorie"=> $this->sous_sous_categorie->name ?? '' ,
 			"marque_id"=> $this->marque_id  ,
 			"fournisseur_id"=> $this->fournisseur_id  ,
 			"prix"=> $this->prix  ,
