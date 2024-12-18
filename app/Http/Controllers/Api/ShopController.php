@@ -27,10 +27,10 @@ class ShopController extends Controller
     {
         $produits = Produit::query()
             ->when($request->input('sous_sous_categorie_id'), function(Builder $query){
-                return $query->where('sous_sous_categorie_id', request()->input('sous_sous_categorie_id'));
+                return $query->where('sous_sous_categorie_id', (int) request()->input('sous_sous_categorie_id'));
             })
             ->when($request->input('categorie') && !$request->filled('sous_sous_categorie_id') , function(Builder $query){
-                return $query->where('categorie_id', request()->input('categorie'));
+                return $query->where('categorie_id', (int) request()->input('categorie'));
             })
             ->when($request->input('barcode'), function(Builder $query){
                 return $query->where('code_barre', request()->input('barcode'));
