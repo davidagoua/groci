@@ -195,4 +195,12 @@ class ShopController extends Controller
         ]);
     }
 
+    public function getAllCategorie()
+    {
+        $categories = Categorie::query()->get();
+        return $this->respondWithSuccess([
+            'categories'=> CategorieResource::collection($categories)
+        ]);
+    }
+
 }
