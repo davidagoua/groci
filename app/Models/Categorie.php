@@ -73,6 +73,7 @@ class Categorie extends Model implements HasMedia
     public function produitsFromEnfant()
     {
         return Produit::query()
+            ->with('categorie')
             ->whereIn(
                 'categorie_id',
                 Categorie::query()->where('parent_id')->get()->pluck('id')->toArray()
