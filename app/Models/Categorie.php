@@ -72,7 +72,7 @@ class Categorie extends Model implements HasMedia
 
     public function produitsAvecEnfants()
     {
-        return $this->produits()->orWhereHas('enfants', function ($query) {
+        return $this->produits()->orWhereHas('categorie', function ($query) {
             $query->where('parent_id', $this->id);
         });
     }
