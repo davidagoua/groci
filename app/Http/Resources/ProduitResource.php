@@ -33,7 +33,7 @@ class ProduitResource extends JsonResource
 			"description"=> $this->description ,
 			"unite"=> $this->unite ,
 			"is_actif"=> $this->is_actif,
-            "image"=> asset('storage/'.$this->image_produits()->first()?->path)
+            "image"=> asset('storage/'.$this->image()?->path)
         ];
     }
 }
