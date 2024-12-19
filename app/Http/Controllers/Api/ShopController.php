@@ -209,7 +209,7 @@ class ShopController extends Controller
 
     public function getAllProductFromCategorie(Request $request, Categorie $categorie)
     {
-        $produits = $categorie->produitsAvecEnfants();
+        $produits = $categorie->produitsFromEnfant();
         return $this->respondWithSuccess([
             'count'=>$produits->count(),
             'produits'=> ProduitResource::collection($produits->get())
