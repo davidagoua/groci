@@ -212,7 +212,7 @@ class ShopController extends Controller
         $produits = $categorie->produitsFromEnfant();
         return $this->respondWithSuccess([
             'count'=>$produits->count(),
-            'produits'=> ProduitResource::collection($produits->get())
+            'produits'=> ProduitResource::collection($produits)
         ]);
     }
 
