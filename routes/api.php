@@ -37,7 +37,6 @@ Route::controller(\App\Http\Controllers\Api\ShopController::class)
             ->name('categorie-children');
         Route::get('/all-categories', 'getAllCategorie');
         Route::get('/categorie-parent/{categorie}/produits', 'getAllProductFromCategorie');
-        Route::get('/categorie-parent/{categorie}/produits2', 'getAllProductFromCategorie2');
 
     });
 
