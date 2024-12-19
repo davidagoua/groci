@@ -63,5 +63,17 @@ class Categorie extends Model implements HasMedia
         return $this->hasMany(Categorie::class, 'parent_id')->whereGeneration(3);
     }
 
+    public function produitsRecursifs()
+    {
+        return $this->produits()->union($this->enfants->flatMap(function ($category) {
+            return $category->produitsRecursifs();
+        }));
+    }
 
+    public function produitsAvecEnfants()
+    {
+        return $this->produits()->orWhereHas('enfants', function ($query) {
+            $query->where('parent_id', $this->id);
+        });
+    }
 }

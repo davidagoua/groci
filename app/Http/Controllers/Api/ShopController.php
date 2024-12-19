@@ -207,4 +207,24 @@ class ShopController extends Controller
         ]);
     }
 
+    public function getAllProductFromCategorie(Request $request, Categorie $categorie)
+    {
+        $produits = $categorie->produitsRecursifs();
+        return $this->respondWithSuccess([
+           'count'=>$produits->count(),
+           'produits'=> ProduitResource::collection($produits)
+        ]);
+    }
+
+    public function getAllProductFromCategorie2(Request $request, Categorie $categorie)
+    {
+        $produits = $categorie->produitsAvecEnfants();
+        return $this->respondWithSuccess([
+            'count'=>$produits->count(),
+            'produits'=> ProduitResource::collection($produits)
+        ]);
+    }
+
+
+
 }
