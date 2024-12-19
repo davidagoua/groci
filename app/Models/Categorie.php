@@ -77,7 +77,7 @@ class Categorie extends Model implements HasMedia
             ->with('image_produits')
             ->whereIn(
                 'categorie_id',
-                Categorie::query()->where('parent_id')->get()->pluck('id')->toArray()
+                Categorie::query()->where('parent_id', $this->id)->get()->pluck('id')->toArray()
             )->get();
     }
 }
