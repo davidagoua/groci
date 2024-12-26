@@ -97,11 +97,13 @@ class SearchComponent extends Component
         $pages = $produits->get()->chunk(21);
         $this->nb_pages = $pages->count();
         $villes = config('app.villes');
+        $selectedCategorie = request()->quey('cat');
 
         return view('livewire.search-component', [
             'produits'=> $produits->paginate(21),
             "categorie_selected"=> $categorie,
             'villes'=>$villes,
+            '$selectedCategorie'=>$selectedCategorie,
             'selectedParent'=>$selectedParent,
             'selectedGrandParent'=>$selectedGrandParent,
             'selectedSousSousCategorie'=>$this->selectedSousSousCategorie
