@@ -103,7 +103,7 @@ class SearchComponent extends Component
             'produits'=> $produits->paginate(21),
             "categorie_selected"=> $categorie,
             'villes'=>$villes,
-            '$selectedCategorie'=> $selectedCategorie,
+            'selectedCategorie'=> $selectedCategorie,
             'selectedParent'=>$selectedParent,
             'selectedGrandParent'=>$selectedGrandParent,
             'selectedSousSousCategorie'=>$this->selectedSousSousCategorie
