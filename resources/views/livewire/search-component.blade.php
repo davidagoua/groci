@@ -577,6 +577,21 @@
     </section>
     <script >
 
+        function removeUrlParam(url, param) {
+            // Récupérer la partie de l'URL après le '?'
+            const urlparts = url.split('?');
+            if (urlparts.length >= 2) {
+                const prefix = urlparts[0] + '?';
+                const params = urlparts[1].split('&');
+
+                // Filtrer les paramètres à conserver
+                const result = params.filter(item => !item.startsWith(param + '='));
+
+                return prefix + result.join('&');
+            }
+            return url;
+        }
+
         const showCurrentTooggle = ()=>{
             const currentUrl = new URL(window.location.href);
             let currentParentId = currentUrl.searchParams.get('parentt2');
@@ -597,6 +612,7 @@
                     // Conserve les autres paramètres existants
                     const currentUrl = new URL(window.location.href);
                     currentUrl.searchParams.set('sous_sous_categorie_id', this.value);
+                    removeUrlParam('sous_sous_categorie_id');
                     window.location.href = currentUrl.toString();
                 }
             });
