@@ -100,7 +100,7 @@
                                                     @foreach($cat->enfants as $scat)
                                                     <div>
                                                         <div class="custom-control custom-checkbox">
-                                                            <input  value="{{ $scat->id }}" type="checkbox"
+                                                            <input @if($$selectedCategorie == $cat->id) checked @endif value="{{ $scat->id }}" type="checkbox"
                                                                    class="custom-control-input sous-cat" id="cb{{ $scat->id }}">
                                                             <label class="custom-control-label"
                                                                    for="cb{{ $scat->id }}">{{ $scat->name }}</label>
