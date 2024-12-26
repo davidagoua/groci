@@ -612,7 +612,7 @@
                     // Conserve les autres paramètres existants
                     const currentUrl = new URL(window.location.href);
                     currentUrl.searchParams.set('sous_sous_categorie_id', this.value);
-                    removeUrlParam('sous_sous_categorie_id');
+                    currentUrl.href = removeUrlParam('sous_sous_categorie_id');
                     window.location.href = currentUrl.toString();
                 }
             });
