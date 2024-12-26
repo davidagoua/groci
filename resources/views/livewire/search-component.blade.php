@@ -621,13 +621,12 @@
         document.querySelectorAll('input[type="checkbox"].sous-cat').forEach(checkbox => {
 
             checkbox.addEventListener('change', function() {
-                console.log('found checkbox'+checkbox);
-                console.log('found checkbox'+checkbox);
+
                 if (this.checked) {
                     // Conserve les autres paramètres existants
                     const currentUrl = new URL(window.location.href);
                     currentUrl.searchParams.set('cat', this.value);
-                    currentUrl.se
+
                     window.location.href = currentUrl.toString();
                 }
             });
