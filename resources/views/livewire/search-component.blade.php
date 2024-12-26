@@ -100,8 +100,8 @@
                                                     @foreach($cat->enfants as $scat)
                                                     <div>
                                                         <div class="custom-control custom-checkbox">
-                                                            <input wire:model="cats" value="{{ $scat->id }}" type="checkbox"
-                                                                   class="custom-control-input" id="cb{{ $scat->id }}">
+                                                            <input  value="{{ $scat->id }}" type="checkbox"
+                                                                   class="custom-control-input sous-cat" id="cb{{ $scat->id }}">
                                                             <label class="custom-control-label"
                                                                    for="cb{{ $scat->id }}">{{ $scat->name }}</label>
                                                         </div>
@@ -575,8 +575,19 @@
             </div>
         </div>
     </section>
-    <script>
+    <script >
 
+        const showCurrentTooggle = ()=>{
+            const currentUrl = new URL(window.location.href);
+            let currentParentId = currentUrl.searchParams.get('parentt2');
+            console.log('Parent Id from url: '+currentParentId);
+            let parentCollapse = document.querySelector('.collapse-categorie-'+currentParentId)
+            parentCollapse.classList.add('show');
+        }
+
+        document.addEventListener('livewire:load', function () {
+            showCurrentTooggle();
+        })
 
         document.querySelectorAll('input[type="checkbox"].sous-sous-cat').forEach(checkbox => {
             console.log('found checkbox'+checkbox);
@@ -590,5 +601,23 @@
                 }
             });
         });
+
+        document.querySelectorAll('input[type="checkbox"].sous-cat').forEach(checkbox => {
+
+            checkbox.addEventListener('change', function() {
+                console.log('found checkbox'+checkbox);
+                console.log('found checkbox'+checkbox);
+                if (this.checked) {
+                    // Conserve les autres paramètres existants
+                    const currentUrl = new URL(window.location.href);
+                    currentUrl.searchParams.set('cat', this.value);
+                    currentUrl.se
+                    window.location.href = currentUrl.toString();
+                }
+            });
+        });
+
+
+
     </script>
 </div>

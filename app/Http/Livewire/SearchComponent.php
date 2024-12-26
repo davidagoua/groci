@@ -71,12 +71,16 @@ class SearchComponent extends Component
         $produits = QueryBuilder::for(Produit::class)
             ->allowedFilters(['nom','proposition.prix'])
             ->allowedIncludes(['propositions'])
-            ->allowedSorts(['nom','prix','categorie_id','boutique_id','sous_sous_categorie_id','parent'])
+            ->allowedSorts(['nom','prix','categorie_id','boutique_id','sous_sous_categorie_id','parent','cat'])
+            /*
             ->when(request()->filled('sous_sous_categorie_id'), function($builder) {
                 return $builder->where('sous_sous_categorie_id', (int) request()->query('sous_sous_categorie_id'));
             })
-            ->when(!request()->filled('sous_sous_categorie_id') && request()->filled('parent'), function($builder) {
-                return $builder->where('categorie_id', request()->query('parent'));
+            ->when(request()->filled('cat'), function($builder){
+                return $builder->where('categorie_id', (int) request()->get('cat'));
+            })
+            ->when(request()->filled('sous_sous_categorie_id') && !request()->filled('cat'), function($builder) {
+                return $builder->where('categorie_id', request()->query('sous_sous_categorie_id'));
             })
             ->when(!request()->filled('sous_sous_categorie_id')
                 && !request()->filled('parent')
@@ -84,17 +88,16 @@ class SearchComponent extends Component
                 , function($builder) {
                 return $builder->where('categorie_id', request()->query('parent2'));
             });
-            /*
+
             ->when(count(array_filter($this->cats)) , function($builder){
                 return $builder->whereIn('categorie_id', $this->cats);
             });
             */
-            $pages = $produits->get()->chunk(21);
-            $this->nb_pages = $pages->count();
-
-
-
+            ;
+        $pages = $produits->get()->chunk(21);
+        $this->nb_pages = $pages->count();
         $villes = config('app.villes');
+
         return view('livewire.search-component', [
             'produits'=> $produits->paginate(21),
             "categorie_selected"=> $categorie,
