@@ -606,8 +606,9 @@
 
         document.querySelectorAll('input[type="checkbox"].sous-sous-cat').forEach(checkbox => {
             let currentUrl = new URL(window.location.href);
-            checkbox.addEventListener('change', function() {
 
+            checkbox.addEventListener('change', function() {
+                currentUrl.href = clearBothParams(currentUrl.href)
                 if (this.checked) {
                     // Conserve les autres paramètres existants
                     currentUrl.searchParams.set('sous_sous_categorie_id', this.value);
@@ -620,7 +621,9 @@
 
         document.querySelectorAll('input[type="checkbox"].sous-cat').forEach(checkbox => {
             const currentUrl = new URL(window.location.href);
+
             checkbox.addEventListener('change', function() {
+                currentUrl.href = clearBothParams(currentUrl.href)
                 if (this.checked) {
                     // Conserve les autres paramètres existants
                     currentUrl.searchParams.set('cat', this.value);
@@ -630,6 +633,12 @@
                 window.location.href = currentUrl.toString();
             });
         });
+
+        const clearBothParams = (url)=>{
+            url = removeUrlParam(url, 'cat')
+            url = removeUrlParam(url, 'cat')
+            return url
+        }
 
 
 
