@@ -605,14 +605,14 @@
         })
 
         document.querySelectorAll('input[type="checkbox"].sous-sous-cat').forEach(checkbox => {
-
+            let currentUrl = new URL(window.location.href);
             checkbox.addEventListener('change', function() {
                 console.log('found checkbox'+checkbox);
                 if (this.checked) {
                     // Conserve les autres paramètres existants
-                    const currentUrl = new URL(window.location.href);
+
                     currentUrl.searchParams.set('sous_sous_categorie_id', this.value);
-                    currentUrl.href = removeUrlParam('sous_sous_categorie_id');
+                    currentUrl.href = removeUrlParam(currentUrl, 'sous_sous_categorie_id');
                     window.location.href = currentUrl.toString();
                 }
             });
@@ -625,7 +625,7 @@
                     // Conserve les autres paramètres existants
                     currentUrl.searchParams.set('cat', this.value);
                 }else{
-                    currentUrl.href = removeUrlParam('cat')
+                    currentUrl.href = removeUrlParam(currentUrl, 'cat')
                 }
                 window.location.href = currentUrl.toString();
             });
