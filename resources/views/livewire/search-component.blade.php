@@ -637,7 +637,7 @@
         });
 
         const clearBothParams = (url)=>{
-            url = removeUrlParam(url, 'cat')
+            url = removeUrlParam(url, 'sous_sous_categorie_id')
             url = removeUrlParam(url, 'cat')
             return url
         }
