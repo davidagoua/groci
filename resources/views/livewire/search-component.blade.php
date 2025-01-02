@@ -100,7 +100,7 @@
                                                     @foreach($cat->enfants as $scat)
                                                     <div>
                                                         <div class="custom-control custom-checkbox">
-                                                            <input @if($selectedCategorie == $scat->id) checked @endif value="{{ $scat->id }}" type="checkbox"
+                                                            <input data-root-parent="{{ $cat->id }}" @if($selectedCategorie == $scat->id) checked @endif value="{{ $scat->id }}" type="checkbox"
                                                                    class="custom-control-input sous-cat" id="cb{{ $scat->id }}">
                                                             <label class="custom-control-label"
                                                                    for="cb{{ $scat->id }}">{{ $scat->name }}</label>
@@ -108,7 +108,7 @@
                                                         <div class="ml-3">
                                                             @foreach($scat->enfants as $sscat)
                                                                 <div class="custom-control custom-checkbox">
-                                                                    <input name="sous_sous_categorie_id" value="{{ $sscat->id }}" data-select-id="{{$selectedSousSousCategorie}}" data-current-categorie="{{$sscats}}" @if($selectedSousSousCategorie == $sscat->id) checked @endif type="checkbox"
+                                                                    <input data-root-parent="{{ $cat->id }}" name="sous_sous_categorie_id" value="{{ $sscat->id }}" data-select-id="{{$selectedSousSousCategorie}}" data-current-categorie="{{$sscats}}" @if($selectedSousSousCategorie == $sscat->id) checked @endif type="checkbox"
                                                                            class="custom-control-input sous-sous-cat" id="cb{{ $sscat->id }}">
                                                                     <label class="custom-control-label"
                                                                            for="cb{{ $sscat->id }}">{{ $sscat->name }}</label>
@@ -616,6 +616,7 @@
                 }else{
                     currentUrl.href = removeUrlParam(currentUrl.href, 'sous_sous_categorie_id');
                 }
+                currentUrl.searchParams.set('parent2', this.dataset.rootParent)
                 window.location.href = currentUrl.toString();
             });
         });
@@ -632,6 +633,7 @@
                 }else{
                     currentUrl.href = removeUrlParam(currentUrl.href, 'cat')
                 }
+                currentUrl.searchParams.set('parent2', this.dataset.rootParent)
                 window.location.href = currentUrl.toString();
             });
         });
