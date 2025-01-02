@@ -607,14 +607,14 @@
         document.querySelectorAll('input[type="checkbox"].sous-sous-cat').forEach(checkbox => {
             let currentUrl = new URL(window.location.href);
             checkbox.addEventListener('change', function() {
-                console.log('found checkbox'+checkbox);
+
                 if (this.checked) {
                     // Conserve les autres paramètres existants
-
                     currentUrl.searchParams.set('sous_sous_categorie_id', this.value);
+                }else{
                     currentUrl.href = removeUrlParam(currentUrl.href, 'sous_sous_categorie_id');
-                    window.location.href = currentUrl.toString();
                 }
+                window.location.href = currentUrl.toString();
             });
         });
 
