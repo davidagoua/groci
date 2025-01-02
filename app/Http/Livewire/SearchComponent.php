@@ -14,6 +14,8 @@ use Livewire\WithPagination;
 use Spatie\QueryBuilder\QueryBuilder;
 use function PHPUnit\Framework\isEmpty;
 
+
+const ITEMS_PER_PAGE = 21;
 class SearchComponent extends Component
 {
     use WithPagination;
@@ -60,53 +62,55 @@ class SearchComponent extends Component
         $this->prixmax = null;
     }
 
+
+
     public function render()
     {
-        $categorie = request()->filled('categorie') ? Categorie::query()->find(request()->get('categorie'))->first()->name  : "Tout";
+        // Définir constantes et variables communes
 
-        $selectedParent = (int) request()->query('parent');
-        $selectedGrandParent = (int) request()->query('parent2');
-        $this->selectedSousSousCategorie = (int) request()->query('sous_sous_categorie_id');
+        $query = request(); // Extraction pour un accès simplifié aux paramètres
+        $categorieId = (int)$query->get('categorie');
+        $sousSousCategorieId = (int)$query->query('sous_sous_categorie_id');
+        $parentId = (int)$query->query('parent');
+        $grandParentId = (int)$query->query('parent2');
+        $this->selectedSousSousCategorie = $sousSousCategorieId;
+        $enabledCategoryFilters = count(array_filter($this->cats));
 
+        // Récupérer nom de la catégorie ou valeur par défaut
+        $categorie = $query->filled('categorie')
+            ? optional(Categorie::find($categorieId))->name
+            : "Tout";
+
+        // Construction de la requête des produits
         $produits = QueryBuilder::for(Produit::class)
-            ->allowedFilters(['nom','proposition.prix'])
-            ->allowedIncludes(['propositions'])
-            ->allowedSorts(['nom','prix','categorie_id','boutique_id','sous_sous_categorie_id','parent','cat'])
-            /*
-            ->when(request()->filled('sous_sous_categorie_id'), function($builder) {
-                return $builder->where('sous_sous_categorie_id', (int) request()->query('sous_sous_categorie_id'));
-            })
-            ->when(request()->filled('cat'), function($builder){
-                return $builder->where('categorie_id', (int) request()->get('cat'));
-            })
-            ->when(request()->filled('sous_sous_categorie_id') && !request()->filled('cat'), function($builder) {
-                return $builder->where('categorie_id', request()->query('sous_sous_categorie_id'));
-            })
-            ->when(!request()->filled('sous_sous_categorie_id')
-                && !request()->filled('parent')
-                && request()->filled('parent2')
-                , function($builder) {
-                return $builder->where('categorie_id', request()->query('parent2'));
-            });
+            ->with('categorie')
+            ->allowedFilters(['nom', 'proposition.prix'])
+            ->allowedFields('categorie.id', 'categorie.parent_id')
+            ->allowedIncludes(['propositions','categorie'])
+            ->allowedSorts(['nom', 'prix', 'categorie_id', 'boutique_id', 'sous_sous_categorie_id', 'parent', 'cat'])
+            //->when($query->filled('sous_sous_categorie_id'), fn($builder) => $builder->where('sous_sous_categorie_id', $sousSousCategorieId)
+            //)
+            ->when($query->filled('cat'), fn($builder) => $builder->where('categorie_id', (int) $query->get('cat') ))
+            ->when($query->filled('sous_sous_categorie_id') && !$query->filled('cat'), fn($builder) => $builder->where('sous_sous_categorie_id', $sousSousCategorieId))
+            ->when(!$query->filled('sous_sous_categorie_id') && !$query->filled('cat') && $query->filled('parent2'), fn($builder) => $builder->where('categorie_id', $grandParentId));
+            //->when($enabledCategoryFilters, fn($builder) => $builder->whereIn('categorie_id', $this->cats));
 
-            ->when(count(array_filter($this->cats)) , function($builder){
-                return $builder->whereIn('categorie_id', $this->cats);
-            });
-            */
-            ;
-        $pages = $produits->get()->chunk(21);
-        $this->nb_pages = $pages->count();
+
+
+        // Charger et paginer les résultats
+        $produitsPagination = $produits->paginate(ITEMS_PER_PAGE);
+        $this->nb_pages = $produitsPagination->lastPage();
+
+        // Construction des variables pour la vue
         $villes = config('app.villes');
-        $selectedCategorie = request()->query('cat');
-
         return view('livewire.search-component', [
-            'produits'=> $produits->paginate(21),
-            "categorie_selected"=> $categorie,
-            'villes'=>$villes,
-            'selectedCategorie'=> $selectedCategorie,
-            'selectedParent'=>$selectedParent,
-            'selectedGrandParent'=>$selectedGrandParent,
-            'selectedSousSousCategorie'=>$this->selectedSousSousCategorie
+            'produits' => $produitsPagination,
+            'categorie_selected' => $categorie,
+            'villes' => $villes,
+            'selectedCategorie' => $query->query('cat'),
+            'selectedParent' => $parentId,
+            'selectedGrandParent' => $grandParentId,
+            'selectedSousSousCategorie' => $this->selectedSousSousCategorie,
         ]);
     }
 
