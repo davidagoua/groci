@@ -608,8 +608,9 @@
             let currentUrl = new URL(window.location.href);
 
             checkbox.addEventListener('change', function() {
-                currentUrl.href = clearBothParams(currentUrl.href)
+
                 if (this.checked) {
+                    currentUrl.href = clearBothParams(currentUrl.href)
                     // Conserve les autres paramètres existants
                     currentUrl.searchParams.set('sous_sous_categorie_id', this.value);
                 }else{
@@ -623,8 +624,9 @@
             const currentUrl = new URL(window.location.href);
 
             checkbox.addEventListener('change', function() {
-                currentUrl.href = clearBothParams(currentUrl.href)
+
                 if (this.checked) {
+                    currentUrl.href = clearBothParams(currentUrl.href)
                     // Conserve les autres paramètres existants
                     currentUrl.searchParams.set('cat', this.value);
                 }else{
