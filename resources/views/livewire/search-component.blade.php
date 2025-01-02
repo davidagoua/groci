@@ -594,7 +594,7 @@
 
         const showCurrentTooggle = ()=>{
             const currentUrl = new URL(window.location.href);
-            let currentParentId = currentUrl.searchParams.get('parentt2');
+            let currentParentId = currentUrl.searchParams.get('parent2');
             console.log('Parent Id from url: '+currentParentId);
             let parentCollapse = document.querySelector('.collapse-categorie-'+currentParentId)
             parentCollapse.classList.add('show');
