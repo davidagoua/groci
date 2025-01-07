@@ -59,6 +59,7 @@
                         @endforeach
 
                     </div>
+                    @if(false)
                     <nav>
                         <ul class="pagination justify-content-center">
                             <li class="page-item ">
@@ -69,6 +70,7 @@
 
                         </ul>
                     </nav>
+                        @endif
                 </div>
 
                 <div class="col-md-3">
