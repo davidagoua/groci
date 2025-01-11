@@ -53,7 +53,13 @@ class ShopController extends Controller
     public function getPropositions(Request $request, Produit $produit)
     {
         $propositions = Proposition::query()
+            ->with('boutique')
             ->where('produit_id', $produit->id)
+            ->when($request->filled('ville'), function(Builder $query){
+                return $query->whereHas('boutique', function(Builder $query){
+                    return $query->whereIn('ville', request()->input('ville'));
+                });
+            })
             ->orderBy('prix');
 
         return $this->respondWithSuccess([
