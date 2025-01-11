@@ -57,7 +57,7 @@ class ShopController extends Controller
             ->where('produit_id', $produit->id)
             ->when($request->filled('ville'), function(Builder $query){
                 return $query->whereHas('boutique', function(Builder $query){
-                    return $query->whereIn('ville', request()->input('ville'));
+                    return $query->where('ville', request()->input('ville'));
                 });
             })
             ->orderBy('prix');
