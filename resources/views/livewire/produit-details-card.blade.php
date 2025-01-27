@@ -61,9 +61,11 @@
                                         @endif
                                     </div>
                                     <div class="col-md-3 col-12 px-0">
+                                        @if(false)
                                         <a href="{{ route('front.shop.add_cart', ['proposition'=> $prop]) }}" class="btn p-2" style="background-color: #F4F4F4">
                                             <span style="font-size: 1.8em" class="mdi text-warning mdi-basket"></span>
                                         </a>
+                                        @endif
                                         <a href="#modal-info-{{ $prop->id }}" data-toggle="modal" class="btn p-2" style="background-color: #F4F4F4">
                                             <span style="font-size: 1.8em" class="mdi text-success mdi-phone"></span>
                                         </a>
