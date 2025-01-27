@@ -140,6 +140,7 @@
                         <a class="px-4 py-3" href="{{ route('front.contact') }}" class=" text-black">
                             <h6 class="@if(request()->routeIs('front.contact')) text-danger @else text-black @endif ">Aide</h6>
                         </a>
+                        <div class="flex-grow-1"></div>
                         @if(false)
                         <div class="flex-grow-1 text-right">
                             @if(request()->routeIs('front.shop.search') || request()->routeIs('front.shop.produit_details'))
