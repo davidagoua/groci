@@ -81,7 +81,7 @@ class ShopController extends Controller
 
     public function getCategories(Request $request, Categorie $categorie)
     {
-        $categories = Categorie::parent();
+        $categories = Categorie::parent()->orderBy('order');
         return $this->respondWithSuccess([
             'categories'=> CategorieResource::collection($categories->get())
         ]);
@@ -89,7 +89,7 @@ class ShopController extends Controller
 
     public function getParentCategories(Request $request)
     {
-        $categories = Categorie::parent();
+        $categories = Categorie::parent()->orderBy('order');
         return $this->respondWithSuccess([
             'categories'=> CategorieResource::collection($categories->get())
         ]);
@@ -97,7 +97,7 @@ class ShopController extends Controller
 
     public function getParentCategoriesByParent(Request $request, Categorie $categorie)
     {
-        $categories = $categorie->enfants();
+        $categories = $categorie->enfants()->orderBy('order');
         return $this->respondWithSuccess([
             'categories'=> CategorieResource::collection($categories->get())
         ]);
@@ -198,7 +198,9 @@ class ShopController extends Controller
 
     public function get_categorie_children(Request $request, Categorie $categorie)
     {
-        $enfants = $categorie->enfants()->get();
+        $enfants = $categorie->enfants()
+            ->orderBy('order')
+            ->get();
         return $this->respondWithSuccess([
             'data'=>CategorieResource::collection($enfants)
         ]);
@@ -206,7 +208,9 @@ class ShopController extends Controller
 
     public function getAllCategorie()
     {
-        $categories = Categorie::query()->get();
+        $categories = Categorie::query()
+            ->orderBy('order')
+            ->get();
         return $this->respondWithSuccess([
             'count'=> $categories->count(),
             'categories'=> CategorieResource::collection($categories)
