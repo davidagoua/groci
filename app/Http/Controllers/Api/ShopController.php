@@ -46,7 +46,7 @@ class ShopController extends Controller
         }
 
         return $this->respondWithSuccess([
-            'produits'=> ProduitResource::collection($produits->get())
+            'produits'=> ProduitResource::collection($produits->get()->take(50))
         ]);
     }
 
